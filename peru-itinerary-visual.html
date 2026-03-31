@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>祕魯・玻利維亞 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --earth: #C4956A;
+  --rust: #9B4A2C;
+  --deep: #1C1410;
+  --muted: #7A6A5A;
+  --gold: #D4A853;
+  --green: #3D6B4F;
+  --sky: #4A7BA8;
+  --warn: #C47A2A;
+  --cream: #FAF7F2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--sand);
+  color: var(--deep);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(28,20,16,0.96);
+  backdrop-filter: blur(8px);
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: rgba(245,240,232,0.65);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: color 0.2s;
+  padding: 0.25rem 0;
+}
+.nav a:hover { color: var(--earth); }
+.nav-brand {
+  color: var(--earth) !important;
+  font-weight: 500;
+  opacity: 1 !important;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  max-height: 900px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--deep);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 70%, rgba(196,149,106,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(61,107,79,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 90%, rgba(74,123,168,0.12) 0%, transparent 45%);
+}
+/* Decorative mountain silhouette */
+.hero-mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  opacity: 0.08;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--earth);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--sand);
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: rgba(196,149,106,0.8);
+  margin-bottom: 3rem;
+}
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-val { font-size: 1.8rem; font-weight: 500; color: var(--sand); font-family: 'Playfair Display', serif; }
+.stat-label { font-size: 0.7rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-top: 0.2rem; }
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeUp 2s ease-in-out infinite;
+}
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--muted), transparent); }
+@keyframes fadeUp { 0%,100%{opacity:0.4;transform:translateX(-50%) translateY(0)} 50%{opacity:1;transform:translateX(-50%) translateY(-5px)} }
+
+/* SECTION WRAPPER */
+.section { padding: 4rem 1.5rem; max-width: 960px; margin: 0 auto; }
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--earth);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--deep);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+.divider { width: 60px; height: 2px; background: var(--earth); margin: 1rem 0 2.5rem; }
+
+/* FLIGHTS */
+#flights { background: var(--deep); }
+#flights .section { max-width: 960px; }
+#flights .section-title { color: var(--sand); }
+#flights .section-label { color: var(--earth); }
+.flight-group-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: rgba(245,240,232,0.4);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+.flight-group-title:first-of-type { margin-top: 0; }
+.flight-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 0.5px solid rgba(245,240,232,0.08);
+  gap: 1rem;
+}
+.fl-code { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--earth); min-width: 80px; }
+.fl-route { flex: 1; display: flex; align-items: center; gap: 0.75rem; }
+.fl-port { text-align: center; }
+.fl-iata { font-size: 1rem; font-weight: 500; color: var(--sand); }
+.fl-time { font-size: 0.75rem; color: var(--muted); }
+.fl-arrow { flex: 1; height: 1px; background: rgba(245,240,232,0.15); position: relative; }
+.fl-arrow::after { content: '▶'; position: absolute; right: -6px; top: -7px; font-size: 10px; color: var(--muted); }
+.fl-date { font-size: 0.78rem; color: var(--muted); min-width: 80px; text-align: right; }
+.warn-pill {
+  background: rgba(196,122,42,0.2);
+  color: var(--warn);
+  font-size: 0.68rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(196,122,42,0.4);
+}
+.flight-note {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(196,122,42,0.1);
+  border-left: 3px solid var(--warn);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.7);
+  line-height: 1.6;
+}
+
+/* ALERT */
+.alert-strip {
+  background: var(--cream);
+  border-top: 3px solid var(--rust);
+}
+.alert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.alert-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.alert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+.alert-text { font-size: 0.82rem; line-height: 1.6; color: var(--muted); }
+.alert-text strong { color: var(--rust); font-weight: 500; display: block; margin-bottom: 0.2rem; }
+
+/* MAP */
+#map-section { background: var(--deep); }
+#map-section .section-title { color: var(--sand); }
+#map-section .section-label { color: var(--earth); }
+#map-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #1a2535;
+}
+#map-container iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  display: block;
+}
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.map-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.map-leg-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(245,240,232,0.6); }
+
+/* ITINERARY */
+.iti-grid { display: grid; gap: 2rem; }
+
+.day-block {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.5rem;
+  position: relative;
+}
+.day-block::before {
+  content: '';
+  position: absolute;
+  left: 39px;
+  top: 60px;
+  bottom: -2rem;
+  width: 1px;
+  background: rgba(196,149,106,0.2);
+}
+.day-block:last-child::before { display: none; }
+
+.day-left { text-align: center; }
+.day-num-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--earth);
+  color: white;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+.day-num-circle.bolivia { background: var(--sky); }
+.day-num-circle.machu { background: var(--rust); }
+.day-num-circle.amazon { background: var(--green); }
+.day-num-circle.optional { background: var(--muted); }
+.day-num-circle .dn { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; line-height: 1; }
+.day-num-circle .dd { font-size: 0.6rem; letter-spacing: 0.05em; opacity: 0.8; }
+.day-date-label { font-size: 0.68rem; color: var(--muted); margin-top: 0.4rem; }
+
+.day-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(28,20,16,0.06);
+}
+.day-img-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: #e8e4dc;
+}
+.day-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.day-card:hover .day-img-wrap img { transform: scale(1.04); }
+.day-img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem 0.75rem;
+  background: linear-gradient(to top, rgba(28,20,16,0.7), transparent);
+  color: white;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.no-img-placeholder {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(196,149,106,0.15), rgba(155,74,44,0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: rgba(196,149,106,0.4);
+}
+.day-body { padding: 1.25rem 1.5rem; }
+.day-title { font-weight: 500; font-size: 1rem; color: var(--deep); margin-bottom: 0.3rem; }
+.day-activities { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.75rem; line-height: 1.7; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+.tag {
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background: var(--sand);
+  color: var(--muted);
+  font-weight: 400;
+}
+.tag.hl { background: rgba(212,168,83,0.18); color: #8B6914; }
+.tag.opt { background: rgba(122,106,90,0.1); color: var(--muted); font-style: italic; }
+.day-note {
+  font-size: 0.78rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0 6px 6px 0;
+  border-left: 3px solid var(--earth);
+  background: rgba(196,149,106,0.08);
+  color: var(--rust);
+  line-height: 1.6;
+}
+.day-note.warn { border-color: var(--warn); background: rgba(196,122,42,0.08); color: var(--warn); }
+.day-note.good { border-color: var(--green); background: rgba(61,107,79,0.07); color: var(--green); }
+
+/* COUNTRY SEPARATOR */
+.country-sep {
+  max-width: 960px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.country-sep-line { flex: 1; height: 1px; background: rgba(196,149,106,0.25); }
+.country-sep-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--earth);
+  white-space: nowrap;
+}
+
+/* FOOTER */
+footer {
+  background: var(--deep);
+  color: var(--muted);
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.8rem;
+}
+footer .footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--earth);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .day-block { grid-template-columns: 56px 1fr; gap: 1rem; }
+  .day-block::before { left: 27px; }
+  .day-num-circle { width: 38px; height: 38px; }
+  .day-num-circle .dn { font-size: 0.9rem; }
+  .hero-stats { gap: 1.5rem; }
+  .stat-val { font-size: 1.4rem; }
+  .fl-route { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top" class="nav-brand">祕魯・玻利維亞 2026</a>
+  <a href="#flights">航班</a>
+  <a href="#alerts">行前準備</a>
+  <a href="#map-section">路線地圖</a>
+  <a href="#itinerary">行程</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <svg class="hero-mountains" viewBox="0 0 1200 220" preserveAspectRatio="none" fill="white">
+    <path d="M0,220 L0,160 L80,90 L160,140 L260,60 L360,120 L440,50 L520,110 L600,30 L680,100 L760,55 L840,115 L920,40 L1000,105 L1080,70 L1160,130 L1200,90 L1200,220 Z"/>
+  </svg>
+  <div class="hero-content">
+    <p class="hero-eyebrow">South America · September 2026</p>
+    <h1>祕魯・玻利維亞</h1>
+    <p class="hero-sub">Lima → Paracas → Ica → Nazca → Arequipa → Puno → La Paz → Cusco → Machu Picchu → Amazon</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-val">17</div><div class="stat-label">天在祕魯</div></div>
+      <div class="stat"><div class="stat-val">3</div><div class="stat-label">人同行</div></div>
+      <div class="stat"><div class="stat-val">9/9</div><div class="stat-label">第一天</div></div>
+      <div class="stat"><div class="stat-val">9/25</div><div class="stat-label">最後一天</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- FLIGHTS -->
+<section id="flights">
+  <div class="section">
+    <p class="section-label">Flights</p>
+    <h2 class="section-title">去程 · 回程航班</h2>
+
+    <p class="flight-group-title">去程 — 9月8日（二）</p>
+    <div class="flight-row">
+      <div class="fl-code">KE 2022</div>
+      <div class="fl-route">
+        <div class="fl-port"><div class="fl-iata">TPE</div><div class="fl-time">T1 · 13:20</div></div>
+        <div class="fl-arrow"></div>
+        <div class="fl-port"><div class="fl-iata">ICN</div><div class="fl-time">T2 · 16:50</div></div>
+      </div>
+      <div class="fl-date">9/8（二）</div>
+    </div>
+    <div class="flight-row">
+      <div class="fl-code">KE 11</div>
+      <div class="fl-route">
+        <div class="fl-port"><div class="fl-iata">ICN</div><div class="fl-time">T2 · 19:40</div></div>
+        <div class="fl-arrow"></div>
+        <div class="fl-port"><div class="fl-iata">LAX</div><div class="fl-time">B · 14:50</div></div>
+      </div>
+      <div class="fl-date">9/8（二）</div>
+    </div>
+    <div class="flight-row">
+      <div class="fl-code">KE 7965</div>
+      <div class="fl-route">
+        <div class="fl-port"><div class="fl-iata">LAX</div><div class="fl-time">B · 21:30</div></div>
+        <div class="fl-arrow"></div>
+        <div class="fl-port"><div class="fl-iata">LIM</div><div class="fl-time">08:05 +1</div></div>
+      </div>
+      <div class="fl-date">9/8 → 9/9</div>
+    </div>
+
+    <p class="flight-group-title">回程 — 9月27日（日）起</p>
+    <div class="flight-row">
+      <div class="fl-code">KE 7288</div>
+      <div class="fl-route">
+        <div class="fl-port"><div class="fl-iata">LIM</div><div class="fl-time">00:05</div></div>
+        <div class="fl-arrow"></div>
+        <div class="fl-port"><div class="fl-iata">ATL</div><div class="fl-time">I · 08:12</div></div>
+      </div>
+      <div class="fl-date">9/27（日）</div>
+    </div>
+    <div class="flight-row">
+      <div class="fl-code">KE 34</div>
+      <div class="fl-route">
+        <div class="fl-port"><div class="fl-iata">ATL</div><div class="fl-time">I · 11:35</div></div>
+        <div class="fl-arrow"></div>
+        <div class="fl-port"><div class="fl-iata">ICN</div><div class="fl-time">T2 · 15:55 +1</div></div>
+      </div>
+      <div class="fl-date">9/27 → 9/28</div>
+      <span class="warn-pill">⚠ 注意轉機等待</span>
+    </div>
+    <div class="flight-row">
+      <div class="fl-code">KE 2021</div>
+      <div class="fl-route">
+        <div class="fl-port"><div class="fl-iata">ICN</div><div class="fl-time">T2 · 10:30</div></div>
+        <div class="fl-arrow"></div>
+        <div class="fl-port"><div class="fl-iata">TPE</div><div class="fl-time">T1 · 12:10</div></div>
+      </div>
+      <div class="fl-date">9/29（二）</div>
+    </div>
+    <div class="flight-note">⚠ KE34抵達仁川為9/28（週一）15:55，下一班KE2021出發為9/29（週二）10:30，中間等待約19小時，建議確認是否安排仁川機場旅館。</div>
+  </div>
+</section>
+
+<!-- ALERTS -->
+<section class="alert-strip" id="alerts">
+  <div class="section">
+    <p class="section-label">Before You Go</p>
+    <h2 class="section-title" style="font-size:1.6rem;">行前必辦清單</h2>
+    <div class="alert-grid">
+      <div class="alert-item">
+        <div class="alert-icon">🛂</div>
+        <div class="alert-text"><strong>玻利維亞簽證</strong>台灣護照需事先申辦，近年規定有變動，建議出發前查清楚。最晚在利馬第一天辦理，不建議留到普諾。</div>
+      </div>
+      <div class="alert-item">
+        <div class="alert-icon">🎟</div>
+        <div class="alert-text"><strong>馬丘比丘門票</strong>每日限額、需指定時段，越早買越好。華納比丘每日限400人，必須提前搶購。</div>
+      </div>
+      <div class="alert-item">
+        <div class="alert-icon">🌿</div>
+        <div class="alert-text"><strong>亞馬遜 Lodge 預訂</strong>通常須3天2夜包套，含接送與嚮導。熱門時段提早2-3個月預訂。</div>
+      </div>
+      <div class="alert-item">
+        <div class="alert-icon">💊</div>
+        <div class="alert-text"><strong>高山症預防</strong>普諾3,827m、拉巴斯3,640m、庫斯科3,400m、彩虹山5,200m。建議諮詢醫師，備好Acetazolamide（丹木斯）。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map-section">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+  #map-section { background: var(--deep); }
+  #map-section .section-title { color: var(--sand); }
+  #map-section .section-label { color: var(--earth); }
+  #leaflet-map { width:100%; height:520px; border-radius:14px; overflow:hidden; z-index:1; }
+  .map-controls {
+    display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .map-btn {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 0.72rem; padding: 5px 14px; border-radius: 20px;
+    border: 1px solid rgba(245,240,232,0.2); background: rgba(245,240,232,0.07);
+    color: rgba(245,240,232,0.6); cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  }
+  .map-btn:hover, .map-btn.active { background: var(--earth); border-color: var(--earth); color: white; }
+  .day-chip {
+    display:inline-block; background:rgba(245,240,232,0.08); border:1px solid rgba(245,240,232,0.15);
+    border-radius:6px; padding:3px 10px; font-size:0.72rem; color:rgba(245,240,232,0.5);
+    margin:0.3rem 0.3rem 0 0; cursor:pointer; transition:all 0.2s;
+  }
+  .day-chip:hover { background:rgba(196,149,106,0.25); border-color:var(--earth); color:var(--earth); }
+  .day-chips-wrap { margin-top:1rem; }
+  .day-chips-label { font-size:0.68rem; letter-spacing:0.12em; color:rgba(245,240,232,0.35); text-transform:uppercase; margin-bottom:0.4rem; }
+  .leaflet-popup-content-wrapper { border-radius:10px !important; box-shadow:0 4px 20px rgba(0,0,0,0.3) !important; }
+  .popup-day { font-size:11px; color:#9B4A2C; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; }
+  .popup-title { font-size:14px; font-weight:500; color:#1C1410; margin:2px 0 4px; }
+  .popup-desc { font-size:12px; color:#7A6A5A; line-height:1.5; }
+  .map-legend { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+  .map-leg-item { display:flex; align-items:center; gap:0.5rem; font-size:0.75rem; color:rgba(245,240,232,0.6); }
+  .map-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  </style>
+  <div class="section">
+    <p class="section-label">Interactive Route Map</p>
+    <h2 class="section-title">18天動線地圖</h2>
+    <div class="map-controls">
+      <button class="map-btn active" onclick="showAll()">全部顯示</button>
+      <button class="map-btn" onclick="filterRegion('peru')">祕魯</button>
+      <button class="map-btn" onclick="filterRegion('bolivia')">玻利維亞</button>
+      <button class="map-btn" onclick="filterRegion('machu')">庫斯科・馬丘比丘</button>
+      <button class="map-btn" onclick="filterRegion('amazon')">亞馬遜</button>
+    </div>
+    <div id="leaflet-map"></div>
+    <div class="day-chips-wrap">
+      <div class="day-chips-label">點擊跳到指定天</div>
+      <div id="day-chips"></div>
+    </div>
+    <div class="map-legend" style="margin-top:1.2rem;">
+      <div class="map-leg-item"><div class="map-dot" style="background:#C4956A"></div> 祕魯（南部）</div>
+      <div class="map-leg-item"><div class="map-dot" style="background:#4A7BA8"></div> 玻利維亞</div>
+      <div class="map-leg-item"><div class="map-dot" style="background:#9B4A2C"></div> 庫斯科・馬丘比丘</div>
+      <div class="map-leg-item"><div class="map-dot" style="background:#3D6B4F"></div> 亞馬遜雨林</div>
+      <div class="map-leg-item"><div class="map-dot" style="background:#7A6A5A; opacity:0.6"></div> 可選</div>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const DAYS = [
+  { day:1,  date:'9/9',  label:'利馬 Lima',              lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'抵達・辦玻利維亞簽證・市區'},
+  { day:2,  date:'9/10', label:'瓦卡奇那 Huacachina',     lat:-14.087, lng:-75.763, region:'peru',    color:'#C4956A', desc:'沙漠綠洲・越野車飆沙・日落'},
+  { day:3,  date:'9/11', label:'納斯卡線 Nazca',          lat:-14.739, lng:-75.130, region:'peru',    color:'#C4956A', desc:'小飛機俯瞰地面圖→夜車阿雷基帕'},
+  { day:4,  date:'9/12', label:'阿雷基帕 Arequipa',       lat:-16.409, lng:-71.537, region:'peru',    color:'#C4956A', desc:'聖卡塔莉娜修道院・羊駝・白色城市'},
+  { day:5,  date:'9/13', label:'科爾卡峽谷 Colca',        lat:-15.657, lng:-72.177, region:'peru',    color:'#C4956A', desc:'看神鷹翱翔→抵達普諾'},
+  { day:6,  date:'9/14', label:'普諾 Puno',               lat:-15.840, lng:-70.022, region:'peru',    color:'#C4956A', desc:'的的喀喀湖・蘆葦浮島→夜車玻利維亞'},
+  { day:7,  date:'9/15', label:'拉巴斯 La Paz',           lat:-16.490, lng:-68.119, region:'bolivia', color:'#4A7BA8', desc:'抵達・世界最高首都・纜車俯瞰'},
+  { day:8,  date:'9/16', label:'天空之鏡 Uyuni ── 日落・星空', lat:-20.134, lng:-67.489, region:'bolivia', color:'#4A7BA8', desc:'白天拍照・日落・星空銀河倒映'},
+  { day:9,  date:'9/17', label:'Uyuni 日出 → 飛庫斯科',   lat:-20.134, lng:-67.489, region:'bolivia', color:'#4A7BA8', desc:'清晨日出團→飛機前往庫斯科'},
+  { day:10, date:'9/18', label:'庫斯科 Cusco',            lat:-13.532, lng:-71.967, region:'machu',   color:'#9B4A2C', desc:'市區遺跡・Pisac印加遺跡市集'},
+  { day:11, date:'9/19', label:'聖谷→熱水鎮',            lat:-13.258, lng:-72.136, region:'machu',   color:'#9B4A2C', desc:'Maras鹽田・Moray梯田・火車到熱水鎮'},
+  { day:12, date:'9/20', label:'馬丘比丘 Day 1',          lat:-13.163, lng:-72.545, region:'machu',   color:'#9B4A2C', desc:'Day 1・華納比丘・找導覽解說'},
+  { day:13, date:'9/21', label:'馬丘比丘 Day 2',          lat:-13.163, lng:-72.548, region:'machu',   color:'#9B4A2C', desc:'Day 2・不同路線・從容傍晚返庫斯科'},
+  { day:14, date:'9/22', label:'彩虹山 Vinicunca',        lat:-13.906, lng:-71.327, region:'machu',   color:'#9B4A2C', desc:'海拔5,200m・凌晨出發・七彩地層'},
+  { day:15, date:'9/23', label:'亞馬遜 Maldonado',        lat:-12.593, lng:-69.189, region:'amazon',  color:'#3D6B4F', desc:'飛機前往・進入雨林Lodge'},
+  { day:16, date:'9/24', label:'亞馬遜最後早晨→利馬',    lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'日出觀鳥・飛回利馬・傍晚抵達'},
+  { day:17, date:'9/25', label:'利馬 Lima ── 緩衝日',     lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'市區・伴手禮・最後晚餐・凌晨離境'},
+];
+
+const map = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false })
+  .setView([-14.5, -72], 5);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  subdomains: 'abcd', maxZoom: 19
+}).addTo(map);
+
+const markers = [];
+const polylineCoords = DAYS.map(d => [d.lat, d.lng]);
+
+// Draw route line
+const routeLine = L.polyline(polylineCoords, {
+  color: '#C4956A', weight: 2, opacity: 0.5, dashArray: '6 5'
+}).addTo(map);
+
+// Create custom icon
+function makeIcon(day, color) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:32px; height:32px; border-radius:50%;
+      background:${color}; border:2.5px solid white;
+      display:flex; align-items:center; justify-content:center;
+      font-size:11px; font-weight:700; color:white;
+      font-family:'Noto Sans TC',sans-serif;
+      box-shadow:0 2px 8px rgba(0,0,0,0.4);
+      cursor:pointer;
+    ">${day}</div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    popupAnchor: [0, -18]
+  });
+}
+
+DAYS.forEach((d, i) => {
+  const m = L.marker([d.lat, d.lng], { icon: makeIcon(d.day, d.color) })
+    .addTo(map)
+    .bindPopup(`
+      <div class="popup-day">Day ${d.day} · ${d.date}</div>
+      <div class="popup-title">${d.label}</div>
+      <div class="popup-desc">${d.desc}</div>
+    `, { maxWidth: 220 });
+  markers.push({ marker: m, region: d.region, day: d.day, lat: d.lat, lng: d.lng });
+});
+
+// Day chips
+const chipsEl = document.getElementById('day-chips');
+DAYS.forEach(d => {
+  const chip = document.createElement('span');
+  chip.className = 'day-chip';
+  chip.textContent = `D${d.day} ${d.label.split(' ')[0]}`;
+  chip.onclick = () => {
+    map.setView([d.lat, d.lng], 9, { animate: true });
+    const m = markers.find(x => x.day === d.day);
+    if (m) m.marker.openPopup();
+  };
+  chipsEl.appendChild(chip);
+});
+
+// Filter buttons
+function showAll() {
+  markers.forEach(m => { m.marker.addTo(map); });
+  routeLine.addTo(map);
+  map.setView([-14.5, -72], 5);
+  document.querySelectorAll('.map-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.map-btn')[0].classList.add('active');
+}
+
+function filterRegion(region) {
+  const visible = markers.filter(m => m.region === region);
+  markers.forEach(m => { map.removeLayer(m.marker); });
+  map.removeLayer(routeLine);
+  visible.forEach(m => m.marker.addTo(map));
+
+  // Regional polyline
+  const coords = visible.map(m => [m.lat, m.lng]);
+  if (coords.length > 1) {
+    L.polyline(coords, { color:'#C4956A', weight:2, opacity:0.5, dashArray:'6 5' })
+      .addTo(map);
+  }
+  if (visible.length) {
+    const lats = visible.map(m => m.lat);
+    const lngs = visible.map(m => m.lng);
+    map.fitBounds([[Math.min(...lats)-0.5, Math.min(...lngs)-0.5],
+                   [Math.max(...lats)+0.5, Math.max(...lngs)+0.5]],
+                  { padding: [40, 40] });
+  }
+  document.querySelectorAll('.map-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
+<!-- ITINERARY -->
+<section id="itinerary">
+  <div class="section">
+    <p class="section-label">Day by Day</p>
+    <h2 class="section-title">17天行程詳覽</h2>
+    <div class="divider"></div>
+
+    <div class="iti-grid">
+
+      <!-- Day 1 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">1</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/9 三</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="80" cy="50" r="0.8" fill="white" opacity="0.4"/><circle cx="260" cy="45" r="1" fill="white" opacity="0.5"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="75" y="112" width="8" height="8" fill="#F5D88A" opacity="0.5"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><rect x="295" y="107" width="8" height="8" fill="#F5D88A" opacity="0.4"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 秘魯首都</div></div>
+          <div class="day-body">
+            <div class="day-title">利馬 Lima ── 抵達・辦簽證</div>
+            <div class="day-activities">上午抵達利馬（LIM）→ 放行李稍作休息 → 市區走走（Miraflores、海岸散步道）→ 辦玻利維亞簽證</div>
+            <div class="tags"><span class="tag hl">⚡ 辦玻利維亞簽證</span><span class="tag">市區</span></div>
+            <div class="day-note warn">玻利維亞簽證務必第一天在利馬辦，不建議留到普諾，以免行程壓縮</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 (was Day 3, now becomes Day 2 after removing Paracas) -->      <!-- Day 3 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/10 四</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap">
+            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_h" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8A44A"/><stop offset="50%" stop-color="#D4704A"/><stop offset="100%" stop-color="#8B3A1E"/></linearGradient><linearGradient id="sand_h" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A45A"/><stop offset="100%" stop-color="#A07030"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_h)"/><circle cx="320" cy="55" r="28" fill="#FFD060" opacity="0.9"/><circle cx="320" cy="55" r="22" fill="#FFBA30"/><path d="M0,140 Q80,90 160,115 Q220,95 300,120 Q350,105 400,115 L400,180 L0,180 Z" fill="url(#sand_h)"/><path d="M0,155 Q60,135 130,145 Q200,130 280,148 Q340,138 400,142 L400,180 L0,180 Z" fill="#C49040"/><ellipse cx="175" cy="148" rx="45" ry="18" fill="#2A6A8A" opacity="0.85"/><ellipse cx="175" cy="148" rx="40" ry="14" fill="#3A7A9A" opacity="0.7"/><rect x="145" y="120" width="4" height="30" fill="#5A3A10"/><path d="M147,122 Q130,108 122,114 Q135,115 147,122" fill="#2D6B2A"/><path d="M147,122 Q155,105 163,112 Q155,115 147,122" fill="#3A7A30"/><rect x="198" y="125" width="3" height="25" fill="#5A3A10"/><path d="M200,127 Q185,113 178,119 Q189,120 200,127" fill="#2D6B2A"/><path d="M200,127 Q207,112 214,118 Q207,120 200,127" fill="#3A7A30"/><rect x="280" y="125" width="22" height="10" rx="3" fill="#8B5A20"/><circle cx="285" cy="136" r="4" fill="#444"/><circle cx="298" cy="136" r="4" fill="#444"/><text x="200" y="172" text-anchor="middle" font-family="serif" font-size="12" fill="#FFE0A0" letter-spacing="2">HUACACHINA OASIS</text></svg>
+            <div class="day-img-caption">瓦卡奇那沙漠綠洲 Huacachina</div>
+          </div>
+          <div class="day-body">
+            <div class="day-title">伊卡 Ica ── 沙漠綠洲・越野飆沙</div>
+            <div class="day-activities">（帕拉卡斯→）利馬 → 伊卡（約4hr）→ 瓦卡奇那沙漠綠洲 → 沙漠越野車（buggy）→ 沙板滑沙 → 日落</div>
+            <div class="tags"><span class="tag hl">🏎 越野飆沙</span><span class="tag hl">🌅 沙漠日落</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/11 五</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="ground_n" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B7355"/><stop offset="100%" stop-color="#6B5535"/></linearGradient></defs><rect width="400" height="180" fill="url(#ground_n)"/><rect width="400" height="50" fill="#B8956A" opacity="0.3"/><g fill="none" stroke="#D4B87A" stroke-width="2.5" opacity="0.9"><path d="M180,90 Q200,80 220,90 Q215,105 200,110 Q185,105 180,90"/><path d="M180,92 L140,85"/><path d="M190,90 Q170,70 150,75 Q170,80 190,90"/><path d="M210,90 Q230,70 250,75 Q230,80 210,90"/><path d="M200,108 Q195,125 185,130 M200,108 Q200,128 200,135 M200,108 Q205,125 215,130"/><circle cx="186" cy="91" r="3"/></g><line x1="0" y1="88" x2="400" y2="82" stroke="#C4A060" stroke-width="1.5" opacity="0.4"/><line x1="0" y1="130" x2="400" y2="125" stroke="#C4A060" stroke-width="1" opacity="0.3"/><line x1="100" y1="40" x2="120" y2="180" stroke="#C4A060" stroke-width="1" opacity="0.3"/><line x1="280" y1="30" x2="270" y2="180" stroke="#C4A060" stroke-width="1" opacity="0.25"/><path d="M330,45 L355,48 L330,51 L338,55 L330,51 L322,55 L330,51 Z" fill="#F5F0E8" opacity="0.8"/><rect width="400" height="35" fill="#5A8AA8" opacity="0.5"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="12" fill="#F5D8A0" letter-spacing="2">NAZCA LINES</text></svg><div class="day-img-caption">納斯卡線 Nazca Lines</div></div>
+          <div class="day-body">
+            <div class="day-title">納斯卡線 Nazca ── 小飛機 → 夜車阿雷基帕</div>
+            <div class="day-activities">伊卡 → 納斯卡 → 搭小飛機俯瞰納斯卡地面圖（約30-50分鐘）→ 【夜車】前往阿雷基帕（約9hr）</div>
+            <div class="tags"><span class="tag hl">🛩 小飛機俯瞰</span><span class="tag">夜車</span></div>
+            <div class="day-note warn">小飛機容易暈機，若容易暈車請提前備好暈機藥。登機前勿大吃</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/12 六</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap">
+            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#D4956A"/><rect width="400" height="60" fill="#5A9AC8"/><polygon points="250,60 310,20 370,60" fill="#E8E4DC" opacity="0.6"/><polygon points="270,60 310,28 350,60" fill="white" opacity="0.4"/><rect x="20" y="55" width="360" height="125" fill="#C4523A"/><rect x="50" y="70" width="300" height="110" fill="#F5F0E8"/><rect x="60" y="95" width="60" height="85" fill="#C4523A"/><path d="M60,95 Q90,75 120,95" fill="#C4523A"/><rect x="165" y="100" width="70" height="80" fill="#C4523A"/><path d="M165,100 Q200,78 235,100" fill="#C4523A"/><rect x="275" y="95" width="60" height="85" fill="#C4523A"/><path d="M275,95 Q305,75 335,95" fill="#C4523A"/><rect x="50" y="80" width="12" height="100" fill="#D4804A"/><rect x="338" y="80" width="12" height="100" fill="#D4804A"/><rect x="62" y="80" width="276" height="12" fill="#5A8AB8"/><rect x="85" y="148" width="8" height="12" fill="#8B5A20"/><circle cx="89" cy="145" r="8" fill="#E84848" opacity="0.9"/><rect x="175" y="148" width="8" height="12" fill="#8B5A20"/><circle cx="179" cy="145" r="8" fill="#E89848" opacity="0.9"/><rect x="295" y="148" width="8" height="12" fill="#8B5A20"/><circle cx="299" cy="145" r="8" fill="#E84888" opacity="0.9"/><text x="200" y="172" text-anchor="middle" font-family="serif" font-size="12" fill="#2A1A0A" letter-spacing="2">SANTA CATALINA · AREQUIPA</text></svg>
+            <div class="day-img-caption">聖卡塔莉娜修道院 Santa Catalina</div>
+          </div>
+          <div class="day-body">
+            <div class="day-title">阿雷基帕 Arequipa ── 白色城市</div>
+            <div class="day-activities">抵達後休息 → 聖卡塔莉娜修道院（一座城中之城）→ Mundo Alpaca 羊駝博物館 → 武器廣場・市區漫步</div>
+            <div class="tags"><span class="tag hl">🦙 羊駝</span><span class="tag">修道院</span><span class="tag">白色城市</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/13 日</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A80B8"/><stop offset="100%" stop-color="#8ABADC"/></linearGradient><linearGradient id="rock_c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8A7055"/><stop offset="100%" stop-color="#5A4535"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_c)"/><path d="M0,0 L0,180 L90,180 L130,140 L100,100 L140,60 L110,20 L80,0 Z" fill="url(#rock_c)"/><path d="M400,0 L400,180 L310,180 L270,140 L300,100 L260,60 L290,20 L320,0 Z" fill="url(#rock_c)"/><ellipse cx="50" cy="100" rx="25" ry="12" fill="#3A6A2A" opacity="0.8"/><ellipse cx="350" cy="95" rx="20" ry="10" fill="#3A6A2A" opacity="0.7"/><ellipse cx="110" cy="145" rx="30" ry="10" fill="#4A7A35" opacity="0.6"/><path d="M120,175 Q200,165 280,175" stroke="#6AAAC8" stroke-width="8" fill="none" opacity="0.8"/><path d="M115,175 Q200,168 285,175" stroke="#8AC4DC" stroke-width="4" fill="none" opacity="0.6"/><g transform="translate(200,65)"><path d="M0,0 Q-40,15 -70,8 Q-40,5 0,0" fill="#1A1A1A"/><path d="M0,0 Q40,15 70,8 Q40,5 0,0" fill="#1A1A1A"/><ellipse cx="0" cy="-2" rx="10" ry="6" fill="#2A2A2A"/><circle cx="-2" cy="-4" r="5" fill="#CC4A20"/><path d="M-8,0 Q0,6 8,0 Q0,3 -8,0" fill="white" opacity="0.9"/></g><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">COLCA CANYON</text></svg><div class="day-img-caption">科爾卡峽谷 Colca Canyon</div></div>
+          <div class="day-body">
+            <div class="day-title">科爾卡峽谷 Colca Canyon → 普諾</div>
+            <div class="day-activities">早出發 → 科爾卡峽谷（全球最深峽谷之一）→ Cruz del Condor 觀景台看神鷹翱翔 → 抵達普諾</div>
+            <div class="tags"><span class="tag hl">🦅 神鷹</span><span class="tag">峽谷</span><span class="tag">景觀公路</span></div>
+            <div class="day-note good">可購買阿雷基帕→普諾包套一日遊，途中遊覽峽谷，費用含在裡面直送普諾，非常方便</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/14 一</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap">
+            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="lake_t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3A6A9A"/><stop offset="100%" stop-color="#1A3A6A"/></linearGradient><linearGradient id="sky_t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87CEEB"/><stop offset="100%" stop-color="#B8DCF0"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_t)"/><rect y="90" width="400" height="90" fill="url(#lake_t)"/><polygon points="0,90 50,55 100,90" fill="#A0B8D0" opacity="0.5"/><polygon points="60,90 130,42 200,90" fill="#90A8C0" opacity="0.5"/><polygon points="150,90 230,35 310,90" fill="#A0B8D0" opacity="0.4"/><polygon points="280,90 350,50 400,90" fill="#90A8C0" opacity="0.45"/><polygon points="115,50 130,42 145,50 130,48" fill="white" opacity="0.7"/><polygon points="220,43 230,35 240,43 230,41" fill="white" opacity="0.6"/><ellipse cx="160" cy="128" rx="75" ry="18" fill="#C4A040"/><ellipse cx="160" cy="125" rx="70" ry="14" fill="#D4B050"/><rect x="120" y="108" width="20" height="20" fill="#C49A30"/><polygon points="115,112 130,100 145,112" fill="#B88A20"/><rect x="155" y="110" width="18" height="18" fill="#C49A30"/><polygon points="150,114 164,103 178,114" fill="#B88A20"/><rect x="188" y="112" width="16" height="16" fill="#C49A30"/><polygon points="183,116 196,106 209,116" fill="#B88A20"/><path d="M60,140 Q90,130 120,138 Q90,148 60,140 Z" fill="#C4A040"/><path d="M65,136 Q90,128 115,135" stroke="#8B6A20" stroke-width="2" fill="none"/><circle cx="90" cy="132" r="5" fill="#8B5A2A"/><rect x="87" y="136" width="6" height="10" fill="#CC4488"/><text x="200" y="172" text-anchor="middle" font-family="serif" font-size="12" fill="#D4E8F8" letter-spacing="2">LAGO TITICACA  3,812m</text></svg>
+            <div class="day-img-caption">世界最高可通航湖泊 · 的的喀喀湖 Lake Titicaca 3,812m</div>
+          </div>
+          <div class="day-body">
+            <div class="day-title">普諾 → 的的喀喀湖 → 夜車玻利維亞</div>
+            <div class="day-activities">普諾市區 → 的的喀喀湖（半日遊或一日遊）→ 蘆葦島・烏羅斯浮島 → 【夜車】La Paz（約7hr）</div>
+            <div class="tags"><span class="tag hl">🌊 的的喀喀湖</span><span class="tag">蘆葦浮島</span><span class="tag">夜車</span></div>
+            <div class="day-note warn">此天行程緊湊。若想充分體驗湖上過夜，可刪帕拉卡斯那天來補這裡</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOLIVIA SEPARATOR -->
+    </div>
+  </div>
+
+  <div class="country-sep">
+    <div class="country-sep-line"></div>
+    <div class="country-sep-name">進入玻利維亞 Bolivia</div>
+    <div class="country-sep-line"></div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="iti-grid">
+
+      <!-- Day 8 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle bolivia"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/15 二</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_lp" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1A2E"/><stop offset="60%" stop-color="#2A3A5A"/><stop offset="100%" stop-color="#3A5A7A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_lp)"/><path d="M0,40 Q60,20 120,50 Q160,30 200,45 Q240,25 280,50 Q340,20 400,45 L400,180 L0,180 Z" fill="#2A3A50"/><path d="M40,100 Q100,80 200,90 Q300,78 360,100 L360,180 L40,180 Z" fill="#1A2A3A"/><rect x="50" y="110" width="12" height="55" fill="#243545"/><rect x="53" y="118" width="3" height="4" fill="#F5D870" opacity="0.9"/><rect x="68" y="105" width="15" height="60" fill="#1E2E40"/><rect x="71" y="112" width="4" height="4" fill="#F5D870" opacity="0.8"/><rect x="72" y="115" width="4" height="4" fill="#F5D870" opacity="0.6"/><rect x="90" y="100" width="18" height="65" fill="#243545"/><rect x="93" y="108" width="4" height="4" fill="#F5D870"/><rect x="100" y="108" width="4" height="4" fill="#F5D870" opacity="0.7"/><rect x="115" y="108" width="14" height="57" fill="#1E2E40"/><rect x="118" y="115" width="4" height="4" fill="#F5D870"/><rect x="135" y="95" width="20" height="70" fill="#243545"/><rect x="138" y="102" width="4" height="4" fill="#F5D870"/><rect x="147" y="102" width="4" height="4" fill="#F5D870" opacity="0.5"/><rect x="162" y="98" width="16" height="67" fill="#1E2E40"/><rect x="165" y="106" width="4" height="4" fill="#F5D870" opacity="0.8"/><rect x="185" y="92" width="22" height="73" fill="#243545"/><rect x="188" y="99" width="5" height="4" fill="#F5D870"/><rect x="197" y="99" width="5" height="4" fill="#F5D870" opacity="0.6"/><rect x="215" y="97" width="18" height="68" fill="#1E2E40"/><rect x="218" y="104" width="4" height="4" fill="#F5D870" opacity="0.9"/><rect x="240" y="100" width="16" height="65" fill="#243545"/><rect x="243" y="108" width="4" height="4" fill="#F5D870"/><rect x="262" y="104" width="20" height="61" fill="#1E2E40"/><rect x="265" y="112" width="4" height="4" fill="#F5D870" opacity="0.7"/><rect x="288" y="100" width="15" height="65" fill="#243545"/><rect x="291" y="107" width="4" height="4" fill="#F5D870"/><rect x="310" y="106" width="18" height="59" fill="#1E2E40"/><rect x="313" y="114" width="4" height="4" fill="#F5D870" opacity="0.8"/><rect x="334" y="110" width="14" height="55" fill="#243545"/><path d="M30,50 Q200,90 370,55" stroke="#888" stroke-width="1.5" fill="none" opacity="0.6"/><path d="M30,65 Q200,100 370,70" stroke="#888" stroke-width="1" fill="none" opacity="0.4"/><g transform="translate(120,73)"><rect x="-8" y="-7" width="16" height="12" rx="3" fill="#E83030"/><line x1="0" y1="-7" x2="0" y2="-14" stroke="#888" stroke-width="1.5"/><circle cx="0" cy="-15" r="3" fill="#666"/></g><g transform="translate(260,63)"><rect x="-8" y="-7" width="16" height="12" rx="3" fill="#30A0E8"/><line x1="0" y1="-7" x2="0" y2="-14" stroke="#888" stroke-width="1.5"/><circle cx="0" cy="-15" r="3" fill="#666"/></g><circle cx="50" cy="20" r="1" fill="white" opacity="0.6"/><circle cx="160" cy="10" r="1.2" fill="white" opacity="0.7"/><circle cx="300" cy="18" r="0.9" fill="white" opacity="0.5"/><text x="200" y="173" text-anchor="middle" font-family="serif" font-size="12" fill="#C4D8F0" letter-spacing="2">LA PAZ  3,640m</text></svg><div class="day-img-caption">拉巴斯 La Paz · 世界最高首都</div></div>
+          <div class="day-body">
+            <div class="day-title">La Paz ── 抵達・高地之都</div>
+            <div class="day-activities">抵達 → 世界最高首都適應高度 → 市區（女巫市場、索道纜車俯瞰全城）→ 日落行程</div>
+            <div class="tags"><span class="tag">3,640m</span><span class="tag hl">纜車俯瞰</span><span class="tag">女巫市場</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 9 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle bolivia"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/16 三</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_u" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1A3A"/><stop offset="40%" stop-color="#1A3A6A"/><stop offset="100%" stop-color="#2A5A9A"/></linearGradient><linearGradient id="salt_u" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#B8D4F0"/><stop offset="100%" stop-color="#8AAAD8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_u)"/><circle cx="30" cy="15" r="1.5" fill="white" opacity="0.9"/><circle cx="75" cy="8" r="1" fill="white" opacity="0.7"/><circle cx="130" cy="22" r="1.2" fill="white" opacity="0.8"/><circle cx="200" cy="5" r="1.5" fill="white" opacity="1"/><circle cx="270" cy="18" r="1" fill="white" opacity="0.7"/><circle cx="340" cy="12" r="1.3" fill="white" opacity="0.9"/><circle cx="380" cy="25" r="0.9" fill="white" opacity="0.6"/><circle cx="55" cy="38" r="0.8" fill="white" opacity="0.5"/><circle cx="155" cy="42" r="1" fill="white" opacity="0.6"/><circle cx="310" cy="35" r="1.1" fill="white" opacity="0.7"/><rect y="88" width="400" height="92" fill="url(#salt_u)"/><circle cx="30" cy="165" r="1.5" fill="white" opacity="0.5"/><circle cx="130" cy="158" r="1.2" fill="white" opacity="0.45"/><circle cx="200" cy="175" r="1.5" fill="white" opacity="0.55"/><circle cx="340" cy="168" r="1.3" fill="white" opacity="0.5"/><rect x="175" y="83" width="4" height="14" fill="#0A1A3A"/><circle cx="177" cy="80" r="4" fill="#0A1A3A"/><rect x="185" y="85" width="4" height="12" fill="#0A1A3A"/><circle cx="187" cy="82" r="4" fill="#0A1A3A"/><rect x="210" y="83" width="40" height="14" rx="3" fill="#0A1A3A"/><circle cx="220" cy="98" r="5" fill="#0A1825"/><circle cx="242" cy="98" r="5" fill="#0A1825"/><rect x="215" y="76" width="30" height="10" rx="2" fill="#0A1A3A"/><g stroke="#9ABAE0" stroke-width="0.5" fill="none" opacity="0.25"><polygon points="80,120 95,112 110,120 110,136 95,144 80,136"/><polygon points="110,120 125,112 140,120 140,136 125,144 110,136"/><polygon points="290,130 305,122 320,130 320,146 305,154 290,146"/><polygon points="320,130 335,122 350,130 350,146 335,154 320,146"/></g><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#D4E8FF" letter-spacing="2">SALAR DE UYUNI</text></svg><div class="day-img-caption">天空之鏡 Salar de Uyuni</div></div>
+          <div class="day-body">
+            <div class="day-title">天空之鏡 Salar de Uyuni ── 日落・星空</div>
+            <div class="day-activities">上午從拉巴斯出發前往烏尤尼（約巴士10hr或飛機1hr）→ 下午白天視覺欺騙拍照 → 傍晚日落團 → 夜晚星空團（鏡面倒映銀河）</div>
+            <div class="tags"><span class="tag hl">🌅 日落</span><span class="tag hl">🌙 星空銀河</span><span class="tag hl">📸 白天拍照</span></div>
+            <div class="day-note good">白天→日落→星空連著參加，景色各自精彩。夜晚鏡面倒映銀河是最多人說值回票價的時刻</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 10 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle bolivia"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/17 四</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_cu" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A8AC4"/><stop offset="100%" stop-color="#8AC0E8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_cu)"/><polygon points="0,100 60,55 120,100" fill="#6A8A70" opacity="0.7"/><polygon points="80,100 160,40 240,100" fill="#5A7A60" opacity="0.65"/><polygon points="200,100 290,38 380,100" fill="#6A8A70" opacity="0.6"/><polygon points="320,100 380,55 400,100" fill="#5A7A60" opacity="0.55"/><rect x="0" y="100" width="400" height="80" fill="#8A7055"/><path d="M0,100 L40,100 L45,115 L0,120 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M40,100 L90,100 L88,118 L45,115 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M90,100 L130,100 L132,112 L88,118 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M130,100 L180,100 L175,116 L132,112 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M180,100 L230,100 L228,114 L175,116 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M230,100 L280,100 L282,112 L228,114 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M280,100 L340,100 L338,118 L282,112 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M340,100 L400,100 L400,115 L338,118 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M0,120 L45,115 L50,135 L0,138 Z" fill="#8A7050" stroke="#5A4030" stroke-width="0.5"/><path d="M45,115 L88,118 L85,138 L50,135 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M88,118 L132,112 L135,133 L85,138 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M132,112 L175,116 L172,136 L135,133 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M175,116 L228,114 L226,134 L172,136 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M228,114 L282,112 L285,132 L226,134 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M282,112 L338,118 L335,138 L285,132 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M338,118 L400,115 L400,135 L335,138 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><rect x="150" y="55" width="100" height="50" fill="#F5F0E8"/><rect x="160" y="40" width="18" height="20" fill="#F5F0E8"/><rect x="222" y="40" width="18" height="20" fill="#F5F0E8"/><path d="M160,40 Q169,28 178,40" fill="#F5F0E8"/><path d="M222,40 Q231,28 240,40" fill="#F5F0E8"/><rect x="167" y="22" width="4" height="10" fill="#C4956A"/><rect x="164" y="27" width="10" height="3" fill="#C4956A"/><rect x="229" y="22" width="4" height="10" fill="#C4956A"/><rect x="226" y="27" width="10" height="3" fill="#C4956A"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#F5E8D0" letter-spacing="2">CUSCO  3,400m</text></svg><div class="day-img-caption">庫斯科 Cusco · 印加帝國古都</div></div>
+          <div class="day-body">
+            <div class="day-title">La Paz → 庫斯科 Cusco</div>
+            <div class="day-activities">清晨日出團（天色漸亮、鹽沼染成金紅色）→ 返回烏尤尼鎮 → 搭飛機前往庫斯科（約1.5hr）→ 抵達後適應高度休息</div>
+            <div class="tags"><span class="tag hl">🌄 日出金紅鹽沼</span><span class="tag">飛機→庫斯科</span></div>
+            <div class="day-note good">日出後飛庫斯科，下午抵達還有半天適應高度，是體力分配最好的安排</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="country-sep">
+    <div class="country-sep-line"></div>
+    <div class="country-sep-name">回到祕魯 Peru · 庫斯科 Cusco</div>
+    <div class="country-sep-line"></div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="iti-grid">
+
+      <!-- Day 11 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle machu"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/18 五</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_cu" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A8AC4"/><stop offset="100%" stop-color="#8AC0E8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_cu)"/><polygon points="0,100 60,55 120,100" fill="#6A8A70" opacity="0.7"/><polygon points="80,100 160,40 240,100" fill="#5A7A60" opacity="0.65"/><polygon points="200,100 290,38 380,100" fill="#6A8A70" opacity="0.6"/><polygon points="320,100 380,55 400,100" fill="#5A7A60" opacity="0.55"/><rect x="0" y="100" width="400" height="80" fill="#8A7055"/><path d="M0,100 L40,100 L45,115 L0,120 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M40,100 L90,100 L88,118 L45,115 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M90,100 L130,100 L132,112 L88,118 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M130,100 L180,100 L175,116 L132,112 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M180,100 L230,100 L228,114 L175,116 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M230,100 L280,100 L282,112 L228,114 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M280,100 L340,100 L338,118 L282,112 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M340,100 L400,100 L400,115 L338,118 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M0,120 L45,115 L50,135 L0,138 Z" fill="#8A7050" stroke="#5A4030" stroke-width="0.5"/><path d="M45,115 L88,118 L85,138 L50,135 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M88,118 L132,112 L135,133 L85,138 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M132,112 L175,116 L172,136 L135,133 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M175,116 L228,114 L226,134 L172,136 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M228,114 L282,112 L285,132 L226,134 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M282,112 L338,118 L335,138 L285,132 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M338,118 L400,115 L400,135 L335,138 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><rect x="150" y="55" width="100" height="50" fill="#F5F0E8"/><rect x="160" y="40" width="18" height="20" fill="#F5F0E8"/><rect x="222" y="40" width="18" height="20" fill="#F5F0E8"/><path d="M160,40 Q169,28 178,40" fill="#F5F0E8"/><path d="M222,40 Q231,28 240,40" fill="#F5F0E8"/><rect x="167" y="22" width="4" height="10" fill="#C4956A"/><rect x="164" y="27" width="10" height="3" fill="#C4956A"/><rect x="229" y="22" width="4" height="10" fill="#C4956A"/><rect x="226" y="27" width="10" height="3" fill="#C4956A"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#F5E8D0" letter-spacing="2">CUSCO  3,400m</text></svg><div class="day-img-caption">庫斯科 Cusco · 印加遺跡</div></div>
+          <div class="day-body">
+            <div class="day-title">庫斯科 Cusco ── 市區・近郊遺跡</div>
+            <div class="day-activities">太陽神廟・武器廣場・大教堂 → Pisac 比薩克（印加遺跡 + 市集）→ 傍晚回庫斯科</div>
+            <div class="tags"><span class="tag hl">🏛 印加遺跡</span><span class="tag">傳統市集</span></div>
+            <div class="day-note">抵達庫斯科後請讓身體適應高度，避免激烈運動，多補水、慢慢走</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 12 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle machu"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/19 六</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_m" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A4A6A"/><stop offset="50%" stop-color="#4A7AA8"/><stop offset="100%" stop-color="#6A9AC8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_m)"/><ellipse cx="80" cy="65" rx="70" ry="25" fill="white" opacity="0.25"/><ellipse cx="320" cy="55" rx="80" ry="20" fill="white" opacity="0.2"/><ellipse cx="200" cy="72" rx="100" ry="18" fill="white" opacity="0.15"/><polygon points="300,20 350,90 260,90" fill="#3A5A3A"/><polygon points="300,20 340,90 280,90" fill="#4A6A4A"/><path d="M0,90 Q50,65 100,75 Q150,58 200,70 Q250,55 300,90 L400,90 L400,180 L0,180 Z" fill="#2A4A2A"/><g fill="#5A7A40"><rect x="60" y="100" width="280" height="12" rx="2"/><rect x="70" y="112" width="260" height="11" rx="2"/><rect x="80" y="123" width="240" height="11" rx="2"/><rect x="90" y="134" width="220" height="11" rx="2"/><rect x="100" y="145" width="200" height="11" rx="2"/><rect x="110" y="156" width="180" height="11" rx="2"/><rect x="120" y="167" width="160" height="11" rx="2"/></g><g fill="#6A8A50"><rect x="60" y="100" width="280" height="3"/><rect x="70" y="112" width="260" height="3"/><rect x="80" y="123" width="240" height="3"/><rect x="90" y="134" width="220" height="3"/><rect x="100" y="145" width="200" height="3"/><rect x="110" y="156" width="180" height="3"/></g><rect x="170" y="85" width="18" height="18" fill="#8A7A60"/><rect x="193" y="83" width="22" height="20" fill="#7A6A50"/><rect x="220" y="86" width="16" height="17" fill="#8A7A60"/><polygon points="168,85 179,75 190,85" fill="#6A5A40"/><polygon points="191,83 204,72 217,83" fill="#5A4A30"/><polygon points="218,86 228,77 238,86" fill="#6A5A40"/><path d="M130,98 Q128,90 132,86 Q136,82 140,85 Q143,88 142,95 Q145,97 145,100 Q140,100 135,100 Z" fill="#8A7A60"/><path d="M132,86 L130,78" stroke="#8A7A60" stroke-width="3"/><circle cx="130" cy="76" r="5" fill="#8A7A60"/><text x="200" y="177" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">MACHU PICCHU  2,430m</text></svg><div class="day-img-caption">聖谷 Sacred Valley</div></div>
+          <div class="day-body">
+            <div class="day-title">聖谷一日遊 → 熱水鎮 Aguas Calientes</div>
+            <div class="day-activities">庫斯科出發 → 聖谷一日遊（Chinchero琴切羅・Maras鹽田・Moray圓形梯田）→ Ollantaytambo脫團搭火車 → 抵達熱水鎮</div>
+            <div class="tags"><span class="tag hl">🧂 Maras鹽田</span><span class="tag hl">⭕ Moray梯田</span><span class="tag">火車</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 13 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle machu"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/20 日</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A4A6A"/><stop offset="50%" stop-color="#4A7AA8"/><stop offset="100%" stop-color="#6A9AC8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_m2)"/><ellipse cx="80" cy="65" rx="70" ry="25" fill="white" opacity="0.25"/><ellipse cx="320" cy="55" rx="80" ry="20" fill="white" opacity="0.2"/><polygon points="300,20 350,90 260,90" fill="#3A5A3A"/><polygon points="300,20 340,90 280,90" fill="#4A6A4A"/><path d="M0,90 Q50,65 100,75 Q150,58 200,70 Q250,55 300,90 L400,90 L400,180 L0,180 Z" fill="#2A4A2A"/><g fill="#5A7A40"><rect x="60" y="100" width="280" height="12" rx="2"/><rect x="70" y="112" width="260" height="11" rx="2"/><rect x="80" y="123" width="240" height="11" rx="2"/><rect x="90" y="134" width="220" height="11" rx="2"/><rect x="100" y="145" width="200" height="11" rx="2"/><rect x="110" y="156" width="180" height="11" rx="2"/></g><g fill="#6A8A50"><rect x="60" y="100" width="280" height="3"/><rect x="70" y="112" width="260" height="3"/><rect x="80" y="123" width="240" height="3"/><rect x="90" y="134" width="220" height="3"/><rect x="100" y="145" width="200" height="3"/></g><rect x="170" y="85" width="18" height="18" fill="#8A7A60"/><rect x="193" y="83" width="22" height="20" fill="#7A6A50"/><rect x="220" y="86" width="16" height="17" fill="#8A7A60"/><polygon points="168,85 179,75 190,85" fill="#6A5A40"/><polygon points="191,83 204,72 217,83" fill="#5A4A30"/><polygon points="218,86 228,77 238,86" fill="#6A5A40"/><text x="200" y="177" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">MACHU PICCHU  2,430m</text></svg><div class="day-img-caption">馬丘比丘 Machu Picchu · Day 1</div></div>
+          <div class="day-body">
+            <div class="day-title">馬丘比丘 Machu Picchu ── Day 1</div>
+            <div class="day-activities">早上進入馬丘比丘 → 請導覽解說（強烈推薦，廢墟光看看不懂）→ 爬華納比丘 Huayna Picchu（限額！需提前搶票）→ 傍晚回熱水鎮</div>
+            <div class="tags"><span class="tag hl">🏔 馬丘比丘</span><span class="tag hl">⛰ 華納比丘</span><span class="tag">導覽</span></div>
+            <div class="day-note warn">華納比丘每日僅400人，必須出發前提前網路訂票，非常搶手</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 14 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle machu"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/21 一</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_m" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A4A6A"/><stop offset="50%" stop-color="#4A7AA8"/><stop offset="100%" stop-color="#6A9AC8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_m)"/><ellipse cx="80" cy="65" rx="70" ry="25" fill="white" opacity="0.25"/><ellipse cx="320" cy="55" rx="80" ry="20" fill="white" opacity="0.2"/><ellipse cx="200" cy="72" rx="100" ry="18" fill="white" opacity="0.15"/><polygon points="300,20 350,90 260,90" fill="#3A5A3A"/><polygon points="300,20 340,90 280,90" fill="#4A6A4A"/><path d="M0,90 Q50,65 100,75 Q150,58 200,70 Q250,55 300,90 L400,90 L400,180 L0,180 Z" fill="#2A4A2A"/><g fill="#5A7A40"><rect x="60" y="100" width="280" height="12" rx="2"/><rect x="70" y="112" width="260" height="11" rx="2"/><rect x="80" y="123" width="240" height="11" rx="2"/><rect x="90" y="134" width="220" height="11" rx="2"/><rect x="100" y="145" width="200" height="11" rx="2"/><rect x="110" y="156" width="180" height="11" rx="2"/><rect x="120" y="167" width="160" height="11" rx="2"/></g><g fill="#6A8A50"><rect x="60" y="100" width="280" height="3"/><rect x="70" y="112" width="260" height="3"/><rect x="80" y="123" width="240" height="3"/><rect x="90" y="134" width="220" height="3"/><rect x="100" y="145" width="200" height="3"/><rect x="110" y="156" width="180" height="3"/></g><rect x="170" y="85" width="18" height="18" fill="#8A7A60"/><rect x="193" y="83" width="22" height="20" fill="#7A6A50"/><rect x="220" y="86" width="16" height="17" fill="#8A7A60"/><polygon points="168,85 179,75 190,85" fill="#6A5A40"/><polygon points="191,83 204,72 217,83" fill="#5A4A30"/><polygon points="218,86 228,77 238,86" fill="#6A5A40"/><path d="M130,98 Q128,90 132,86 Q136,82 140,85 Q143,88 142,95 Q145,97 145,100 Q140,100 135,100 Z" fill="#8A7A60"/><path d="M132,86 L130,78" stroke="#8A7A60" stroke-width="3"/><circle cx="130" cy="76" r="5" fill="#8A7A60"/><text x="200" y="177" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">MACHU PICCHU  2,430m</text></svg><div class="day-img-caption">馬丘比丘 Day 2</div></div>
+          <div class="day-body">
+            <div class="day-title">馬丘比丘 Machu Picchu ── Day 2</div>
+            <div class="day-activities">走不同路線（Circuit 2 → Circuit 1 全景視角）→ 下午從容逛遺跡 → 傍晚搭火車返 Aguas Calientes → Ollantaytambo → 抵達庫斯科</div>
+            <div class="tags"><span class="tag hl">🏔 不同路線</span><span class="tag hl">全景視角</span><span class="tag">火車返庫斯科</span></div>
+            <div class="day-note warn">馬丘比丘只待一天很可惜。若要留兩天，建議刪帕拉卡斯（Day 2）來換——是最值得的取捨</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 15 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/22 二</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap">
+            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_r" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A6A"/><stop offset="100%" stop-color="#5A8AC0"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_r)"/><polygon points="50,70 90,40 130,70" fill="white" opacity="0.7"/><polygon points="280,65 330,32 380,65" fill="white" opacity="0.65"/><polygon points="160,72 210,35 260,72" fill="white" opacity="0.6"/><path d="M40,180 L40,130 Q80,80 120,100 Q160,70 200,85 Q240,68 280,100 Q320,80 360,130 L360,180 Z" fill="#8B4A2C"/><path d="M60,155 Q120,130 180,140 Q240,125 320,145 L320,155 Q240,140 180,155 Q120,145 60,165 Z" fill="#C47A40"/><path d="M60,140 Q120,118 180,128 Q240,112 320,132 L320,145 Q240,125 180,140 Q120,130 60,155 Z" fill="#D4A840"/><path d="M65,128 Q120,108 180,116 Q240,100 318,120 L320,132 Q240,112 180,128 Q120,118 65,140 Z" fill="#8B3A5A"/><path d="M70,118 Q125,100 182,107 Q240,90 316,110 L318,120 Q240,100 182,116 Q125,108 70,128 Z" fill="#6A8A3A"/><path d="M75,110 Q130,92 184,99 Q242,82 314,102 L316,110 Q240,90 184,107 Q130,100 75,118 Z" fill="#C4523A"/><path d="M80,102 Q135,86 186,92 Q244,75 312,95 L314,102 Q242,82 186,99 Q135,92 80,110 Z" fill="#D4B840"/><path d="M85,96 Q138,80 188,86 Q246,69 310,90 L312,95 Q244,75 188,92 Q138,86 80,102 Z" fill="#5A6A9A"/><path d="M150,70 Q200,50 250,68 Q220,75 200,72 Q175,78 150,70 Z" fill="white" opacity="0.6"/><g fill="#1A1A1A"><circle cx="195" cy="90" r="3"/><rect x="193" y="92" width="4" height="8"/><circle cx="205" cy="88" r="3"/><rect x="203" y="90" width="4" height="8"/><line x1="191" y1="95" x2="188" y2="103" stroke="#1A1A1A" stroke-width="1.5"/><line x1="209" y1="93" x2="212" y2="101" stroke="#1A1A1A" stroke-width="1.5"/></g><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="11" fill="#F0E8D8" letter-spacing="2">RAINBOW MTN  5,200m</text></svg>
+            <div class="day-img-caption">彩虹山 Vinicunca · 海拔 5,200m</div>
+          </div>
+          <div class="day-body">
+            <div class="day-title">庫斯科 → 彩虹山 Vinicunca</div>
+            <div class="day-activities">凌晨3-4點出發 → 車程約3hr → 健行至彩虹山頂（往返約3-4hr）→ 下午回庫斯科充分休息</div>
+            <div class="tags"><span class="tag hl">🌈 七彩地層</span><span class="tag">5,200m</span><span class="tag">凌晨出發</span></div>
+            <div class="day-note warn">海拔極高，這天務必備好高山症藥物、保暖衣物。下午回來後休息，隔天即飛亞馬遜</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="country-sep">
+    <div class="country-sep-line"></div>
+    <div class="country-sep-name">亞馬遜雨林 Amazon · Puerto Maldonado</div>
+    <div class="country-sep-line"></div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="iti-grid">
+
+      <!-- Day 16 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle amazon"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/23 三</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_am" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A2A"/><stop offset="100%" stop-color="#2A5A3A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_am)"/><ellipse cx="50" cy="80" rx="60" ry="45" fill="#1A4A1A"/><ellipse cx="130" cy="70" rx="70" ry="52" fill="#2A5A2A"/><ellipse cx="220" cy="65" rx="75" ry="55" fill="#1E4E1E"/><ellipse cx="320" cy="72" rx="68" ry="48" fill="#255525"/><ellipse cx="390" cy="78" rx="55" ry="42" fill="#1A4A1A"/><ellipse cx="20" cy="100" rx="50" ry="38" fill="#2A6A2A"/><ellipse cx="95" cy="90" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="185" cy="85" rx="72" ry="52" fill="#2E6E2E"/><ellipse cx="280" cy="88" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="370" cy="95" rx="55" ry="42" fill="#2A6A2A"/><path d="M0,145 Q80,130 160,148 Q240,135 320,150 Q360,142 400,148 L400,175 Q360,168 320,170 Q240,165 160,168 Q80,158 0,165 Z" fill="#1A5A7A"/><path d="M0,147 Q80,133 160,151 Q240,138 320,153 Q360,145 400,151" stroke="#3A7AA8" stroke-width="3" fill="none" opacity="0.6"/><path d="M175,152 Q200,145 225,152 Q200,158 175,152 Z" fill="#6A4A20"/><circle cx="200" cy="148" r="4" fill="#8B5A2A"/><rect x="198" y="151" width="4" height="6" fill="#CC6644"/><line x1="202" y1="153" x2="210" y2="157" stroke="#6A4A20" stroke-width="2"/><path d="M100,55 Q108,50 116,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M116,55 Q124,50 132,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M250,45 Q258,40 266,45" stroke="#30A048" stroke-width="2.5" fill="none"/><path d="M266,45 Q274,40 282,45" stroke="#30A048" stroke-width="2.5" fill="none"/><line x1="200" y1="0" x2="190" y2="100" stroke="#F5E080" stroke-width="8" opacity="0.06"/><line x1="250" y1="0" x2="245" y2="90" stroke="#F5E080" stroke-width="5" opacity="0.05"/><circle cx="80" cy="120" r="2" fill="#F5F060" opacity="0.7"/><circle cx="310" cy="115" r="2" fill="#F5F060" opacity="0.6"/><circle cx="170" cy="110" r="1.5" fill="#F5F060" opacity="0.5"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#A0E8A0" letter-spacing="2">AMAZON RAINFOREST</text></svg><div class="day-img-caption">亞馬遜雨林 Puerto Maldonado</div></div>
+          <div class="day-body">
+            <div class="day-title">庫斯科 → 亞馬遜雨林 Puerto Maldonado</div>
+            <div class="day-activities">搭飛機（約45分鐘）→ 機場接送進入雨林 Lodge → 下午開始雨林探索（健行、觀鳥、夜間探險）</div>
+            <div class="tags"><span class="tag hl">🌿 亞馬遜</span><span class="tag">Lodge 包套</span><span class="tag">飛機</span></div>
+            <div class="day-note good">Lodge需提前預訂3天2夜包套。推薦 Rainforest Expeditions 等信譽良好業者</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 17 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle amazon"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/24 四</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_am" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A2A"/><stop offset="100%" stop-color="#2A5A3A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_am)"/><ellipse cx="50" cy="80" rx="60" ry="45" fill="#1A4A1A"/><ellipse cx="130" cy="70" rx="70" ry="52" fill="#2A5A2A"/><ellipse cx="220" cy="65" rx="75" ry="55" fill="#1E4E1E"/><ellipse cx="320" cy="72" rx="68" ry="48" fill="#255525"/><ellipse cx="390" cy="78" rx="55" ry="42" fill="#1A4A1A"/><ellipse cx="20" cy="100" rx="50" ry="38" fill="#2A6A2A"/><ellipse cx="95" cy="90" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="185" cy="85" rx="72" ry="52" fill="#2E6E2E"/><ellipse cx="280" cy="88" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="370" cy="95" rx="55" ry="42" fill="#2A6A2A"/><path d="M0,145 Q80,130 160,148 Q240,135 320,150 Q360,142 400,148 L400,175 Q360,168 320,170 Q240,165 160,168 Q80,158 0,165 Z" fill="#1A5A7A"/><path d="M0,147 Q80,133 160,151 Q240,138 320,153 Q360,145 400,151" stroke="#3A7AA8" stroke-width="3" fill="none" opacity="0.6"/><path d="M175,152 Q200,145 225,152 Q200,158 175,152 Z" fill="#6A4A20"/><circle cx="200" cy="148" r="4" fill="#8B5A2A"/><rect x="198" y="151" width="4" height="6" fill="#CC6644"/><line x1="202" y1="153" x2="210" y2="157" stroke="#6A4A20" stroke-width="2"/><path d="M100,55 Q108,50 116,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M116,55 Q124,50 132,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M250,45 Q258,40 266,45" stroke="#30A048" stroke-width="2.5" fill="none"/><path d="M266,45 Q274,40 282,45" stroke="#30A048" stroke-width="2.5" fill="none"/><line x1="200" y1="0" x2="190" y2="100" stroke="#F5E080" stroke-width="8" opacity="0.06"/><line x1="250" y1="0" x2="245" y2="90" stroke="#F5E080" stroke-width="5" opacity="0.05"/><circle cx="80" cy="120" r="2" fill="#F5F060" opacity="0.7"/><circle cx="310" cy="115" r="2" fill="#F5F060" opacity="0.6"/><circle cx="170" cy="110" r="1.5" fill="#F5F060" opacity="0.5"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#A0E8A0" letter-spacing="2">AMAZON RAINFOREST</text></svg><div class="day-img-caption">亞馬遜 · 深入叢林</div></div>
+          <div class="day-body">
+            <div class="day-title">亞馬遜 ── 最後早晨 → 飛回利馬</div>
+            <div class="day-activities">早上最後一段雨林活動（日出觀鳥・獨木舟）→ 辦理退宿 → 搭飛機返利馬（下午/傍晚）→ Miraflores 休息</div>
+            <div class="tags"><span class="tag hl">🌅 日出觀鳥</span><span class="tag hl">🚣 獨木舟</span><span class="tag">飛回利馬</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 18 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle amazon"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/25 五</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap" style="height:180px;"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="80" cy="50" r="0.8" fill="white" opacity="0.4"/><circle cx="260" cy="45" r="1" fill="white" opacity="0.5"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="75" y="112" width="8" height="8" fill="#F5D88A" opacity="0.5"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><rect x="295" y="107" width="8" height="8" fill="#F5D88A" opacity="0.4"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 最後一夜</div></div>
+          <div class="day-body">
+            <div class="day-title">利馬 Lima ── 緩衝日・從容出發</div>
+            <div class="day-activities">利馬市區最後巡禮 → Miraflores 海崖公園散步 → 採買伴手禮（羊駝製品・秘魯咖啡）→ 豐盛最後晚餐 → 從容前往機場 → 凌晨 00:05 KE7288 離境</div>
+            <div class="tags"><span class="tag hl">🍽 最後晚餐</span><span class="tag hl">🛍 伴手禮</span><span class="tag">海崖公園</span><span class="tag warn">凌晨離境</span></div>
+            <div class="day-note good">有整天緩衝，不用趕。KE7288 00:05（9/27凌晨）離境，建議晚餐後悠閒出發，10點前抵達機場即可，完全不慌張</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">祕魯・玻利維亞 2026</div>
+  <p>9月8日 — 9月26日 · 18天 · 三人行</p>
+  <p style="margin-top:0.5rem;font-size:0.72rem">Lima · Ica · Nazca · Arequipa · Colca · Puno · La Paz · Uyuni · Cusco · Machu Picchu · Rainbow Mountain · Amazon</p>
+</footer>
+
+</body>
+</html>
