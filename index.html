@@ -412,6 +412,230 @@ footer .footer-brand {
   .stat-val { font-size: 1.4rem; }
   .fl-route { flex-wrap: wrap; }
 }
+
+/* ── FOOD SECTION ─────────────────────────────────────────────────────── */
+.food-section {
+  background: var(--cream);
+  padding: 5rem 1.5rem;
+}
+.food-section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.food-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--rust);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.food-section-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 3.5rem;
+}
+.food-city-group {
+  margin-bottom: 3.5rem;
+}
+.food-city-label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1.5px solid var(--earth);
+}
+.food-city-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--deep);
+}
+.food-city-days {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  background: rgba(196,149,106,0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+.food-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+.food-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(28,20,16,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.food-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(28,20,16,0.12);
+}
+.food-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  background: var(--sand);
+}
+.food-card-img-placeholder {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--sand), #ede6da);
+}
+.food-card-body {
+  padding: 0.9rem 1rem 1rem;
+}
+.food-card-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--deep);
+  margin-bottom: 0.3rem;
+}
+.food-card-name-en {
+  font-size: 0.75rem;
+  color: var(--earth);
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+.food-card-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.food-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+}
+.food-badge.eat  { background: rgba(155,74,44,0.1); color: var(--rust); }
+.food-badge.buy  { background: rgba(61,107,79,0.1); color: var(--green); }
+.food-badge.drink{ background: rgba(74,123,168,0.1); color: var(--sky); }
+
+
+/* ── BOOKING CHECKLIST ──────────────────────────────────────────────── */
+.booking-section {
+  background: var(--deep);
+  padding: 5rem 1.5rem;
+}
+.booking-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.booking-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--sand);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+.booking-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+.booking-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.booking-group {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.booking-group-header {
+  padding: 0.75rem 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.booking-group-header.red    { background: rgba(180,50,50,0.85); color: #ffe0e0; }
+.booking-group-header.amber  { background: rgba(196,122,42,0.85); color: #fff3d0; }
+.booking-group-header.green  { background: rgba(61,107,79,0.85); color: #d6f0e0; }
+.booking-items {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+}
+.booking-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 0.5rem;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.booking-item:last-child { border-bottom: none; }
+.booking-item-left {}
+.booking-item-name {
+  font-size: 0.88rem;
+  color: var(--sand);
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+.booking-item-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.booking-item-where {
+  font-size: 0.7rem;
+  color: var(--earth);
+  white-space: nowrap;
+  text-align: right;
+  padding-top: 0.15rem;
+}
+.booking-done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.booking-done:hover { border-color: var(--earth); }
+.booking-done.checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+.booking-done.checked::after {
+  content: '✓';
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 600;
+}
+.booking-item-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
 </style>
 </head>
 <body>
@@ -422,7 +646,7 @@ footer .footer-brand {
   <a href="#flights">航班</a>
   <a href="#alerts">行前準備</a>
   <a href="#map-section">路線地圖</a>
-  <a href="#itinerary">行程</a>
+  <a href="#itinerary">行程</a><a href="#booking">預訂清單</a><a href="#food">美食</a>
 </nav>
 
 <!-- HERO -->
@@ -743,7 +967,7 @@ function filterRegion(region) {
       <!-- Day 3 (was Day 3, now becomes Day 2 after removing Paracas) -->      <!-- Day 3 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">3</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/10 四</div>
         </div>
         <div class="day-card">
@@ -762,7 +986,7 @@ function filterRegion(region) {
       <!-- Day 4 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">3</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">4</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/11 五</div>
         </div>
         <div class="day-card">
@@ -779,7 +1003,7 @@ function filterRegion(region) {
       <!-- Day 5 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">4</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">5</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/12 六</div>
         </div>
         <div class="day-card">
@@ -798,7 +1022,7 @@ function filterRegion(region) {
       <!-- Day 6 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">5</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">6</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/13 日</div>
         </div>
         <div class="day-card">
@@ -815,7 +1039,7 @@ function filterRegion(region) {
       <!-- Day 7 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">6</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">7</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/14 一</div>
         </div>
         <div class="day-card">
@@ -848,7 +1072,7 @@ function filterRegion(region) {
       <!-- Day 8 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">7</div><div class="dd">Day</div></div>
+          <div class="day-num-circle bolivia"><div class="dn">8</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/15 二</div>
         </div>
         <div class="day-card">
@@ -864,7 +1088,7 @@ function filterRegion(region) {
       <!-- Day 9 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">8</div><div class="dd">Day</div></div>
+          <div class="day-num-circle bolivia"><div class="dn">9</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/16 三</div>
         </div>
         <div class="day-card">
@@ -881,7 +1105,7 @@ function filterRegion(region) {
       <!-- Day 10 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">9</div><div class="dd">Day</div></div>
+          <div class="day-num-circle bolivia"><div class="dn">10</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/17 四</div>
         </div>
         <div class="day-card">
@@ -910,7 +1134,7 @@ function filterRegion(region) {
       <!-- Day 11 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">10</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">11</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/18 五</div>
         </div>
         <div class="day-card">
@@ -927,7 +1151,7 @@ function filterRegion(region) {
       <!-- Day 12 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">11</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">12</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/19 六</div>
         </div>
         <div class="day-card">
@@ -943,7 +1167,7 @@ function filterRegion(region) {
       <!-- Day 13 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">12</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">13</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/20 日</div>
         </div>
         <div class="day-card">
@@ -960,7 +1184,7 @@ function filterRegion(region) {
       <!-- Day 14 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">13</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">14</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/21 一</div>
         </div>
         <div class="day-card">
@@ -977,7 +1201,7 @@ function filterRegion(region) {
       <!-- Day 15 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">14</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">15</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/22 二</div>
         </div>
         <div class="day-card">
@@ -1009,7 +1233,7 @@ function filterRegion(region) {
       <!-- Day 16 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle amazon"><div class="dn">15</div><div class="dd">Day</div></div>
+          <div class="day-num-circle amazon"><div class="dn">16</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/23 三</div>
         </div>
         <div class="day-card">
@@ -1026,7 +1250,7 @@ function filterRegion(region) {
       <!-- Day 17 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle amazon"><div class="dn">16</div><div class="dd">Day</div></div>
+          <div class="day-num-circle amazon"><div class="dn">17</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/24 四</div>
         </div>
         <div class="day-card">
@@ -1038,24 +1262,6 @@ function filterRegion(region) {
           </div>
         </div>
       </div>
-
-      <!-- Day 18 -->
-      <div class="day-block">
-        <div class="day-left">
-          <div class="day-num-circle amazon"><div class="dn">17</div><div class="dd">Day</div></div>
-          <div class="day-date-label">9/25 五</div>
-        </div>
-        <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="80" cy="50" r="0.8" fill="white" opacity="0.4"/><circle cx="260" cy="45" r="1" fill="white" opacity="0.5"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="75" y="112" width="8" height="8" fill="#F5D88A" opacity="0.5"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><rect x="295" y="107" width="8" height="8" fill="#F5D88A" opacity="0.4"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 最後一夜</div></div>
-          <div class="day-body">
-            <div class="day-title">亞馬遜 ── 最後早晨 → 飛回利馬</div>
-            <div class="day-activities">早上最後一段雨林活動 → 辦理退宿 → 搭飛機返利馬（下午/傍晚）→ Miraflores 休息・最後晚餐</div>
-            <div class="tags"><span class="tag hl">🌿 最後雨林活動</span><span class="tag">飛回利馬</span><span class="tag hl">🍽 最後晚餐</span></div>
-            <div class="day-note">Lodge 每天 07:00/08:00 有固定交通送回機場，搭下午班機返利馬，傍晚抵達 Miraflores 還有時間吃頓好的最後晚餐</div>
-          </div>
-        </div>
-      </div>
-
 
       <!-- Day 18 -->
       <div class="day-block">
@@ -1075,6 +1281,468 @@ function filterRegion(region) {
       </div>
 
     </div>
+  </div>
+</section>
+
+
+
+<!-- BOOKING SECTION -->
+<section class="booking-section" id="booking">
+  <div class="booking-inner">
+    <h2 class="booking-title">📋 預訂清單</h2>
+    <p class="booking-sub">點擊勾選框記錄進度 · 深色背景不代表已完成，記得實際去訂！</p>
+
+    <div class="booking-cols">
+
+      <!-- 🔴 立刻要做 -->
+      <div class="booking-group">
+        <div class="booking-group-header red">🔴 立刻要做（越快越好）</div>
+        <div class="booking-items">
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">馬丘比丘門票 Circuit 3（9/20 日）</div>
+                <div class="booking-item-note">周日人多，Circuit 3 下方冷門路線・導覽打底</div>
+              </div>
+            </div>
+            <div class="booking-item-where">tuboleto.cultura.pe</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">馬丘比丘門票 Circuit 2 + 華納比丘（9/21 一）</div>
+                <div class="booking-item-note">華納比丘限額 400 人/天，周一人少，建議訂 07:00 時段</div>
+              </div>
+            </div>
+            <div class="booking-item-where">tuboleto.cultura.pe</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">亞馬遜 Lodge 三人房（9/23–9/25）</div>
+                <div class="booking-item-note">Corto Maltés 已留言；同時詢問 Wasai Tambopata / Inotawa</div>
+              </div>
+            </div>
+            <div class="booking-item-where">各官網 / 寫信</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">庫斯科 → 馬爾多納多 機票（9/23）</div>
+                <div class="booking-item-note">Sky H25721 08:30 出發，需在 Lodge 13:00 前抵達</div>
+              </div>
+            </div>
+            <div class="booking-item-where">Sky / LATAM</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">馬爾多納多 → 利馬 機票（9/25）</div>
+                <div class="booking-item-note">Lodge 07:00/08:00 固定交通送回，搭下午班機</div>
+              </div>
+            </div>
+            <div class="booking-item-where">LATAM / Sky</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 🟡 近期需要處理 -->
+      <div class="booking-group">
+        <div class="booking-group-header amber">🟡 近期需要處理（1–2 個月內）</div>
+        <div class="booking-items">
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">馬丘比丘火車 去程（9/19 晚）</div>
+                <div class="booking-item-note">奧揚泰坦博 → 阿瓜斯卡連特斯，Vistadome 或 Inca Rail 360°</div>
+              </div>
+            </div>
+            <div class="booking-item-where">perurail.com / incarail.com</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">馬丘比丘火車 返程（9/21 傍晚）</div>
+                <div class="booking-item-note">阿瓜斯卡連特斯 → 奧揚泰坦博，傍晚班次</div>
+              </div>
+            </div>
+            <div class="booking-item-where">perurail.com / incarail.com</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">熱水鎮接駁巴士來回（Consettur）</div>
+                <div class="booking-item-note">阿瓜斯卡連特斯 → 馬丘比丘入口，來回約 $24</div>
+              </div>
+            </div>
+            <div class="booking-item-where">到當地或提前網購</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">納斯卡線小飛機（9/11）</div>
+                <div class="booking-item-note">建議提前聯繫當地公司確認天氣與班次</div>
+              </div>
+            </div>
+            <div class="booking-item-where">Aerodiana / AeroParacas</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">科爾卡峽谷一日遊（9/12）</div>
+                <div class="booking-item-note">從阿雷基帕出發，含神鷹觀察點，全天行程</div>
+              </div>
+            </div>
+            <div class="booking-item-where">阿雷基帕當地旅行社</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">的的喀喀湖遊湖（9/14）</div>
+                <div class="booking-item-note">蘆葦浮島 + 塔基利島，包船體驗更自由</div>
+              </div>
+            </div>
+            <div class="booking-item-where">普諾碼頭旅行社</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">各城市住宿（全程）</div>
+                <div class="booking-item-note">9月旺季，建議提前 2–3 個月訂，越早越便宜</div>
+              </div>
+            </div>
+            <div class="booking-item-where">Booking / Airbnb</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 🟢 到了當地再辦 -->
+      <div class="booking-group">
+        <div class="booking-group-header green">🟢 到了當地再辦</div>
+        <div class="booking-items">
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">玻利維亞簽證（9/9 利馬辦）</div>
+                <div class="booking-item-note">台灣護照需事先辦理，第一天在利馬的玻利維亞大使館辦，帶護照、照片、費用</div>
+              </div>
+            </div>
+            <div class="booking-item-where">利馬玻利維亞使館</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">聖谷一日遊（9/19）</div>
+                <div class="booking-item-note">庫斯科旅行社多且競爭激烈，到了再比價，含 Pisac、Maras、Moray</div>
+              </div>
+            </div>
+            <div class="booking-item-where">庫斯科當地旅行社</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">高山症備藥 Acetazolamide（丹木斯）</div>
+                <div class="booking-item-note">建議台灣出發前開處方帶好，彩虹山前一天開始服用</div>
+              </div>
+            </div>
+            <div class="booking-item-where">台灣診所開立處方</div>
+          </div>
+
+          <div class="booking-item">
+            <div class="booking-item-row">
+              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+              <div class="booking-item-left">
+                <div class="booking-item-name">旅遊保險</div>
+                <div class="booking-item-note">建議含高海拔醫療救援、亞馬遜緊急撤離，出發前在台灣投保</div>
+              </div>
+            </div>
+            <div class="booking-item-where">富邦 / 國泰 / 全球人壽</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOD SECTION -->
+<section class="food-section" id="food">
+  <div class="food-section-inner">
+    <h2 class="food-section-title">🍽 旅途美食地圖</h2>
+    <p class="food-section-sub">從海岸到高原到雨林，每一站都有值得記住的味道</p>
+
+    <!-- 利馬 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🏙 利馬 Lima</span>
+        <span class="food-city-days">Day 1 · Day 18</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Ceviche_peruano.jpg/640px-Ceviche_peruano.jpg" alt="Ceviche" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🐟</div>
+          <div class="food-card-body">
+            <div class="food-card-name">檸檬醃生魚</div>
+            <div class="food-card-name-en">Ceviche</div>
+            <div class="food-card-desc">秘魯國菜，白魚以萊姆汁「醃熟」，佐洋蔥、辣椒、番薯。利馬的版本最正宗，午餐時段吃最新鮮。</div>
+            <span class="food-badge eat">必吃</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Pisco_sour_con_pisco_quebranta.jpg/640px-Pisco_sour_con_pisco_quebranta.jpg" alt="Pisco Sour" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🍹</div>
+          <div class="food-card-body">
+            <div class="food-card-name">皮斯科沙瓦</div>
+            <div class="food-card-name-en">Pisco Sour</div>
+            <div class="food-card-desc">葡萄蒸餾酒加萊姆汁、蛋白、糖漿打成，上層灑苦精。秘魯國酒，每家酒吧配方略有不同。</div>
+            <span class="food-badge drink">必喝</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🛍</div>
+          <div class="food-card-body">
+            <div class="food-card-name">伴手禮採購</div>
+            <div class="food-card-name-en">Miraflores 商圈</div>
+            <div class="food-card-desc">羊駝毛製品、秘魯咖啡、Pisco 酒、瑪卡（秘魯人參）。Larcomar 商場靠近海崖，邊逛邊看太平洋。</div>
+            <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 阿雷基帕 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🌋 阿雷基帕 Arequipa</span>
+        <span class="food-city-days">Day 4–5</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Quesohelado.jpg/640px-Quesohelado.jpg" alt="Queso Helado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🍦</div>
+          <div class="food-card-body">
+            <div class="food-card-name">起司冰淇淋</div>
+            <div class="food-card-name-en">Queso Helado</div>
+            <div class="food-card-desc">阿雷基帕獨有，名字叫「起司」但其實是以肉桂、椰奶調味的甜冰淇淋，武器廣場四周都有攤販，小杯約 2.5 sol。</div>
+            <span class="food-badge eat">必吃</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Alpaca_lying_down.jpg/640px-Alpaca_lying_down.jpg" alt="Alpaca dish" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🦙</div>
+          <div class="food-card-body">
+            <div class="food-card-name">羊駝料理</div>
+            <div class="food-card-name-en">Alpaca / Lomo de Alpaca</div>
+            <div class="food-card-desc">肉質介於牛肉和羊肉之間，低脂鮮嫩。阿雷基帕的羊駝料理最為道地，推薦 La Nueva Palomino 餐廳（只開到下午5點）。</div>
+            <span class="food-badge eat">必吃</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🍽</div>
+          <div class="food-card-body">
+            <div class="food-card-name">大綜合拼盤</div>
+            <div class="food-card-name-en">Americano · La Nueva Palomino</div>
+            <div class="food-card-desc">含所有阿雷基帕當地特色料理的拼盤，一次嚐遍白城風味。餐廳距舊城區步行約15分鐘，中午時段去最新鮮。</div>
+            <span class="food-badge eat">推薦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 普諾 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🌊 普諾 Puno</span>
+        <span class="food-city-days">Day 6–7</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🐟</div>
+          <div class="food-card-body">
+            <div class="food-card-name">烤鱒魚</div>
+            <div class="food-card-name-en">Trucha a la Plancha</div>
+            <div class="food-card-desc">的的喀喀湖現撈，海拔3,800m的高原淡水魚，肉質細嫩。簡單炭烤配辣醬是最道地的吃法，碼頭附近餐廳最新鮮。</div>
+            <span class="food-badge eat">必吃</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🛶</div>
+          <div class="food-card-body">
+            <div class="food-card-name">蘆葦船工藝品</div>
+            <div class="food-card-name-en">Reed Boat Crafts</div>
+            <div class="food-card-desc">烏魯族傳統蘆葦船模型，浮島上的小攤就有賣，小型模型約 $5-20 美元，比碼頭旁的紀念品店便宜。</div>
+            <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 拉巴斯 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🚡 拉巴斯 La Paz</span>
+        <span class="food-city-days">Day 8</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🦙</div>
+          <div class="food-card-body">
+            <div class="food-card-name">炒羊駝飯</div>
+            <div class="food-card-name-en">Chicharrón de Llama</div>
+            <div class="food-card-desc">大蒜香料拌炒羊駝肉，搭配米飯和玉米。玻利維亞的羊駝比秘魯更常見，價格也更實惠，市場裡就能找到。</div>
+            <span class="food-badge eat">必吃</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Mercado_de_las_brujas%2C_La_Paz%2C_Bolivia.jpg/640px-Mercado_de_las_brujas%2C_La_Paz%2C_Bolivia.jpg" alt="La Paz market" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🧿</div>
+          <div class="food-card-body">
+            <div class="food-card-name">薩加納加街購物</div>
+            <div class="food-card-name-en">Calle Sagarnaga</div>
+            <div class="food-card-desc">羊駝毛製品集中地，圍巾約 $15-40、毛衣約 $40-150，比秘魯更便宜。巫術市場（Mercado de las Brujas）就在附近，護身符、藥草獨一無二。</div>
+            <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 庫斯科 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🏛 庫斯科 Cusco</span>
+        <span class="food-city-days">Day 10–11 · Day 17返途</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Guinea_pig_on_a_plate.jpg/640px-Guinea_pig_on_a_plate.jpg" alt="Cuy Guinea Pig" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🐹</div>
+          <div class="food-card-body">
+            <div class="food-card-name">天竺鼠</div>
+            <div class="food-card-name-en">Cuy al Horno</div>
+            <div class="food-card-desc">印加千年傳統食材，烤或炸，皮酥肉嫩帶野味。庫斯科大教堂的「最後的晚餐」畫作裡，耶穌的門徒吃的就是它。</div>
+            <span class="food-badge eat">必試</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🍹</div>
+          <div class="food-card-body">
+            <div class="food-card-name">皮斯科沙瓦</div>
+            <div class="food-card-name-en">Pisco Sour</div>
+            <div class="food-card-desc">馬丘比丘回到熱水鎮後傍晚來一杯，是旅人的傳統儀式。庫斯科廣場邊的酒吧氣氛最好，晚上燈光打在石牆上非常浪漫。</div>
+            <span class="food-badge drink">必喝</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Craft-textiles-cusco-peru.jpg/640px-Craft-textiles-cusco-peru.jpg" alt="Cusco textiles" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="food-card-img-placeholder" style="display:none">🧶</div>
+          <div class="food-card-body">
+            <div class="food-card-name">羊駝紡織品</div>
+            <div class="food-card-name-en">Alpaca Textiles</div>
+            <div class="food-card-desc">庫斯科市場和聖谷（Pisac 市集）是採購最好的地方，圖案保留印加傳統，品質比機場免稅店好很多。</div>
+            <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 烏尤尼 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🪞 烏尤尼 Uyuni</span>
+        <span class="food-city-days">Day 9</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🧂</div>
+          <div class="food-card-body">
+            <div class="food-card-name">鹽礦工藝品</div>
+            <div class="food-card-name-en">Salt Crafts</div>
+            <div class="food-card-desc">用鹽沼的鹽塊製成的小雕塑、裝飾品、明信片，烏尤尼鎮上紀念品店和鹽沼入口都有，小型約 $5-20 美元。</div>
+            <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🏨</div>
+          <div class="food-card-body">
+            <div class="food-card-name">鹽旅館</div>
+            <div class="food-card-name-en">Hotel de Sal</div>
+            <div class="food-card-desc">牆壁、床架、桌椅全部用鹽磚建造，一生只需住一次的特殊體驗。若有預算可以考慮在鹽沼邊住一晚，等日落和星空。</div>
+            <span class="food-badge eat">體驗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 亞馬遜 -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🌿 亞馬遜雨林 Amazon</span>
+        <span class="food-city-days">Day 16–18</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🌿</div>
+          <div class="food-card-body">
+            <div class="food-card-name">叢林粽子</div>
+            <div class="food-card-name-en">Juanes</div>
+            <div class="food-card-desc">亞馬遜版「粽子」，用芭蕉葉包住黃米和雞肉蒸熟，是叢林地區的傳統主食，Lodge 餐廳通常都有供應。</div>
+            <span class="food-badge eat">必試</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🐟</div>
+          <div class="food-card-body">
+            <div class="food-card-name">亞馬遜河魚料理</div>
+            <div class="food-card-name-en">Paiche / Doncella</div>
+            <div class="food-card-desc">Paiche 是亞馬遜巨型淡水魚，肉質白嫩。Lodge 的廚師通常用在地食材做料理，新鮮程度出乎意料的高。</div>
+            <span class="food-badge eat">必吃</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🌺</div>
+          <div class="food-card-body">
+            <div class="food-card-name">叢林藥草茶</div>
+            <div class="food-card-name-en">Coca Tea / Herbal</div>
+            <div class="food-card-desc">古柯葉茶（Mate de Coca）是高山症的民間良藥，從阿雷基帕就開始喝，到了雨林可以換喝各種叢林藥草調配的茶飲。</div>
+            <span class="food-badge drink">推薦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
