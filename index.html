@@ -436,10 +436,10 @@ footer .footer-brand {
     <h1>祕魯・玻利維亞</h1>
     <p class="hero-sub">Lima → Paracas → Ica → Nazca → Arequipa → Puno → La Paz → Cusco → Machu Picchu → Amazon</p>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-val">17</div><div class="stat-label">天在祕魯</div></div>
+      <div class="stat"><div class="stat-val">18</div><div class="stat-label">天在祕魯</div></div>
       <div class="stat"><div class="stat-val">3</div><div class="stat-label">人同行</div></div>
       <div class="stat"><div class="stat-val">9/9</div><div class="stat-label">第一天</div></div>
-      <div class="stat"><div class="stat-val">9/25</div><div class="stat-label">最後一天</div></div>
+      <div class="stat"><div class="stat-val">9/26</div><div class="stat-label">最後一天</div></div>
     </div>
   </div>
   <div class="hero-scroll"><span>scroll</span><div class="scroll-line"></div></div>
@@ -616,8 +616,9 @@ const DAYS = [
   { day:13, date:'9/21', label:'馬丘比丘 Day 2',          lat:-13.163, lng:-72.548, region:'machu',   color:'#9B4A2C', desc:'Day 2・不同路線・從容傍晚返庫斯科'},
   { day:14, date:'9/22', label:'彩虹山 Vinicunca',        lat:-13.906, lng:-71.327, region:'machu',   color:'#9B4A2C', desc:'海拔5,200m・凌晨出發・七彩地層'},
   { day:15, date:'9/23', label:'亞馬遜 Maldonado',        lat:-12.593, lng:-69.189, region:'amazon',  color:'#3D6B4F', desc:'飛機前往・進入雨林Lodge'},
-  { day:16, date:'9/24', label:'亞馬遜最後早晨→利馬',    lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'日出觀鳥・飛回利馬・傍晚抵達'},
-  { day:17, date:'9/25', label:'利馬 Lima ── 緩衝日',     lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'市區・伴手禮・最後晚餐・凌晨離境'},
+  { day:16, date:'9/24', label:'亞馬遜雨林 Day 2',        lat:-12.620, lng:-69.220, region:'amazon',  color:'#3D6B4F', desc:'獨木舟・夜間凱門鱷・研究員講座'},
+  { day:17, date:'9/25', label:'亞馬遜→利馬',             lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'最後雨林活動・飛回利馬・最後晚餐'},
+  { day:18, date:'9/26', label:'利馬 Lima ── 最後一天', lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'市區・伴手禮・最後晚餐・凌晨離境'},
 ];
 
 const map = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false })
@@ -717,7 +718,7 @@ function filterRegion(region) {
 <section id="itinerary">
   <div class="section">
     <p class="section-label">Day by Day</p>
-    <h2 class="section-title">17天行程詳覽</h2>
+    <h2 class="section-title">18天行程詳覽</h2>
     <div class="divider"></div>
 
     <div class="iti-grid">
@@ -1017,7 +1018,7 @@ function filterRegion(region) {
             <div class="day-title">庫斯科 → 亞馬遜雨林 Puerto Maldonado</div>
             <div class="day-activities">搭飛機（約45分鐘）→ 機場接送進入雨林 Lodge → 下午開始雨林探索（健行、觀鳥、夜間探險）</div>
             <div class="tags"><span class="tag hl">🌿 亞馬遜</span><span class="tag">Lodge 包套</span><span class="tag">飛機</span></div>
-            <div class="day-note good">Lodge需提前預訂3天2夜包套。推薦 Rainforest Expeditions 等信譽良好業者</div>
+            <div class="day-note good">三天兩夜正式展開！今晚住第一夜，明天繼續深入叢林，後天早上才離開，時間非常充裕</div>
           </div>
         </div>
       </div>
@@ -1031,9 +1032,9 @@ function filterRegion(region) {
         <div class="day-card">
           <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_am_s16" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A2A"/><stop offset="100%" stop-color="#2A5A3A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_am_s16)"/><ellipse cx="50" cy="80" rx="60" ry="45" fill="#1A4A1A"/><ellipse cx="130" cy="70" rx="70" ry="52" fill="#2A5A2A"/><ellipse cx="220" cy="65" rx="75" ry="55" fill="#1E4E1E"/><ellipse cx="320" cy="72" rx="68" ry="48" fill="#255525"/><ellipse cx="390" cy="78" rx="55" ry="42" fill="#1A4A1A"/><ellipse cx="20" cy="100" rx="50" ry="38" fill="#2A6A2A"/><ellipse cx="95" cy="90" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="185" cy="85" rx="72" ry="52" fill="#2E6E2E"/><ellipse cx="280" cy="88" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="370" cy="95" rx="55" ry="42" fill="#2A6A2A"/><path d="M0,145 Q80,130 160,148 Q240,135 320,150 Q360,142 400,148 L400,175 Q360,168 320,170 Q240,165 160,168 Q80,158 0,165 Z" fill="#1A5A7A"/><path d="M0,147 Q80,133 160,151 Q240,138 320,153 Q360,145 400,151" stroke="#3A7AA8" stroke-width="3" fill="none" opacity="0.6"/><path d="M175,152 Q200,145 225,152 Q200,158 175,152 Z" fill="#6A4A20"/><circle cx="200" cy="148" r="4" fill="#8B5A2A"/><rect x="198" y="151" width="4" height="6" fill="#CC6644"/><line x1="202" y1="153" x2="210" y2="157" stroke="#6A4A20" stroke-width="2"/><path d="M100,55 Q108,50 116,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M116,55 Q124,50 132,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M250,45 Q258,40 266,45" stroke="#30A048" stroke-width="2.5" fill="none"/><path d="M266,45 Q274,40 282,45" stroke="#30A048" stroke-width="2.5" fill="none"/><line x1="200" y1="0" x2="190" y2="100" stroke="#F5E080" stroke-width="8" opacity="0.06"/><line x1="250" y1="0" x2="245" y2="90" stroke="#F5E080" stroke-width="5" opacity="0.05"/><circle cx="80" cy="120" r="2" fill="#F5F060" opacity="0.7"/><circle cx="310" cy="115" r="2" fill="#F5F060" opacity="0.6"/><circle cx="170" cy="110" r="1.5" fill="#F5F060" opacity="0.5"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#A0E8A0" letter-spacing="2">AMAZON RAINFOREST</text></svg><div class="day-img-caption">亞馬遜 · 深入叢林</div></div>
           <div class="day-body">
-            <div class="day-title">亞馬遜 ── 最後早晨 → 飛回利馬</div>
-            <div class="day-activities">早上最後一段雨林活動（日出觀鳥・獨木舟）→ 辦理退宿 → 搭飛機返利馬（下午/傍晚）→ Miraflores 休息</div>
-            <div class="tags"><span class="tag hl">🌅 日出觀鳥</span><span class="tag hl">🚣 獨木舟</span><span class="tag">飛回利馬</span></div>
+            <div class="day-title">亞馬遜雨林 ── 深入叢林第二天</div>
+            <div class="day-activities">日出觀鳥 → 獨木舟探索支流 → 夜間觀察（凱門鱷・夜行動物・青蛙）→ 晚間研究員講座</div>
+            <div class="tags"><span class="tag hl">🌅 日出觀鳥</span><span class="tag hl">🚣 獨木舟</span><span class="tag hl">🐊 夜間凱門鱷</span></div>
           </div>
         </div>
       </div>
@@ -1046,6 +1047,24 @@ function filterRegion(region) {
         </div>
         <div class="day-card">
           <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="80" cy="50" r="0.8" fill="white" opacity="0.4"/><circle cx="260" cy="45" r="1" fill="white" opacity="0.5"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="75" y="112" width="8" height="8" fill="#F5D88A" opacity="0.5"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><rect x="295" y="107" width="8" height="8" fill="#F5D88A" opacity="0.4"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 最後一夜</div></div>
+          <div class="day-body">
+            <div class="day-title">亞馬遜 ── 最後早晨 → 飛回利馬</div>
+            <div class="day-activities">早上最後一段雨林活動 → 辦理退宿 → 搭飛機返利馬（下午/傍晚）→ Miraflores 休息・最後晚餐</div>
+            <div class="tags"><span class="tag hl">🌿 最後雨林活動</span><span class="tag">飛回利馬</span><span class="tag hl">🍽 最後晚餐</span></div>
+            <div class="day-note">Lodge 每天 07:00/08:00 有固定交通送回機場，搭下午班機返利馬，傍晚抵達 Miraflores 還有時間吃頓好的最後晚餐</div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Day 18 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle"><div class="dn">18</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/26 六</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 最後一天</div></div>
           <div class="day-body">
             <div class="day-title">利馬 Lima ── 緩衝日・從容出發</div>
             <div class="day-activities">利馬市區最後巡禮 → Miraflores 海崖公園散步 → 採買伴手禮（羊駝製品・秘魯咖啡）→ 豐盛最後晚餐 → 從容前往機場 → 凌晨 00:05 KE7288 離境</div>
@@ -1062,7 +1081,7 @@ function filterRegion(region) {
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">祕魯・玻利維亞 2026</div>
-  <p>9月8日 — 9月26日 · 18天 · 三人行</p>
+  <p>9月9日 — 9月26日 · 18天 · 三人行</p>
   <p style="margin-top:0.5rem;font-size:0.72rem">Lima · Ica · Nazca · Arequipa · Colca · Puno · La Paz · Uyuni · Cusco · Machu Picchu · Rainbow Mountain · Amazon</p>
 </footer>
 
