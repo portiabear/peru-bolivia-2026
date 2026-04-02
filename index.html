@@ -688,6 +688,130 @@ footer .footer-brand {
 .tier-mid { background: rgba(61,107,79,0.12); color: var(--green); }
 .tier-bdg { background: rgba(74,123,168,0.12); color: var(--sky); }
 
+
+/* ── SEOUL STOPOVER ─────────────────────────────────────────────────── */
+.seoul-section {
+  background: #1a1a2e;
+  padding: 5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.seoul-section::before {
+  content: '✈ 首爾';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 8rem;
+  opacity: 0.04;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  pointer-events: none;
+}
+.seoul-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.seoul-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #e8c96a;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+.seoul-sub {
+  text-align: center;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+}
+.seoul-timeline {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 2rem;
+}
+.seoul-timeline-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e8c96a;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.stl-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0 1rem;
+  margin-bottom: 0.7rem;
+  align-items: start;
+}
+.stl-time {
+  font-family: monospace;
+  font-size: 0.83rem;
+  color: #e8c96a;
+  font-weight: 600;
+  padding-top: 2px;
+}
+.stl-text {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+.stl-text strong { color: white; }
+.stl-text .tag-s {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+  margin-left: 0.3rem;
+  background: rgba(232,201,106,0.18);
+  color: #e8c96a;
+  vertical-align: middle;
+}
+.seoul-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.seoul-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 1.1rem 1.3rem;
+}
+.seoul-card-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e8c96a;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.seoul-card-content {
+  font-size: 0.81rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+.seoul-card-content strong { color: white; }
+.seoul-card-content a { color: #e8c96a; text-decoration: none; }
+.seoul-alert {
+  background: rgba(232,201,106,0.1);
+  border: 1px solid rgba(232,201,106,0.25);
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+  font-size: 0.81rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+}
+.seoul-alert strong { color: #e8c96a; }
+
 </style>
 </head>
 <body>
@@ -698,7 +822,7 @@ footer .footer-brand {
   <a href="#flights">航班</a>
   <a href="#alerts">行前準備</a>
   <a href="#map-section">路線地圖</a>
-  <a href="#itinerary">行程</a><a href="#booking">預訂清單</a><a href="#food">美食</a>
+  <a href="#itinerary">行程</a><a href="#booking">預訂清單</a><a href="#seoul">首爾中轉</a><a href="#food">美食</a>
 </nav>
 
 <!-- HERO -->
@@ -2323,6 +2447,248 @@ function filterRegion(region) {
 
   </div>
 
+</section>
+
+
+<!-- SEOUL STOPOVER SECTION -->
+<section class="seoul-section" id="seoul">
+  <div class="seoul-inner">
+    <h2 class="seoul-title">✈ 首爾中轉購物攻略</h2>
+    <p class="seoul-sub">9/28（一）15:55 抵仁川 T2 ── 9/29（二）10:30 出發 ── 可用 18.5 小時</p>
+
+    <!-- 時刻表 -->
+    <div class="seoul-timeline">
+      <div class="seoul-timeline-title">🕐 實際可行的時刻表（安全版）</div>
+
+      <div class="stl-item">
+        <div class="stl-time">15:55</div>
+        <div class="stl-text">抵達仁川 <strong>T2</strong>（KE34 落地）。飛機上提前填好<strong>電子入境卡</strong>可省排隊</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">16:40</div>
+        <div class="stl-text">出關 → T2 CU 便利店拿 <strong>WOWPASS 卡</strong> → <strong>大行李寄存</strong>（T2 B1，24hr，約 ₩6,000–8,000/件，三個都存！）</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">17:10</div>
+        <div class="stl-text">搭 <strong>AREX 直達車</strong>（T2 B1 月台）→ 43 分鐘到首爾站，₩9,500/人</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">18:00</div>
+        <div class="stl-text">抵達首爾站 → 地鐵或步行到旅館 check-in → 放購物袋、換舒適的鞋</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">18:30</div>
+        <div class="stl-text">🛒 <strong>明洞掃貨！</strong> Olive Young、護膚品、夜市炸雞。大使館換錢所匯率全首爾最好，先換錢再逛</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">21:30</div>
+        <div class="stl-text">逛累了回旅館稍作休息。若體力還在可繼續去<strong>東大門 DDP</strong>（24hr），地鐵 5 分鐘</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">隔天</div>
+        <div class="stl-text">━━━━━━━━━━ 9/29（二）━━━━━━━━━━━━━</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">06:30</div>
+        <div class="stl-text">早餐（旅館或便利店）→ 退房</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">07:00</div>
+        <div class="stl-text"><strong>⚠️ 最晚 07:00 出門！</strong> 搭 AREX 直達車往仁川 T2（43 分鐘）</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">07:45</div>
+        <div class="stl-text">抵達仁川 T2 → 取回寄存的三個大行李（5–10 分鐘）</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">08:00</div>
+        <div class="stl-text"><strong>KE2021 辦理 check-in + 行李托運</strong>。韓亞/大韓截止時間通常為起飛前 60 分鐘（= 09:30），但 3 個大行李 + 旺季隊伍，<strong>08:00 前到才安全</strong></div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">08:30</div>
+        <div class="stl-text">安全檢查 → 出境審查（SeS 快速通關約 10 秒）→ 進免稅區</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">08:45</div>
+        <div class="stl-text">🛍 T2 出境免稅店最後掃貨（香水、酒類、化妝品）→ 自助退稅機辦退稅</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">10:00</div>
+        <div class="stl-text">前往登機口（T2 很大，預留 15–20 分鐘步行）</div>
+      </div>
+      <div class="stl-item">
+        <div class="stl-time">10:30</div>
+        <div class="stl-text"><strong>KE2021 出發</strong> ✈ → 12:10 抵達台北 T1</div>
+      </div>
+
+    </div>
+
+    <!-- 住宿推薦（獨立區塊） -->
+    <div class="seoul-timeline" style="margin-bottom:2rem;">
+      <div class="seoul-timeline-title">🏨 三人住宿推薦（明洞區，只住一晚）</div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:0.5rem;">
+
+        <div style="background:rgba(232,201,106,0.08);border:1px solid rgba(232,201,106,0.2);border-radius:10px;padding:1rem;">
+          <div style="color:#e8c96a;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">⭐ 最推薦・三人首選</div>
+          <div style="color:white;font-weight:500;margin-bottom:0.3rem;">明洞海茵娜酒店</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:0.75rem;line-height:1.6;">
+            有 <strong style="color:rgba(255,255,255,0.85)">36㎡ 三床房（三張單人床）</strong>，三個人各睡一張床，不用擠雙人房。機器人送餐服務很好玩。<br>
+            📍 明洞站 10 號出口步行 2 分鐘<br>
+            💰 三人房約 TWD 5,500–7,000/晚
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1rem;">
+          <div style="color:#e8c96a;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">景觀首選・值回票價</div>
+          <div style="color:white;font-weight:500;margin-bottom:0.3rem;">明洞 L7 飯店（樂天）</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:0.75rem;line-height:1.6;">
+            頂樓 21F <strong style="color:rgba(255,255,255,0.85)">免費戶外足浴</strong>，邊泡腳邊看南山塔夜景，三個女生必體驗。機場巴士 6001/6015 就停在門口。<br>
+            📍 明洞站 9 號出口旁<br>
+            💰 雙人房約 TWD 4,800–6,800（訂兩間或訂三人房）
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1rem;">
+          <div style="color:#e8c96a;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">CP 值最高</div>
+          <div style="color:white;font-weight:500;margin-bottom:0.3rem;">明洞斯坦福飯店</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:0.75rem;line-height:1.6;">
+            有<strong style="color:rgba(255,255,255,0.85)">四人家庭房</strong>，三個人空間寬裕，大行李箱攤開沒問題。大廳有 WOWPASS 機台、行李秤。對面就是樂天百貨。<br>
+            📍 乙支路入口站 2 分鐘・明洞站 7 分鐘<br>
+            💰 家庭房約 TWD 5,500–7,500/晚
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1rem;">
+          <div style="color:#e8c96a;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">最省錢</div>
+          <div style="color:white;font-weight:500;margin-bottom:0.3rem;">宜必思大使酒店（明洞）</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:0.75rem;line-height:1.6;">
+            位在明洞商圈最鬧區，走出去就是 Olive Young。房間偏小，只住一晚夠用。機場巴士 6015 停在旁邊。<br>
+            📍 明洞站 步行 3 分鐘<br>
+            💰 雙人房約 TWD 3,000–4,000
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:1rem;padding:0.8rem 1rem;background:rgba(255,100,100,0.08);border-radius:8px;border-left:3px solid rgba(255,100,100,0.4);font-size:0.78rem;color:rgba(255,255,255,0.65);line-height:1.6;">
+        <strong style="color:#ff9999;">⚠️ 退房時間注意：</strong>多數飯店 Check-out 是 11:00 或 12:00，但你們 <strong style="color:rgba(255,255,255,0.85)">07:00 就要出門</strong>，記得提前告知飯店提早退房，或前一晚先整理好行李（只帶輕便購物袋進城）。
+      </div>
+    </div>
+
+    <!-- 四格資訊 -->
+    <div class="seoul-grid">
+
+      <div class="seoul-card">
+        <div class="seoul-card-title">📋 入境手續（2026最新）</div>
+        <div class="seoul-card-content">
+          <strong>台灣免簽</strong>延長至 2026/12/31，不需 K-ETA ✅<br><br>
+          <strong>電子入境卡（e-Arrival Card）</strong>：<br>
+          飛機上或入境前 3 天線上填寫，取代舊式紙本小黃卡。記得填住宿地址（旅館名稱 + 郵遞區號即可）<br><br>
+          <strong>SeS 自動通關</strong>：若之前辦過（在韓國境內辦理，免費），這次通關只要 10 秒。強烈建議！<br><br>
+          <strong>帶齊文件</strong>：護照（效期剩餘 6 個月以上）、回程機票截圖
+        </div>
+      </div>
+
+      <div class="seoul-card" style="grid-column:1/-1">
+        <div class="seoul-card-title">🏨 三人房住宿推薦（明洞首選）</div>
+        <div class="seoul-card-content" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem 1.5rem">
+
+          <div>
+            <strong style="color:#e8c96a;font-size:0.88rem">⭐ 首推 — L7 明洞飯店（樂天）</strong><br>
+            明洞站 9 號出口正旁邊，走出飯店 30 秒就是夜市商圈。<br>
+            <strong>最大亮點：頂樓戶外足湯，邊泡腳邊看南山塔夜景</strong>，三個女生絕對會愛。<br>
+            門口就是機場巴士 6001、6015，回機場超方便。<br>
+            有三人房型，空間不大但夠用。<br>
+            💰 約 TWD 4,800–6,800／晚<br>
+            <span style="opacity:0.6;font-size:0.75rem">⚠️ 電梯尖峰期稍慢；行李箱較多需稍微喬位置</span>
+          </div>
+
+          <div>
+            <strong style="color:#e8c96a;font-size:0.88rem">💰 CP 值首選 — 明洞斯坦福飯店</strong><br>
+            乙支路入口站 2 分鐘，步行 7 分鐘到明洞站。<br>
+            <strong>房間大，兩個大行李箱展開綽綽有餘</strong>（三個 30 吋特別在意這點！）<br>
+            正對面是樂天百貨，門口有機場巴士 6015。<br>
+            大廳有 WOWPASS 機台和行李秤，很貼心。<br>
+            有家庭房（最多 4 人），適合三人入住。<br>
+            💰 約 TWD 3,500–5,000／晚
+          </div>
+
+          <div>
+            <strong style="color:#e8c96a;font-size:0.88rem">🤖 話題感 — 明洞海茵娜酒店</strong><br>
+            明洞站 10 號出口 2 分鐘，日本機器人酒店首家韓國分店。<br>
+            入住退房全自助，<strong>機器人送房內用品到門口</strong>。<br>
+            <strong>有 36m² 三床房</strong>，三人各睡一張床最舒適。<br>
+            房內有 GiGA Genie 聲控系統、50 吋 Smart TV。<br>
+            💰 約 TWD 3,800–5,500／晚<br>
+            <span style="opacity:0.6;font-size:0.75rem">➕ 三床房是三個人最理想的選擇</span>
+          </div>
+
+        </div>
+        <div style="margin-top:0.9rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.08);font-size:0.78rem;color:rgba(255,255,255,0.55)">
+          💡 三間都在明洞核心，步行即可逛 Olive Young、大使館換錢所、夜市。大行李已寄存仁川機場，進城只帶購物包，不用擔心行李放不下。
+        </div>
+      </div>
+
+      <div class="seoul-card">
+        <div class="seoul-card-title">🛒 購物清單</div>
+        <div class="seoul-card-content">
+          <strong>明洞必逛</strong><br>
+          Olive Young（護膚品、面膜、零食）<br>
+          Innisfree / LANEIGE / COSRX<br>
+          化妝品：超過 ₩15,000 記得索取退稅單<br><br>
+          <strong>首爾站樂天超市</strong><br>
+          泡麵、海苔、零食、大採買<br>
+          ⚠️ 每月第 2、4 個週日公休，確認開門<br><br>
+          <strong>仁川機場免稅店（出境後）</strong><br>
+          香水、酒類（帶回台灣免稅額：2 瓶共 2 公升）<br>
+          化妝品、保養品通常比市區略貴但省力
+        </div>
+      </div>
+
+      <div class="seoul-card">
+        <div class="seoul-card-title">💰 金錢與退稅</div>
+        <div class="seoul-card-content">
+          <strong>WOWPASS 卡</strong>：到機場 CU 便利店領取，匯率比換現金更好，也可直接刷卡消費<br><br>
+          <strong>現金換錢</strong>：明洞大使館換錢所 > 機場。先在機場換少量急用，大量到明洞換<br><br>
+          <strong>退稅</strong>：單筆消費滿 ₩15,000 索取退稅單，仁川機場有自助退稅機（T2 3F 辦理登機處後方），₩75,000 以下可自助完成<br><br>
+          <strong>入境台灣免稅額</strong>：NT$20,000（約 $630）以內免申報
+        </div>
+      </div>
+
+      <div class="seoul-card">
+        <div class="seoul-card-title">🧳 行李策略</div>
+        <div class="seoul-card-content">
+          <strong>大行李寄存機場</strong>（強烈建議！）<br>
+          三個 30 吋行李存在仁川 T2 行李寄存，每件約 ₩6,000-8,000/天，省去拖著大行李逛街的麻煩<br><br>
+          <strong>購物後行李超重怎麼辦？</strong><br>
+          機場有紙箱（自備膠帶），可以打包成第四件行李，或用快遞寄回台灣（航空約 3-5 天）<br><br>
+          <strong>注意：暖暖包禁止托運</strong>（2026 規定），只能放手提行李
+        </div>
+      </div>
+
+      <div class="seoul-card">
+        <div class="seoul-card-title">🍗 首爾必吃（一晚的精華）</div>
+        <div class="seoul-card-content">
+          <strong>晚餐</strong>：明洞辣炒雞排（店員桌邊炒，起司牽絲版）<br><br>
+          <strong>夜宵</strong>：東大門路邊攤 — 魚板串、血腸、辣炒年糕<br><br>
+          <strong>隔天早餐</strong>：便利店（GS25 / CU / 7-11）— 熱拿鐵 + 三角飯糰，快速又好吃<br><br>
+          <strong>機場出發前</strong>：T2 3F 食堂有韓式拌飯、冷麵，最後一頓韓國料理
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="seoul-alert">
+      <strong>⚠️ 出發前要做的事</strong><br>
+      ① <strong>填電子入境卡</strong>：出發前 3 天內填，網址 arrival.customs.go.kr<br>
+      ② <strong>訂明洞旅館</strong>：9/28-9/29 一晚，週一非旺季應該好訂，但提前訂才有好價格<br>
+      ③ <strong>訂 AREX 車票</strong>：Klook / KKday 提前買較便宜，也可現場買<br>
+      ④ <strong>確認 30 吋行李的入境重量</strong>：從利馬到首爾一路買回來，超重費很貴——建議利馬出發前先秤好
+    </div>
+
+  </div>
 </section>
 
 <!-- FOOTER -->
