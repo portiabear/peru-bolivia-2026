@@ -636,6 +636,58 @@ footer .footer-brand {
   align-items: flex-start;
 }
 
+
+/* ── DAY DETAIL PANELS ─────────────────────────────────────────────────── */
+.day-detail {
+  border-top: 1px solid rgba(196,149,106,0.2);
+  padding: 0.9rem 1.2rem 1rem;
+  background: rgba(250,247,242,0.6);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem 1.2rem;
+}
+@media (max-width: 600px) {
+  .day-detail { grid-template-columns: 1fr; }
+}
+.detail-block { }
+.detail-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--earth);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.detail-content {
+  font-size: 0.79rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.detail-content strong { color: var(--deep); font-weight: 500; }
+.detail-content .time { color: var(--rust); font-weight: 500; font-family: monospace; font-size: 0.82rem; }
+.detail-full {
+  grid-column: 1 / -1;
+}
+.detail-hotel-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--deep);
+}
+.detail-hotel-tier {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+.tier-lux { background: rgba(212,168,83,0.15); color: #8B6914; }
+.tier-mid { background: rgba(61,107,79,0.12); color: var(--green); }
+.tier-bdg { background: rgba(74,123,168,0.12); color: var(--sky); }
+
 </style>
 </head>
 <body>
@@ -825,24 +877,24 @@ footer .footer-brand {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const DAYS = [
-  { day:1,  date:'9/9',  label:'利馬 Lima',              lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'抵達・辦玻利維亞簽證・市區'},
-  { day:2,  date:'9/10', label:'瓦卡奇那 Huacachina',     lat:-14.087, lng:-75.763, region:'peru',    color:'#C4956A', desc:'沙漠綠洲・越野車飆沙・日落'},
-  { day:3,  date:'9/11', label:'納斯卡線 Nazca',          lat:-14.739, lng:-75.130, region:'peru',    color:'#C4956A', desc:'小飛機俯瞰地面圖→夜車阿雷基帕'},
-  { day:4,  date:'9/12', label:'阿雷基帕 Arequipa',       lat:-16.409, lng:-71.537, region:'peru',    color:'#C4956A', desc:'聖卡塔莉娜修道院・羊駝・白色城市'},
-  { day:5,  date:'9/13', label:'科爾卡峽谷 Colca',        lat:-15.657, lng:-72.177, region:'peru',    color:'#C4956A', desc:'看神鷹翱翔→抵達普諾'},
-  { day:6,  date:'9/14', label:'普諾 Puno',               lat:-15.840, lng:-70.022, region:'peru',    color:'#C4956A', desc:'的的喀喀湖・蘆葦浮島→夜車玻利維亞'},
-  { day:7,  date:'9/15', label:'拉巴斯 La Paz',           lat:-16.490, lng:-68.119, region:'bolivia', color:'#4A7BA8', desc:'抵達・世界最高首都・纜車俯瞰'},
-  { day:8,  date:'9/16', label:'天空之鏡 Uyuni ── 日落・星空', lat:-20.134, lng:-67.489, region:'bolivia', color:'#4A7BA8', desc:'白天拍照・日落・星空銀河倒映'},
-  { day:9,  date:'9/17', label:'Uyuni 日出 → 飛庫斯科',   lat:-20.134, lng:-67.489, region:'bolivia', color:'#4A7BA8', desc:'清晨日出團→飛機前往庫斯科'},
-  { day:10, date:'9/18', label:'庫斯科 Cusco',            lat:-13.532, lng:-71.967, region:'machu',   color:'#9B4A2C', desc:'市區遺跡・Pisac印加遺跡市集'},
-  { day:11, date:'9/19', label:'聖谷→熱水鎮',            lat:-13.258, lng:-72.136, region:'machu',   color:'#9B4A2C', desc:'Maras鹽田・Moray梯田・火車到熱水鎮'},
-  { day:12, date:'9/20', label:'馬丘比丘 Day 1',          lat:-13.163, lng:-72.545, region:'machu',   color:'#9B4A2C', desc:'Day 1・Circuit 3 冷門・周日避人潮・導覽打底'},
-  { day:13, date:'9/21', label:'馬丘比丘 Day 2',          lat:-13.163, lng:-72.548, region:'machu',   color:'#9B4A2C', desc:'Day 2・Circuit 2 經典全景・華納比丘俯瞰'},
-  { day:14, date:'9/22', label:'彩虹山 Vinicunca',        lat:-13.906, lng:-71.327, region:'machu',   color:'#9B4A2C', desc:'海拔5,200m・凌晨出發・七彩地層'},
-  { day:15, date:'9/23', label:'亞馬遜 Maldonado',        lat:-12.593, lng:-69.189, region:'amazon',  color:'#3D6B4F', desc:'飛機前往・進入雨林Lodge'},
-  { day:16, date:'9/24', label:'亞馬遜雨林 Day 2',        lat:-12.620, lng:-69.220, region:'amazon',  color:'#3D6B4F', desc:'獨木舟・夜間凱門鱷・研究員講座'},
-  { day:17, date:'9/25', label:'亞馬遜→利馬',             lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'最後雨林活動・飛回利馬・最後晚餐'},
-  { day:18, date:'9/26', label:'利馬 Lima ── 最後一天', lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'市區・伴手禮・最後晚餐・凌晨離境'},
+  { day:1,  date:'9/9',  label:'利馬 Lima',               lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'抵達・Miraflores・辦玻利維亞簽證'},
+  { day:2,  date:'9/10', label:'伊卡・瓦卡奇那',           lat:-14.087, lng:-75.763, region:'peru',    color:'#C4956A', desc:'沙漠綠洲・越野飆沙・日落'},
+  { day:3,  date:'9/11', label:'納斯卡 Nazca',             lat:-14.739, lng:-75.130, region:'peru',    color:'#C4956A', desc:'小飛機俯瞰納斯卡線・夜車阿雷基帕'},
+  { day:4,  date:'9/12', label:'阿雷基帕 Arequipa',        lat:-16.409, lng:-71.537, region:'peru',    color:'#C4956A', desc:'白色城市・聖卡塔莉娜修道院・起司冰淇淋'},
+  { day:5,  date:'9/13', label:'科爾卡峽谷 Colca',         lat:-15.657, lng:-72.177, region:'peru',    color:'#C4956A', desc:'神鷹翱翔・峽谷風光→普諾'},
+  { day:6,  date:'9/14', label:'普諾・的的喀喀湖',          lat:-15.840, lng:-70.022, region:'peru',    color:'#4A7BA8', desc:'蘆葦浮島・塔基利島・湖上日落'},
+  { day:7,  date:'9/15', label:'拉巴斯 La Paz',            lat:-16.490, lng:-68.119, region:'bolivia', color:'#8B6914', desc:'抵達・纜車俯瞰・女巫市場'},
+  { day:8,  date:'9/16', label:'天空之鏡 Salar de Uyuni',  lat:-20.134, lng:-67.489, region:'bolivia', color:'#8B6914', desc:'白天拍照・日落・星空'},
+  { day:9,  date:'9/17', label:'Uyuni 日出 → 庫斯科',      lat:-20.134, lng:-67.489, region:'bolivia', color:'#8B6914', desc:'清晨日出後飛往庫斯科'},
+  { day:10, date:'9/18', label:'庫斯科 Cusco',             lat:-13.532, lng:-71.967, region:'cusco',   color:'#9B4A2C', desc:'市區・Pisac遺跡・高度適應'},
+  { day:11, date:'9/19', label:'聖谷→熱水鎮',              lat:-13.258, lng:-72.136, region:'cusco',   color:'#9B4A2C', desc:'Maras鹽田・Moray梯田・火車到熱水鎮'},
+  { day:12, date:'9/20', label:'馬丘比丘 Day 1',           lat:-13.163, lng:-72.545, region:'machu',   color:'#9B4A2C', desc:'Circuit 3 冷門・周日避人潮・導覽打底'},
+  { day:13, date:'9/21', label:'馬丘比丘 Day 2',           lat:-13.163, lng:-72.548, region:'machu',   color:'#9B4A2C', desc:'Circuit 2 經典全景・華納比丘俯瞰・周一人少'},
+  { day:14, date:'9/22', label:'彩虹山 Vinicunca',         lat:-13.906, lng:-71.327, region:'cusco',   color:'#9B4A2C', desc:'5200m・凌晨出發・色彩繽紛'},
+  { day:15, date:'9/23', label:'亞馬遜 Lodge',             lat:-12.593, lng:-69.189, region:'amazon',  color:'#3D6B4F', desc:'飛進Lodge・下午開始雨林探索'},
+  { day:16, date:'9/24', label:'亞馬遜 Day 2',             lat:-12.620, lng:-69.220, region:'amazon',  color:'#3D6B4F', desc:'日出觀鳥・獨木舟・夜間凱門鱷'},
+  { day:17, date:'9/25', label:'亞馬遜→利馬',              lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'最後雨林活動・飛回利馬・最後晚餐'},
+  { day:18, date:'9/26', label:'利馬 Lima ── 最後一天',    lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'市區・伴手禮・最後晚餐・凌晨離境'},
 ];
 
 const map = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false })
@@ -961,13 +1013,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">⚡ 辦玻利維亞簽證</span><span class="tag">市區</span></div>
             <div class="day-note warn">玻利維亞簽證務必第一天在利馬辦，不建議留到普諾，以免行程壓縮</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>08:05</span> 抵達利馬 LIM（KE7965）→ <span class='time'>09:30</span> 入境，計程車往 Miraflores（固定費率 $15-20，約 40 分鐘）→ <span class='time'>11:00</span> 放行李、休息 → <span class='time'>14:00</span> 玻利維亞大使館辦簽證（請先查最新地址）→ <span class='time'>17:00</span> Miraflores 散步、Larcomar 看海景 → <span class='time'>19:30</span> 晚餐（Ceviche！）</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>JW Marriott Lima / Belmond Miraflores Park<span class='detail-hotel-tier tier-lux'>奢華</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Miraflores<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>El Patio Hostel (Miraflores)<span class='detail-hotel-tier tier-bdg'>平實</span></div>建議住 Miraflores 區，安全、交通方便</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">大行李放入旅館，只帶輕便小包外出。辦簽證時需要：<strong>護照原件、2 吋照片、費用</strong>，請事先準備好。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content">機場計程車：出境大廳有<strong>官方固定費率攤位</strong>，務必在此叫車，勿在外面被搭訕。費率 $15-20 往 Miraflores。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 3 (was Day 3, now becomes Day 2 after removing Paracas) -->      <!-- Day 3 -->
+      <!-- Day 2 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">3</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/10 四</div>
         </div>
         <div class="day-card">
@@ -980,13 +1050,31 @@ function filterRegion(region) {
             <div class="day-activities">（帕拉卡斯→）利馬 → 伊卡（約4hr）→ 瓦卡奇那沙漠綠洲 → 沙漠越野車（buggy）→ 沙板滑沙 → 日落</div>
             <div class="tags"><span class="tag hl">🏎 越野飆沙</span><span class="tag hl">🌅 沙漠日落</span></div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>08:00</span> 早餐後退房，行李寄放旅館 → <span class='time'>09:00</span> 搭巴士往伊卡（Cruz del Sur / Perubus，約 4.5 hr）→ <span class='time'>13:30</span> 抵達伊卡，前往瓦卡奇那（計程車 10 分鐘）→ <span class='time'>15:00</span> 越野沙丘車（Dune Buggy）→ <span class='time'>17:30</span> 沙丘上看日落 → <span class='time'>19:30</span> 晚餐</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Desert Nights Camp (瓦卡奇那湖畔)<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Banana's Adventure (瓦卡奇那)<span class='detail-hotel-tier tier-bdg'>平實</span></div>選湖畔旅館，走出去就是沙丘</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">從利馬帶<strong>全部行李</strong>一起出發，在伊卡/瓦卡奇那旅館 check-in 後放行李。若大件行李太多可請旅館寄放，玩沙丘只帶小包。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>利馬→伊卡</strong>：Cruz del Sur 或 Perubus，從利馬 Javier Prado 客運站出發，提前網路購票。約 4.5 小時，車況舒適。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 4 -->
+      <!-- Day 3 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">4</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">3</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/11 五</div>
         </div>
         <div class="day-card">
@@ -997,13 +1085,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🛩 小飛機俯瞰</span><span class="tag">夜車</span></div>
             <div class="day-note warn">小飛機容易暈機，若容易暈車請提前備好暈機藥。登機前勿大吃</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>07:00</span> 早餐 → <span class='time'>08:30</span> 搭巴士往納斯卡（約 2 hr）→ <span class='time'>10:30</span> 到納斯卡，預訂小飛機（Aerodiana 推薦）→ <span class='time'>12:00</span> 小飛機俯瞰納斯卡線（約 30-40 分鐘）→ <span class='time'>14:00</span> 午餐 → <span class='time'>21:00</span> 夜車往阿雷基帕（Cruz del Sur，約 9 hr）</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">納斯卡當天不住宿（搭夜車）。若不想搭夜車可住：<div class='detail-hotel-name'>Hotel Nazca Lines (納斯卡機場旁)<span class='detail-hotel-tier tier-mid'>中高</span></div></div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content"><strong>重要</strong>：搭夜車前，把不需要的大行李寄放在納斯卡的巴士公司寄物處，或旅館。夜車只帶隨身小包和輕便行李，大行李放行李艙。抵達阿雷基帕後再統一取回。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>納斯卡→阿雷基帕</strong>：Cruz del Sur 夜車，約晚上 21:00-22:00 出發，隔天早上 06:00-07:00 抵達。提前購票，選較舒適的座位艙等（Semi Cama 或 Cama）。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 5 -->
+      <!-- Day 4 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">5</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">4</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/12 六</div>
         </div>
         <div class="day-card">
@@ -1016,13 +1122,31 @@ function filterRegion(region) {
             <div class="day-activities">抵達後休息 → 聖卡塔莉娜修道院（一座城中之城）→ Mundo Alpaca 羊駝博物館 → 武器廣場・市區漫步</div>
             <div class="tags"><span class="tag hl">🦙 羊駝</span><span class="tag">修道院</span><span class="tag">白色城市</span></div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>07:00</span> 抵達阿雷基帕客運站，計程車往旅館（約 10 分鐘）→ <span class='time'>08:00</span> 旅館早餐（寄行李等候 check-in）→ <span class='time'>10:00</span> 武器廣場散步、聖卡塔莉娜修道院 → <span class='time'>13:00</span> La Nueva Palomino 午餐（羊駝料理）→ <span class='time'>15:00</span> SOL Alpaca 採購 → <span class='time'>17:00</span> 回旅館休息、適應 2,335m 高度 → <span class='time'>19:30</span> 輕食晚餐</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Libertador Arequipa<span class='detail-hotel-tier tier-lux'>奢華</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Arequipa<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>La Hostería (精品小旅館)<span class='detail-hotel-tier tier-mid'>中</span></div></div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">今天是適應高度的輕鬆日，行李放旅館即可。夜車後疲累，<strong>不要安排太多行程</strong>，多休息比什麼都重要。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content">阿雷基帕客運站（Terminal Terrestre）→旅館，計程車約 S/10-15，提前確認旅館地址給司機。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 6 -->
+      <!-- Day 5 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">6</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">5</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/13 日</div>
         </div>
         <div class="day-card">
@@ -1033,13 +1157,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🦅 神鷹</span><span class="tag">峽谷</span><span class="tag">景觀公路</span></div>
             <div class="day-note good">可購買阿雷基帕→普諾包套一日遊，途中遊覽峽谷，費用含在裡面直送普諾，非常方便</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>03:30</span> <strong>旅行社 pick-up（科爾卡峽谷一日遊）</strong> → <span class='time'>04:30</span> 出發往奇瓦伊（Chivay）→ <span class='time'>07:00</span> 神鷹觀察點 Cruz del Condor → <span class='time'>09:00</span> 早餐 → <span class='time'>11:00</span> 峽谷景點 → <span class='time'>15:00</span> 繼續往普諾（全程約 7-8 hr）→ <span class='time'>21:00</span> 抵達普諾</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Sonesta Posadas del Inca Puno (湖畔)<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Puno<span class='detail-hotel-tier tier-mid'>中高</span></div>選有暖氣的旅館，普諾夜晚 3,827m 極冷</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">今天是長途移動日。<strong>早上出發前完成退房</strong>，行李帶上旅遊巴士，晚上直接送到普諾旅館。科爾卡一日遊行李是放在車上的，勿帶太多貴重物品。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>凌晨 03:30 出發，記得前晚設兩個鬧鐘！</strong> 旅行社通常會到旅館接送，確認 pick-up 地點。科爾卡→普諾這段高度大幅上升，多喝水、避免激烈活動。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 7 -->
+      <!-- Day 6 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">7</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">6</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/14 一</div>
         </div>
         <div class="day-card">
@@ -1052,6 +1194,24 @@ function filterRegion(region) {
             <div class="day-activities">普諾市區 → 的的喀喀湖（半日遊或一日遊）→ 蘆葦島・烏羅斯浮島 → 【夜車】La Paz（約7hr）</div>
             <div class="tags"><span class="tag hl">🌊 的的喀喀湖</span><span class="tag">蘆葦浮島</span><span class="tag">夜車</span></div>
             <div class="day-note warn">此天行程緊湊。若想充分體驗湖上過夜，可刪帕拉卡斯那天來補這裡</div>
+          </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>07:00</span> 早餐 → <span class='time'>08:30</span> 前往碼頭搭船 → <span class='time'>09:00</span> 出發 Uros 蘆葦浮島 → <span class='time'>11:30</span> 前往塔基利島（Taquile）→ <span class='time'>13:00</span> 島上午餐（烤鱒魚！）→ <span class='time'>16:00</span> 返回碼頭 → <span class='time'>19:00</span> 晚餐、休息 → <span class='time'>21:00</span> 前往客運站搭夜車往玻利維亞</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">今晚搭夜車，不住宿。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">上船前把<strong>大行李寄放旅館</strong>，只帶一天用的背包出海。回來後取行李，搭夜車。注意夜車行李安全——貴重物品隨身攜帶。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>普諾→拉巴斯</strong>：Bolivia Hop 或 Peru Hop 巴士，途經科帕卡巴納（Copacabana）邊境，約 7-8 小時。<strong>需要提前購票！</strong> 邊境過境帶護照、備好玻利維亞簽證費。</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1069,10 +1229,10 @@ function filterRegion(region) {
   <div class="section" style="padding-top:0">
     <div class="iti-grid">
 
-      <!-- Day 8 -->
+      <!-- Day 7 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">8</div><div class="dd">Day</div></div>
+          <div class="day-num-circle bolivia"><div class="dn">7</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/15 二</div>
         </div>
         <div class="day-card">
@@ -1082,13 +1242,31 @@ function filterRegion(region) {
             <div class="day-activities">抵達 → 世界最高首都適應高度 → 市區（女巫市場、索道纜車俯瞰全城）→ 日落行程</div>
             <div class="tags"><span class="tag">3,640m</span><span class="tag hl">纜車俯瞰</span><span class="tag">女巫市場</span></div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>07:00</span> 抵達拉巴斯（約 El Alto 客運站）→ <span class='time'>08:00</span> 計程車往市區旅館（注意：El Alto 機場海拔 4,060m，下到市區 3,640m，不要跑步）→ <span class='time'>09:00</span> 放行李休息 → <span class='time'>11:00</span> 纜車（Teleférico）俯瞰全城 → <span class='time'>13:00</span> 午餐 → <span class='time'>15:00</span> 薩加納加街採購、女巫市場 → <span class='time'>18:00</span> 早點回旅館休息（明天早班機！）</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Atix Hotel La Paz<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Stannum Boutique Hotel & Spa<span class='detail-hotel-tier tier-mid'>中高</span></div>選市中心或 Sopocachi 區，方便逛街，注意選有暖氣的房間</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">今晚需要在旅館<strong>把不去鹽沼的大行李寄存</strong>——或帶到烏尤尼再寄。建議只帶 1-2 天用的輕便行李去烏尤尼，大行李留在拉巴斯旅館（大部分旅館提供此服務）。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>明早飛烏尤尼！</strong> BoA OB304，07:58 從 El Alto 機場（LPB）出發，約 09:00 抵達。機場在市區 40 分鐘以外，<strong>凌晨 06:00 前要出門</strong>。提前一天確認班機。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 9 -->
+      <!-- Day 8 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">9</div><div class="dd">Day</div></div>
+          <div class="day-num-circle bolivia"><div class="dn">8</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/16 三</div>
         </div>
         <div class="day-card">
@@ -1099,13 +1277,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🌅 日落</span><span class="tag hl">🌙 星空銀河</span><span class="tag hl">📸 白天拍照</span></div>
             <div class="day-note good">白天→日落→星空連著參加，景色各自精彩。夜晚鏡面倒映銀河是最多人說值回票價的時刻</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>05:30</span> 起床，計程車往 El Alto 機場 → <span class='time'>07:00</span> 抵達機場 check-in → <span class='time'>07:58</span> BoA OB304 起飛 → <span class='time'>09:00</span> 抵達烏尤尼（UYU）→ <span class='time'>09:30</span> 旅行社接機，前往鹽沼 → <span class='time'>10:30</span> 白天拍照時段（視角遊戲！）→ <span class='time'>17:00</span> 等待日落（最美時段）→ <span class='time'>21:00</span> 夜間星空觀察</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Luna Salada Hotel（鹽磚打造，鹽沼入口）<span class='detail-hotel-tier tier-lux'>體驗必住</span></div><div class='detail-hotel-name' style='margin-top:4px'>Jardines de Uyuni<span class='detail-hotel-tier tier-mid'>中</span></div>Luna Salada 是用鹽做的旅館，床、牆壁、桌椅都是鹽，一生一次的體驗！</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">只帶小背包（相機、保暖衣物、水）去鹽沼，大行李留在拉巴斯旅館或烏尤尼鎮旅館。鹽沼上<strong>鞋子會沾滿鹽</strong>，準備舊鞋或塑膠袋套腳。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>La Paz → Uyuni</strong>：BoA 每天 07:58 出發（OB304），約 1 小時，單程 $100-165。是最省時的方式。<strong>提前在 BoA 官網 (boa.bo) 訂票</strong>，旺季極快售完！機場在烏尤尼鎮 3km 外，旅行社通常包含接送。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 10 -->
+      <!-- Day 9 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">10</div><div class="dd">Day</div></div>
+          <div class="day-num-circle bolivia"><div class="dn">9</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/17 四</div>
         </div>
         <div class="day-card">
@@ -1115,6 +1311,24 @@ function filterRegion(region) {
             <div class="day-activities">清晨日出團（天色漸亮、鹽沼染成金紅色）→ 返回烏尤尼鎮 → 搭飛機前往庫斯科（約1.5hr）→ 抵達後適應高度休息</div>
             <div class="tags"><span class="tag hl">🌄 日出金紅鹽沼</span><span class="tag">飛機→庫斯科</span></div>
             <div class="day-note good">日出後飛庫斯科，下午抵達還有半天適應高度，是體力分配最好的安排</div>
+          </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>06:00</span> 日出前抵達鹽沼看日出（旅行社安排）→ <span class='time'>08:00</span> 早餐 → <span class='time'>10:00</span> 旅行社送回烏尤尼機場 → <span class='time'>11:00</span> 飛回拉巴斯（UYU→LPB，約 1 hr）→ <span class='time'>13:00</span> 拉巴斯機場 <strong>轉機</strong> 往庫斯科（LPB→CUZ） → <span class='time'>15:00-17:00</span> 抵達庫斯科，計程車往旅館（約 15 分鐘）</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Belmond Palacio Nazarenas（印加宮殿改建）<span class='detail-hotel-tier tier-lux'>奢華</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Cusco<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Pariwana Hostel Cusco<span class='detail-hotel-tier tier-bdg'>平實</span></div></div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">今天是複雜的移動日。<strong>大行李</strong>：若昨天留在拉巴斯旅館，請旅館安排計程車在 LPB 機場附近某處取行李（或請旅館保管，但回程要計畫）。建議：從拉巴斯出發時就帶全部行李，放行李艙。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>⚠️ Uyuni → Cusco 無直飛</strong>，需在<strong>拉巴斯（LPB）轉機</strong>。常見路線：UYU→LPB（BoA，約 11:00 班次）→ LPB→CUZ（LATAM 或 BoA，中午班次）。整體約 4-6 小時含轉機。<strong>請先用 Kiwi.com 或 Google Flights 查詢最佳連接方案</strong>，提前購票！</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1131,10 +1345,10 @@ function filterRegion(region) {
   <div class="section" style="padding-top:0">
     <div class="iti-grid">
 
-      <!-- Day 11 -->
+      <!-- Day 10 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">11</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">10</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/18 五</div>
         </div>
         <div class="day-card">
@@ -1145,13 +1359,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🏛 印加遺跡</span><span class="tag">傳統市集</span></div>
             <div class="day-note">抵達庫斯科後請讓身體適應高度，避免激烈運動，多補水、慢慢走</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>08:00</span> 早餐（輕鬆行程，適應 3,400m）→ <span class='time'>10:00</span> 武器廣場散步、庫斯科大教堂 → <span class='time'>12:30</span> 午餐（天竺鼠！）→ <span class='time'>15:00</span> Sacsayhuamán 印加要塞 → <span class='time'>17:00</span> 白色基督雕像俯瞰全城 → <span class='time'>19:00</span> 回旅館，不要太晚睡</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">同 Day 9 旅館。庫斯科整段行程（Day 10-14 彩虹山後返回）都住同一家旅館，<strong>行程上比較省事</strong>。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">今天行李全留旅館，輕便外出。<strong>重要</strong>：把明後天馬丘比丘不需要的大行李<strong>全部留在庫斯科旅館</strong>（旅館提供免費寄存），只帶 8kg 以內小背包去熱水鎮。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content">今天不需要安排特殊交通。庫斯科市區步行即可，Sacsayhuamán 走路約 30 分鐘上坡，可搭計程車去（S/10-15）。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 12 -->
+      <!-- Day 11 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">12</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">11</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/19 六</div>
         </div>
         <div class="day-card">
@@ -1161,13 +1393,31 @@ function filterRegion(region) {
             <div class="day-activities">庫斯科出發 → 聖谷一日遊（Chinchero琴切羅・Maras鹽田・Moray圓形梯田）→ Ollantaytambo脫團搭火車 → 抵達熱水鎮</div>
             <div class="tags"><span class="tag hl">🧂 Maras鹽田</span><span class="tag hl">⭕ Moray梯田</span><span class="tag">火車</span></div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>07:00</span> 旅行社 pick-up（聖谷一日遊）→ <span class='time'>08:00</span> Pisac 市集（採購！）→ <span class='time'>11:00</span> Maras 鹽田 → <span class='time'>13:00</span> Moray 梯田 → <span class='time'>15:00</span> 奧揚泰坦博（Ollantaytambo）古堡 → <span class='time'>18:00</span> 奧揚泰坦博火車站，搭 Vistadome 往熱水鎮 → <span class='time'>19:30</span> 抵達 Aguas Calientes</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content"><div class='detail-hotel-name'>Inkaterra Machu Picchu Pueblo Hotel<span class='detail-hotel-tier tier-lux'>奢華・旅館即叢林</span></div><div class='detail-hotel-name' style='margin-top:4px'>El Mapi by Inkaterra<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Rupa Wasi Eco Lodge<span class='detail-hotel-tier tier-mid'>中</span></div>建議至少訂中高級，熱水鎮選擇其實不多</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content"><strong>只帶 8kg 小背包</strong>上火車（PeruRail 嚴格執行）。大行李<strong>全部留在庫斯科旅館</strong>。熱水鎮的行李就是這一個小包，住一晚。小包內裝：換洗衣物、雨衣、相機、護照（必須！）、門票截圖。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>Ollantaytambo → Aguas Calientes</strong>：Vistadome 或 Inca Rail 360°，約 1.5 小時，含用餐。抵達後 <span class='time'>約 20 分鐘</span>步行到鎮上旅館（或計程車 S/10）。提前購票！旺季晚班非常搶手。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 13 -->
+      <!-- Day 12 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">13</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">12</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/20 日</div>
         </div>
         <div class="day-card">
@@ -1178,13 +1428,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🏛 Circuit 3</span><span class="tag hl">👣 人少冷門</span><span class="tag">導覽解說</span></div>
             <div class="day-note warn">周日人多，Circuit 3 走下方區域，人少很多可以從容欣賞。導覽在這天打底，明天走 Circuit 2 才能真正看懂每個角落</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>05:30</span> 起床，前往 Consettur 巴士站排隊 → <span class='time'>06:00</span> 搭接駁巴士（25 分鐘）→ <span class='time'>06:30</span> 抵達馬丘比丘入口，進入 Circuit 3 → <span class='time'>07:00-11:00</span> 下方寺廟區（Circuit 3：太陽神廟・老鷹神廟・皇家宮殿）→ <span class='time'>11:30</span> 預約場地內導覽解說（英文或西文）→ <span class='time'>13:30</span> 巴士返回熱水鎮 → <span class='time'>14:30</span> 午餐 → <span class='time'>15:30</span> 溫泉（Aguas Calientes 公共溫泉，入場費約 $10）→ <span class='time'>19:00</span> 晚餐</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">同 Day 11 旅館。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">行李在熱水鎮旅館，進遺跡只帶小背包（護照必須、水、零食、雨衣）。<strong>遺跡內禁止帶三腳架</strong>，手機腳架小型可以。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content">Consettur 巴士每天 <span class='time'>05:30</span> 開始，排隊要趁早（旺季人很多）。來回票約 $24，可提前在 consettur.com 購買省時間。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 14 -->
+      <!-- Day 13 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">14</div><div class="dd">Day</div></div>
+          <div class="day-num-circle machu"><div class="dn">13</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/21 一</div>
         </div>
         <div class="day-card">
@@ -1195,13 +1463,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🏔 Circuit 2 經典</span><span class="tag hl">📸 全景角度</span><span class="tag hl">⛰ 華納比丘</span><span class="tag">火車返庫斯科</span></div>
             <div class="day-note warn">周一人比周日少很多！昨天 Circuit 3 打底，今天走 Circuit 2 看得懂也看得爽。華納比丘需提前在 tuboleto.cultura.pe 搶票（限額400人/天）</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>05:30</span> 前往巴士站（提早排隊）→ <span class='time'>06:30</span> 進入馬丘比丘，Circuit 2 從守門人小屋開始 → <span class='time'>07:00</span> 守門人小屋全景拍照（最經典角度）→ <span class='time'>08:00</span> 開始爬 Huayna Picchu（需另外入場，記得帶門票截圖）→ <span class='time'>09:30</span> 山頂俯瞰全景 → <span class='time'>11:00</span> 下山，繼續走 Circuit 2 → <span class='time'>13:00</span> 離開遺跡 → <span class='time'>14:00</span> 午餐 → <span class='time'>16:00</span> 搭 Vistadome 返回奧揚泰坦博 → <span class='time'>18:00</span> 奧揚泰坦博搭交通車回庫斯科</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">回到庫斯科原旅館。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">返回庫斯科時，先到旅館取回之前寄存的大行李。今晚住庫斯科。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>Aguas Calientes → 奧揚泰坦博</strong>：傍晚班次 Vistadome，提前購票。<strong>奧揚泰坦博 → 庫斯科</strong>：旅行社巴士或共乘，約 1.5-2 小時。可在奧揚泰坦博古鎮稍作停留再搭車。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 15 -->
+      <!-- Day 14 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">15</div><div class="dd">Day</div></div>
+          <div class="day-num-circle"><div class="dn">14</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/22 二</div>
         </div>
         <div class="day-card">
@@ -1214,6 +1500,24 @@ function filterRegion(region) {
             <div class="day-activities">凌晨3-4點出發 → 車程約3hr → 健行至彩虹山頂（往返約3-4hr）→ 下午回庫斯科充分休息</div>
             <div class="tags"><span class="tag hl">🌈 七彩地層</span><span class="tag">5,200m</span><span class="tag">凌晨出發</span></div>
             <div class="day-note warn">海拔極高，這天務必備好高山症藥物、保暖衣物。下午回來後休息，隔天即飛亞馬遜</div>
+          </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>03:30</span> <strong>⚠️ 彩虹山出發！</strong> 旅行社 pick-up → <span class='time'>04:00</span> 出發往 Cusipata（約 3 小時車程）→ <span class='time'>07:00</span> 健行起點（海拔約 4,300m）→ <span class='time'>08:30</span> 抵達彩虹山頂（5,200m，來回約 3 小時）→ <span class='time'>10:00</span> 下山 → <span class='time'>11:30</span> 返程 → <span class='time'>15:00</span> 回庫斯科，大休息</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">庫斯科原旅館。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">今天全天行程，行李全留旅館。帶好水（至少 2 公升）、保暖衣物、防曬。Acetazolamide（丹木斯）<strong>前一天就開始服用</strong>！</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content">彩虹山距庫斯科約 3 小時車程，旅行社包車出發。<strong>注意</strong>：5,200m 山頂極冷、風大，帶好手套和雨衣。有高山症症狀立即下山，不要勉強。</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1230,10 +1534,10 @@ function filterRegion(region) {
   <div class="section" style="padding-top:0">
     <div class="iti-grid">
 
-      <!-- Day 16 -->
+      <!-- Day 15 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle amazon"><div class="dn">16</div><div class="dd">Day</div></div>
+          <div class="day-num-circle amazon"><div class="dn">15</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/23 三</div>
         </div>
         <div class="day-card">
@@ -1244,13 +1548,31 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🌿 亞馬遜</span><span class="tag">Lodge 包套</span><span class="tag">飛機</span></div>
             <div class="day-note good">三天兩夜正式展開！今晚住第一夜，明天繼續深入叢林，後天早上才離開，時間非常充裕</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>06:00</span> 早餐 → <span class='time'>07:30</span> 計程車往庫斯科機場（約 15 分鐘）→ <span class='time'>08:30</span> Sky H25721 出發 → <span class='time'>09:30</span> 抵達馬爾多納多（PEM）→ <span class='time'>09:45</span> Lodge 人員在出口等候，先去辦公室寄大行李 → <span class='time'>10:30</span> 車程 + 船程進入 Lodge（約 45 分鐘）→ <span class='time'>13:00</span> Lodge 抵達，午餐 → <span class='time'>15:00</span> 下午叢林健行 → <span class='time'>20:00</span> 晚間研究員講座</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">Corto Maltés / Wasai / Inotawa（依預訂結果），3天2夜全包式 Lodge，含餐食和活動。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content"><strong>⚠️ 重要行李安排</strong>：在 Lodge 辦公室寄存不需要的大行李（護照、電腦等貴重物除外）。進 Lodge 只帶<strong>輕便背包</strong>：換洗衣物（快乾衣）、驅蟲噴霧、防水袋、頭燈。Lodge 提供橡膠雨靴，不用自己帶。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>庫斯科 → 馬爾多納多</strong>：Sky H25721，08:30 出發，約 1 小時。<strong>必須 13:00 前抵達 Lodge</strong>！所以 08:30 班是最合適的。Lodge 在機場等候，直接接送。</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Day 17 -->
+      <!-- Day 16 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle amazon"><div class="dn">17</div><div class="dd">Day</div></div>
+          <div class="day-num-circle amazon"><div class="dn">16</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/24 四</div>
         </div>
         <div class="day-card">
@@ -1259,6 +1581,59 @@ function filterRegion(region) {
             <div class="day-title">亞馬遜雨林 ── 深入叢林第二天</div>
             <div class="day-activities">日出觀鳥 → 獨木舟探索支流 → 夜間觀察（凱門鱷・夜行動物・青蛙）→ 晚間研究員講座</div>
             <div class="tags"><span class="tag hl">🌅 日出觀鳥</span><span class="tag hl">🚣 獨木舟</span><span class="tag hl">🐊 夜間凱門鱷</span></div>
+          </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>05:30</span> 日出觀鳥（叢林在晨光中最活躍）→ <span class='time'>08:00</span> 早餐 → <span class='time'>09:30</span> 獨木舟探索支流（找水豚、凱門鱷）→ <span class='time'>12:30</span> 午餐 → <span class='time'>14:00</span> 自由活動 / 吊床休息 → <span class='time'>16:00</span> 金剛鸚鵡泥鹽地（如有）→ <span class='time'>19:30</span> 晚餐 → <span class='time'>21:00</span> 夜間獨木舟（看凱門鱷眼睛反光）</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">Lodge（同 Day 15）。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">行李就在 Lodge 房間，輕鬆的一天。每天活動前帶：防蚊液（DEET 高濃度）、防水袋、頭燈、手機（放進密封袋防潮）。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content">今天完全在 Lodge 活動，不需要任何外部交通。盡情享受叢林！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 17 -->
+      <div class="day-block">
+        <div class="day-left">
+          <div class="day-num-circle amazon"><div class="dn">17</div><div class="dd">Day</div></div>
+          <div class="day-date-label">9/25 五</div>
+        </div>
+        <div class="day-card">
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1a2a1a"/><circle cx="340" cy="30" r="20" fill="#3D6B4F" opacity="0.4"/><rect x="0" y="110" width="400" height="70" fill="#0f1a0f"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="3">AMAZON → LIMA</text><ellipse cx="200" cy="90" rx="120" ry="40" fill="#2a4a2a" opacity="0.6"/><text x="200" y="96" text-anchor="middle" font-family="serif" font-size="22" fill="#6BAA80">🌿✈️🏙</text></svg><div class="day-img-caption">亞馬遜 → 利馬 · Day 18</div></div>
+          <div class="day-body">
+            <div class="day-title">亞馬遜 ── 最後早晨 → 飛回利馬</div>
+            <div class="day-activities">早上最後一段雨林活動（日出觀鳥或獨木舟）→ 辦理退宿 → Lodge 08:00 固定交通送回馬爾多納多 → 搭下午班機返利馬 → 傍晚抵達 Miraflores → 最後晚餐</div>
+            <div class="tags"><span class="tag hl">🌿 最後雨林活動</span><span class="tag">✈ 飛回利馬</span><span class="tag hl">🍽 最後晚餐</span></div>
+            <div class="day-note">Lodge 每天 07:00/08:00 有固定交通送回機場，建議訂下午的馬爾多納多→利馬班機，傍晚抵達 Miraflores 還有時間吃頓好的最後晚餐</div>
+          </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>06:00</span> 最後一次清晨活動（日出觀鳥）→ <span class='time'>08:00</span> 早餐・開始退房準備 → <span class='time'>09:00</span> Lodge 固定交通（船+車）送回馬爾多納多辦公室，取回寄存行李 → <span class='time'>11:30</span> 抵達馬爾多納多機場 → <span class='time'>13:30-15:00</span> 班機飛往利馬（LATAM 直飛）→ <span class='time'>16:00-17:00</span> 抵達利馬，計程車往 Miraflores → <span class='time'>19:00</span> 最後晚餐（最好吃！）</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">利馬 Miraflores（同 Day 1 旅館，或提前訂好機場附近旅館方便凌晨出發）。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">Lodge 辦公室取回大行李，整理好準備明天離境。今晚在利馬 Miraflores 旅館，把紀念品、採購品整理好，預留行李空間。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>馬爾多納多 → 利馬</strong>：LATAM 直飛，約 2 小時。訂下午 13:30-15:00 之間的班次，讓 Lodge 有充分時間送到機場。</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1277,6 +1652,24 @@ function filterRegion(region) {
             <div class="tags"><span class="tag hl">🍽 最後晚餐</span><span class="tag hl">🛍 伴手禮</span><span class="tag">海崖公園</span><span class="tag warn">凌晨離境</span></div>
             <div class="day-note good">有整天緩衝，不用趕。KE7288 00:05（9/27凌晨）離境，建議晚餐後悠閒出發，10點前抵達機場即可，完全不慌張</div>
           </div>
+          <div class="day-detail">
+            <div class="detail-block">
+              <div class="detail-label">🕐 時刻表</div>
+              <div class="detail-content"><span class='time'>09:00</span> 早餐，輕鬆晨間行程 → <span class='time'>10:30</span> Miraflores 海崖公園、Larcomar 最後採購 → <span class='time'>13:00</span> 最後午餐（Ceviche！）→ <span class='time'>15:00</span> 回旅館整理行李、秤重 → <span class='time'>18:00</span> 最後晚餐 → <span class='time'>21:00</span> 計程車往利馬國際機場（提早出發！）→ <span class='time'>22:30</span> 抵達機場，辦理 KE7288 check-in → <span class='time'>00:05+1</span> KE7288 起飛</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🏨 住宿建議</div>
+              <div class="detail-content">今晚不住宿，直接在機場等候。若班機延誤或想補眠，可訂機場附近 Wyndham Costa del Sol Lima Airport。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🧳 行李安排</div>
+              <div class="detail-content">機場行李限制：<strong>確認 KE7288 的行李限重</strong>（大韓通常 23kg×2/人）。最後晚餐前先秤好行李，超重可在機場辦公室付超重費，或在旅館把重物分配好。利馬機場國際線需提前 3 小時 check-in。</div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">🚌 交通提醒</div>
+              <div class="detail-content"><strong>凌晨 00:05 的班機，21:00 就要出門！</strong> Miraflores 到機場平常約 30-45 分鐘，但夜間交通可能較快。計程車提前約好（旅館代叫或 InDriver），確認固定費率。機場大廳 22:30 前到 check-in 櫃台。</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1292,207 +1685,221 @@ function filterRegion(region) {
     <h2 class="booking-title">📋 預訂清單</h2>
     <p class="booking-sub">點擊勾選框記錄進度 · 深色背景不代表已完成，記得實際去訂！</p>
 
-    <div class="booking-cols">
+    
+        <div class="booking-cols">
 
-      <!-- 🔴 立刻要做 -->
-      <div class="booking-group">
-        <div class="booking-group-header red">🔴 立刻要做（越快越好）</div>
-        <div class="booking-items">
+          <!-- 🔴 立刻要做 -->
+          <div class="booking-group">
+            <div class="booking-group-header red">🔴 現在就去訂（9月旺季極易售完）</div>
+            <div class="booking-items">
 
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">馬丘比丘門票 Circuit 3（9/20 日）</div>
-                <div class="booking-item-note">周日人多，Circuit 3 下方冷門路線・導覽打底</div>
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">馬丘比丘門票 Circuit 3（9/20 日）</div>
+                    <div class="booking-item-note">周日避人潮，Circuit 3 下方冷門路線・導覽打底</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">tuboleto.cultura.pe</div>
               </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">馬丘比丘門票 Circuit 2 + 華納比丘（9/21 一）</div>
+                    <div class="booking-item-note">華納比丘限額 400 人/天，建議訂 07:00 最早時段</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">tuboleto.cultura.pe</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">馬丘比丘火車 去程（9/19 晚 → 熱水鎮）</div>
+                    <div class="booking-item-note">奧揚泰坦博出發，旺季早班極快售完。Vistadome 或 Inca Rail 360°</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">perurail.com / incarail.com</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">馬丘比丘火車 返程（9/21 傍晚 → 庫斯科）</div>
+                    <div class="booking-item-note">華納比丘下山後搭傍晚班，同樣旺季需提前搶</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">perurail.com / incarail.com</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">亞馬遜 Lodge 三人房（9/23–9/25）</div>
+                    <div class="booking-item-note">Corto Maltés 已留言；同時詢問 Wasai Tambopata、Inotawa</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">各官網 / WhatsApp</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">庫斯科 → 馬爾多納多 機票（9/23）</div>
+                    <div class="booking-item-note">Sky H25721 08:30，需在 Lodge 13:00 前抵達</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">Sky Airline 官網</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">馬爾多納多 → 利馬 機票（9/25）</div>
+                    <div class="booking-item-note">Lodge 08:00 送回機場，訂下午班（LATAM 直飛）</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">LATAM 官網</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">全程住宿</div>
+                    <div class="booking-item-note">9月旺季各城市住宿都需提前預訂，尤其庫斯科、熱水鎮最難訂</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">Booking.com / Airbnb</div>
+              </div>
+
             </div>
-            <div class="booking-item-where">tuboleto.cultura.pe</div>
           </div>
 
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">馬丘比丘門票 Circuit 2 + 華納比丘（9/21 一）</div>
-                <div class="booking-item-note">華納比丘限額 400 人/天，周一人少，建議訂 07:00 時段</div>
+          <!-- 🟡 近期 1-2 個月 -->
+          <div class="booking-group">
+            <div class="booking-group-header amber">🟡 近期 1–2 個月內</div>
+            <div class="booking-items">
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">熱水鎮接駁巴士（Consettur）</div>
+                    <div class="booking-item-note">阿瓜斯卡連特斯 ↔ 馬丘比丘入口，來回約 $24，可提前網路預購避免現場排隊</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">consettur.com 或到當地買</div>
               </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">納斯卡線小飛機（9/11）</div>
+                    <div class="booking-item-note">提前聯繫確認天氣班次，9月乾季飛行視野好，Aerodiana 評價最佳</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">Aerodiana / AeroParacas</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">科爾卡峽谷一日遊（9/13）</div>
+                    <div class="booking-item-note">從阿雷基帕出發，含神鷹觀察點，凌晨 03:00 左右出發，全天行程</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">阿雷基帕當地旅行社</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">的的喀喀湖遊湖（9/14）</div>
+                    <div class="booking-item-note">蘆葦浮島 + 塔基利島，包船體驗更自由，普諾碼頭或提前網路訂</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">普諾碼頭旅行社</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">天空之鏡一日遊（9/16）</div>
+                    <div class="booking-item-note">烏尤尼鎮出發，日落 + 星空套裝行程，多家業者競爭，到了比價即可</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">烏尤尼當地旅行社</div>
+              </div>
+
             </div>
-            <div class="booking-item-where">tuboleto.cultura.pe</div>
           </div>
 
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">亞馬遜 Lodge 三人房（9/23–9/25）</div>
-                <div class="booking-item-note">Corto Maltés 已留言；同時詢問 Wasai Tambopata / Inotawa</div>
-              </div>
-            </div>
-            <div class="booking-item-where">各官網 / 寫信</div>
-          </div>
+          <!-- 🟢 出發前在台灣處理 / 到了當地再辦 -->
+          <div class="booking-group">
+            <div class="booking-group-header green">🟢 出發前台灣處理 / 到當地再辦</div>
+            <div class="booking-items">
 
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">庫斯科 → 馬爾多納多 機票（9/23）</div>
-                <div class="booking-item-note">Sky H25721 08:30 出發，需在 Lodge 13:00 前抵達</div>
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">旅遊保險（出發前台灣投保）</div>
+                    <div class="booking-item-note">需含高海拔醫療救援（彩虹山 5,200m）和亞馬遜緊急撤離，出發前1週投保</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">富邦 / 國泰 / 全球人壽</div>
               </div>
-            </div>
-            <div class="booking-item-where">Sky / LATAM</div>
-          </div>
 
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">馬爾多納多 → 利馬 機票（9/25）</div>
-                <div class="booking-item-note">Lodge 07:00/08:00 固定交通送回，搭下午班機</div>
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">高山症備藥 Acetazolamide（丹木斯）</div>
+                    <div class="booking-item-note">台灣診所開立處方，彩虹山（Day 14）前一天開始服用，也可從阿雷基帕就開始</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">台灣家醫科診所</div>
               </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">玻利維亞簽證（Day 1 利馬辦）</div>
+                    <div class="booking-item-note">台灣護照需簽證，在利馬玻利維亞大使館辦，帶護照、照片、費用，第一天就去</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">利馬玻利維亞大使館</div>
+              </div>
+
+              <div class="booking-item">
+                <div class="booking-item-row">
+                  <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
+                  <div class="booking-item-left">
+                    <div class="booking-item-name">聖谷一日遊（9/19）</div>
+                    <div class="booking-item-note">庫斯科旅行社多且競爭激烈，到了再比價，含 Pisac、Maras、Moray</div>
+                  </div>
+                </div>
+                <div class="booking-item-where">庫斯科當地旅行社</div>
+              </div>
+
             </div>
-            <div class="booking-item-where">LATAM / Sky</div>
           </div>
 
         </div>
-      </div>
-
-      <!-- 🟡 近期需要處理 -->
-      <div class="booking-group">
-        <div class="booking-group-header amber">🟡 近期需要處理（1–2 個月內）</div>
-        <div class="booking-items">
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">馬丘比丘火車 去程（9/19 晚）</div>
-                <div class="booking-item-note">奧揚泰坦博 → 阿瓜斯卡連特斯，Vistadome 或 Inca Rail 360°</div>
-              </div>
-            </div>
-            <div class="booking-item-where">perurail.com / incarail.com</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">馬丘比丘火車 返程（9/21 傍晚）</div>
-                <div class="booking-item-note">阿瓜斯卡連特斯 → 奧揚泰坦博，傍晚班次</div>
-              </div>
-            </div>
-            <div class="booking-item-where">perurail.com / incarail.com</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">熱水鎮接駁巴士來回（Consettur）</div>
-                <div class="booking-item-note">阿瓜斯卡連特斯 → 馬丘比丘入口，來回約 $24</div>
-              </div>
-            </div>
-            <div class="booking-item-where">到當地或提前網購</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">納斯卡線小飛機（9/11）</div>
-                <div class="booking-item-note">建議提前聯繫當地公司確認天氣與班次</div>
-              </div>
-            </div>
-            <div class="booking-item-where">Aerodiana / AeroParacas</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">科爾卡峽谷一日遊（9/12）</div>
-                <div class="booking-item-note">從阿雷基帕出發，含神鷹觀察點，全天行程</div>
-              </div>
-            </div>
-            <div class="booking-item-where">阿雷基帕當地旅行社</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">的的喀喀湖遊湖（9/14）</div>
-                <div class="booking-item-note">蘆葦浮島 + 塔基利島，包船體驗更自由</div>
-              </div>
-            </div>
-            <div class="booking-item-where">普諾碼頭旅行社</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">各城市住宿（全程）</div>
-                <div class="booking-item-note">9月旺季，建議提前 2–3 個月訂，越早越便宜</div>
-              </div>
-            </div>
-            <div class="booking-item-where">Booking / Airbnb</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- 🟢 到了當地再辦 -->
-      <div class="booking-group">
-        <div class="booking-group-header green">🟢 到了當地再辦</div>
-        <div class="booking-items">
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">玻利維亞簽證（9/9 利馬辦）</div>
-                <div class="booking-item-note">台灣護照需事先辦理，第一天在利馬的玻利維亞大使館辦，帶護照、照片、費用</div>
-              </div>
-            </div>
-            <div class="booking-item-where">利馬玻利維亞使館</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">聖谷一日遊（9/19）</div>
-                <div class="booking-item-note">庫斯科旅行社多且競爭激烈，到了再比價，含 Pisac、Maras、Moray</div>
-              </div>
-            </div>
-            <div class="booking-item-where">庫斯科當地旅行社</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">高山症備藥 Acetazolamide（丹木斯）</div>
-                <div class="booking-item-note">建議台灣出發前開處方帶好，彩虹山前一天開始服用</div>
-              </div>
-            </div>
-            <div class="booking-item-where">台灣診所開立處方</div>
-          </div>
-
-          <div class="booking-item">
-            <div class="booking-item-row">
-              <div class="booking-done" onclick="this.classList.toggle('checked')"></div>
-              <div class="booking-item-left">
-                <div class="booking-item-name">旅遊保險</div>
-                <div class="booking-item-note">建議含高海拔醫療救援、亞馬遜緊急撤離，出發前在台灣投保</div>
-              </div>
-            </div>
-            <div class="booking-item-where">富邦 / 國泰 / 全球人壽</div>
-          </div>
-
-        </div>
-      </div>
 
     </div>
   </div>
@@ -1501,10 +1908,10 @@ function filterRegion(region) {
 <!-- FOOD SECTION -->
 <section class="food-section" id="food">
   <div class="food-section-inner">
-    <h2 class="food-section-title">🍽 旅途美食地圖</h2>
-    <p class="food-section-sub">從海岸到高原到雨林，每一站都有值得記住的味道</p>
+    <h2 class="food-section-title">🍽 旅途美食 & 購物地圖</h2>
+    <p class="food-section-sub">從海岸到高原到雨林，每一站都有值得記住的味道和帶走的記憶</p>
 
-    <!-- 利馬 -->
+    <!-- ── 利馬 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🏙 利馬 Lima</span>
@@ -1516,8 +1923,8 @@ function filterRegion(region) {
           <div class="food-card-img-placeholder" style="display:none">🐟</div>
           <div class="food-card-body">
             <div class="food-card-name">檸檬醃生魚</div>
-            <div class="food-card-name-en">Ceviche</div>
-            <div class="food-card-desc">秘魯國菜，白魚以萊姆汁「醃熟」，佐洋蔥、辣椒、番薯。利馬的版本最正宗，午餐時段吃最新鮮。</div>
+            <div class="food-card-name-en">Ceviche — 秘魯國菜</div>
+            <div class="food-card-desc">白魚用萊姆汁「酸熟」，佐洋蔥、辣椒、番薯。<strong>只在午餐時間吃</strong>，秘魯人認為晚上不應該吃生海鮮。利馬是最正宗的產地。</div>
             <span class="food-badge eat">必吃</span>
           </div>
         </div>
@@ -1526,24 +1933,34 @@ function filterRegion(region) {
           <div class="food-card-img-placeholder" style="display:none">🍹</div>
           <div class="food-card-body">
             <div class="food-card-name">皮斯科沙瓦</div>
-            <div class="food-card-name-en">Pisco Sour</div>
-            <div class="food-card-desc">葡萄蒸餾酒加萊姆汁、蛋白、糖漿打成，上層灑苦精。秘魯國酒，每家酒吧配方略有不同。</div>
+            <div class="food-card-name-en">Pisco Sour — 國酒調酒</div>
+            <div class="food-card-desc">葡萄蒸餾酒加萊姆汁、蛋白打成泡沫，上層灑苦精。<br>帶回家：找印有<strong>納斯卡線圖案的小瓶裝 Pisco</strong>，超市大瓶不好帶，利馬機場有賣特別版。約 $15–40 美元/瓶。</div>
             <span class="food-badge drink">必喝</span>
+            <span class="food-badge buy">可帶回</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🟡</div>
+          <div class="food-card-body">
+            <div class="food-card-name">印加可樂</div>
+            <div class="food-card-name-en">Inca Kola — 只有秘魯才有</div>
+            <div class="food-card-desc">鮮黃色汽水，甜度高、口感類似台灣維大力。秘魯人對它的愛超過可口可樂——是唯一一個讓可口可樂收購而非打敗的品牌。必喝一次！</div>
+            <span class="food-badge drink">必試</span>
           </div>
         </div>
         <div class="food-card">
           <div class="food-card-img-placeholder">🛍</div>
           <div class="food-card-body">
-            <div class="food-card-name">伴手禮採購</div>
-            <div class="food-card-name-en">Miraflores 商圈</div>
-            <div class="food-card-desc">羊駝毛製品、秘魯咖啡、Pisco 酒、瑪卡（秘魯人參）。Larcomar 商場靠近海崖，邊逛邊看太平洋。</div>
-            <span class="food-badge buy">必買</span>
+            <div class="food-card-name">Miraflores 購物</div>
+            <div class="food-card-name-en">利馬最好的採買區</div>
+            <div class="food-card-desc"><strong>Larcomar 商場</strong>（海崖邊，有景觀）：秘魯咖啡（250g 約 $8–15）、Pisco、LaIbérica 巧克力（阿雷基帕老牌，比機場便宜）。<strong>Inca Market</strong>：羊駝製品集中地，可殺價。</div>
+            <span class="food-badge buy">必逛</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 阿雷基帕 -->
+    <!-- ── 阿雷基帕 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🌋 阿雷基帕 Arequipa</span>
@@ -1555,34 +1972,42 @@ function filterRegion(region) {
           <div class="food-card-img-placeholder" style="display:none">🍦</div>
           <div class="food-card-body">
             <div class="food-card-name">起司冰淇淋</div>
-            <div class="food-card-name-en">Queso Helado</div>
-            <div class="food-card-desc">阿雷基帕獨有，名字叫「起司」但其實是以肉桂、椰奶調味的甜冰淇淋，武器廣場四周都有攤販，小杯約 2.5 sol。</div>
+            <div class="food-card-name-en">Queso Helado — 阿雷基帕獨有</div>
+            <div class="food-card-desc">名字叫「起司」但其實是以肉桂、椰奶調味的甜冰品，武器廣場四周到處有攤販，小杯約 2.5 sol（台幣約 25 元）。非常便宜，多吃幾杯！</div>
             <span class="food-badge eat">必吃</span>
           </div>
         </div>
         <div class="food-card">
-          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Alpaca_lying_down.jpg/640px-Alpaca_lying_down.jpg" alt="Alpaca dish" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="food-card-img-placeholder" style="display:none">🦙</div>
+          <div class="food-card-img-placeholder">🦙</div>
           <div class="food-card-body">
             <div class="food-card-name">羊駝料理</div>
-            <div class="food-card-name-en">Alpaca / Lomo de Alpaca</div>
-            <div class="food-card-desc">肉質介於牛肉和羊肉之間，低脂鮮嫩。阿雷基帕的羊駝料理最為道地，推薦 La Nueva Palomino 餐廳（只開到下午5點）。</div>
+            <div class="food-card-name-en">Lomo de Alpaca</div>
+            <div class="food-card-desc">阿雷基帕的羊駝料理是全秘魯最道地的。推薦 <strong>La Nueva Palomino</strong>（距舊城區步行 15 分鐘，只開到下午 5 點）。一份約台幣 250 元。點七分熟，全熟偏柴。</div>
             <span class="food-badge eat">必吃</span>
           </div>
         </div>
         <div class="food-card">
-          <div class="food-card-img-placeholder">🍽</div>
+          <div class="food-card-img-placeholder">🍫</div>
           <div class="food-card-body">
-            <div class="food-card-name">大綜合拼盤</div>
-            <div class="food-card-name-en">Americano · La Nueva Palomino</div>
-            <div class="food-card-desc">含所有阿雷基帕當地特色料理的拼盤，一次嚐遍白城風味。餐廳距舊城區步行約15分鐘，中午時段去最新鮮。</div>
-            <span class="food-badge eat">推薦</span>
+            <div class="food-card-name">LaIbérica 巧克力</div>
+            <div class="food-card-name-en">成立於 1909 年的阿雷基帕老牌</div>
+            <div class="food-card-desc">秘魯最有名的巧克力品牌，包裝精美好送人。<strong>一定要在阿雷基帕買，不要在機場買</strong>——機場品項少且明顯貴。各種口味濃郁，是最推薦的伴手禮之一。</div>
+            <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🧣</div>
+          <div class="food-card-body">
+            <div class="food-card-name">SOL Alpaca 羊駝品牌</div>
+            <div class="food-card-name-en">阿雷基帕 Santa Catalina 210 門市</div>
+            <div class="food-card-desc">秘魯頂級羊駝品牌，<strong>阿雷基帕這間包裝最用心</strong>，會放入羊駝簡介文件，適合送禮。購買時問有無折扣，買多件有機會。Baby Alpaca 圍巾約 $30–60，毛衣 $80–200。</div>
+            <span class="food-badge buy">強推</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 普諾 -->
+    <!-- ── 普諾 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🌊 普諾 Puno</span>
@@ -1594,7 +2019,7 @@ function filterRegion(region) {
           <div class="food-card-body">
             <div class="food-card-name">烤鱒魚</div>
             <div class="food-card-name-en">Trucha a la Plancha</div>
-            <div class="food-card-desc">的的喀喀湖現撈，海拔3,800m的高原淡水魚，肉質細嫩。簡單炭烤配辣醬是最道地的吃法，碼頭附近餐廳最新鮮。</div>
+            <div class="food-card-desc">的的喀喀湖海拔 3,800m 的高原淡水魚，現撈現烤。碼頭附近餐廳最新鮮，簡單炭烤配辣醬是最道地吃法。</div>
             <span class="food-badge eat">必吃</span>
           </div>
         </div>
@@ -1602,19 +2027,28 @@ function filterRegion(region) {
           <div class="food-card-img-placeholder">🛶</div>
           <div class="food-card-body">
             <div class="food-card-name">蘆葦船工藝品</div>
-            <div class="food-card-name-en">Reed Boat Crafts</div>
-            <div class="food-card-desc">烏魯族傳統蘆葦船模型，浮島上的小攤就有賣，小型模型約 $5-20 美元，比碼頭旁的紀念品店便宜。</div>
+            <div class="food-card-name-en">Reed Boat Crafts · 烏魯族</div>
+            <div class="food-card-desc">在<strong>烏魯斯浮島上直接跟族人買</strong>最便宜（不經中間商），比普諾碼頭旁的紀念品店便宜 30–50%，小型模型約 $5–15 美元。</div>
             <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🎨</div>
+          <div class="food-card-body">
+            <div class="food-card-name">普諾羊駝毛衣</div>
+            <div class="food-card-name-en">普諾商業街</div>
+            <div class="food-card-desc">普諾的羊駝製品比庫斯科便宜，色彩拼接毛衣款式特別。商業街（Jr. Lima）從頭走到尾就逛完，路邊攤比店面便宜，看到喜歡的花色就下手。</div>
+            <span class="food-badge buy">推薦</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 拉巴斯 -->
+    <!-- ── 拉巴斯 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🚡 拉巴斯 La Paz</span>
-        <span class="food-city-days">Day 8</span>
+        <span class="food-city-days">Day 7–8</span>
       </div>
       <div class="food-cards">
         <div class="food-card">
@@ -1622,103 +2056,157 @@ function filterRegion(region) {
           <div class="food-card-body">
             <div class="food-card-name">炒羊駝飯</div>
             <div class="food-card-name-en">Chicharrón de Llama</div>
-            <div class="food-card-desc">大蒜香料拌炒羊駝肉，搭配米飯和玉米。玻利維亞的羊駝比秘魯更常見，價格也更實惠，市場裡就能找到。</div>
+            <div class="food-card-desc">大蒜香料拌炒羊駝肉，搭配米飯和玉米。玻利維亞的羊駝比秘魯更隨處可見，市場小攤就能吃到，比餐廳便宜許多。</div>
             <span class="food-badge eat">必吃</span>
           </div>
         </div>
         <div class="food-card">
-          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Mercado_de_las_brujas%2C_La_Paz%2C_Bolivia.jpg/640px-Mercado_de_las_brujas%2C_La_Paz%2C_Bolivia.jpg" alt="La Paz market" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="food-card-img-placeholder" style="display:none">🧿</div>
+          <div class="food-card-img-placeholder">🧣</div>
           <div class="food-card-body">
-            <div class="food-card-name">薩加納加街購物</div>
-            <div class="food-card-name-en">Calle Sagarnaga</div>
-            <div class="food-card-desc">羊駝毛製品集中地，圍巾約 $15-40、毛衣約 $40-150，比秘魯更便宜。巫術市場（Mercado de las Brujas）就在附近，護身符、藥草獨一無二。</div>
-            <span class="food-badge buy">必買</span>
+            <div class="food-card-name">薩加納加街羊駝採購</div>
+            <div class="food-card-name-en">Calle Sagarnaga — 購物核心地帶</div>
+            <div class="food-card-desc">玻利維亞羊駝製品<strong>比秘魯便宜 20–40%</strong>：圍巾 $15–40、毛衣 $40–150。不確定品質可摸毛感——真正 Baby Alpaca 摸起來如絲般柔滑，不會刮手。</div>
+            <span class="food-badge buy">必逛</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🧿</div>
+          <div class="food-card-body">
+            <div class="food-card-name">巫術市場</div>
+            <div class="food-card-name-en">Mercado de las Brujas</div>
+            <div class="food-card-desc">薩加納加街旁，販售護身符、藥草、乾燥草尼馬（儀式用）、占卜道具。真正融入安地斯巫術文化的體驗，小護身符約 $2–10，帶回去送人超有話題性。</div>
+            <span class="food-badge buy">必逛</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 庫斯科 -->
+    <!-- ── 庫斯科 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🏛 庫斯科 Cusco</span>
-        <span class="food-city-days">Day 10–11 · Day 17返途</span>
+        <span class="food-city-days">Day 10–14 · 彩虹山後返途</span>
       </div>
       <div class="food-cards">
         <div class="food-card">
-          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Guinea_pig_on_a_plate.jpg/640px-Guinea_pig_on_a_plate.jpg" alt="Cuy Guinea Pig" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Guinea_pig_on_a_plate.jpg/640px-Guinea_pig_on_a_plate.jpg" alt="Cuy" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="food-card-img-placeholder" style="display:none">🐹</div>
           <div class="food-card-body">
             <div class="food-card-name">天竺鼠</div>
-            <div class="food-card-name-en">Cuy al Horno</div>
-            <div class="food-card-desc">印加千年傳統食材，烤或炸，皮酥肉嫩帶野味。庫斯科大教堂的「最後的晚餐」畫作裡，耶穌的門徒吃的就是它。</div>
+            <div class="food-card-name-en">Cuy al Horno — 印加千年傳統</div>
+            <div class="food-card-desc">烤或炸，皮酥肉帶野味。庫斯科大教堂「最後的晚餐」畫作中，耶穌門徒吃的就是它。<strong>建議去 Pachapapa 或 Cicciolina 餐廳</strong>，比路邊攤版本好吃許多。一隻約 $25–35。</div>
             <span class="food-badge eat">必試</span>
           </div>
         </div>
         <div class="food-card">
-          <div class="food-card-img-placeholder">🍹</div>
+          <div class="food-card-img-placeholder">🌽</div>
           <div class="food-card-body">
-            <div class="food-card-name">皮斯科沙瓦</div>
-            <div class="food-card-name-en">Pisco Sour</div>
-            <div class="food-card-desc">馬丘比丘回到熱水鎮後傍晚來一杯，是旅人的傳統儀式。庫斯科廣場邊的酒吧氣氛最好，晚上燈光打在石牆上非常浪漫。</div>
-            <span class="food-badge drink">必喝</span>
+            <div class="food-card-name">紫玉米汁</div>
+            <div class="food-card-name-en">Chicha Morada</div>
+            <div class="food-card-desc">秘魯紫玉米加鳳梨、肉桂、丁香熬煮，加糖和萊姆汁調味，無酒精。顏色深紫，滋味類似淡洛神花茶。在地人家家都喝，超市買茶包帶回來泡很方便。</div>
+            <span class="food-badge drink">必試</span>
           </div>
         </div>
         <div class="food-card">
           <img class="food-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Craft-textiles-cusco-peru.jpg/640px-Craft-textiles-cusco-peru.jpg" alt="Cusco textiles" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="food-card-img-placeholder" style="display:none">🧶</div>
           <div class="food-card-body">
-            <div class="food-card-name">羊駝紡織品</div>
-            <div class="food-card-name-en">Alpaca Textiles</div>
-            <div class="food-card-desc">庫斯科市場和聖谷（Pisac 市集）是採購最好的地方，圖案保留印加傳統，品質比機場免稅店好很多。</div>
+            <div class="food-card-name">羊駝紡織品採購</div>
+            <div class="food-card-name-en">庫斯科 3 大購物地點</div>
+            <div class="food-card-desc">① <strong>聖佩德羅市場</strong>（Mercado San Pedro）：最便宜，可殺價<br>② <strong>Centro Artesanal Cusco</strong>：品質穩定，品牌 KUNA、SOL 都在這<br>③ <strong>Pisac 市集</strong>（聖谷一日遊當天）：最多稀有花色，強烈推薦</div>
             <span class="food-badge buy">必買</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🦙</div>
+          <div class="food-card-body">
+            <div class="food-card-name">羊駝品牌選購指南</div>
+            <div class="food-card-name-en">KUNA / SOL / ANNTARAH</div>
+            <div class="food-card-desc"><strong>KUNA</strong>：利馬、庫斯科、阿雷基帕都有，色調穩重，阿雷基帕有 OUTLET<br><strong>SOL Alpaca</strong>：款式最多，看到喜歡立刻買，常常回頭就賣完了<br><strong>ANNTARAH</strong>：童裝很讚，質料剪裁媲美高端品牌<br>買多件可以問折扣！</div>
+            <span class="food-badge buy">品牌參考</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🍵</div>
+          <div class="food-card-body">
+            <div class="food-card-name">超市好物</div>
+            <div class="food-card-name-en">Orion 超市（庫斯科）/ Wang（利馬）</div>
+            <div class="food-card-desc">古柯茶包（S/.2–10，帶回家泡）、香蕉乾和爆米花、秘魯咖啡豆（250g 約 $8–15）、各種果乾。<strong>不要在機場買，超市便宜很多</strong>。送給長輩的話，利馬 Larcomar 的 Wang 超市包裝較精緻。</div>
+            <span class="food-badge buy">必逛</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 烏尤尼 -->
+    <!-- ── 熱水鎮 ── -->
+    <div class="food-city-group">
+      <div class="food-city-label">
+        <span class="food-city-name">🌿 熱水鎮 Aguas Calientes</span>
+        <span class="food-city-days">Day 12–13（馬丘比丘前後）</span>
+      </div>
+      <div class="food-cards">
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🍺</div>
+          <div class="food-card-body">
+            <div class="food-card-name">馬丘比丘啤酒</div>
+            <div class="food-card-name-en">Cusqueña Beer</div>
+            <div class="food-card-desc">超市有賣罐裝印有馬丘比丘圖案的庫斯科啤酒，是紀念品感很強的伴手禮，但很重——考量行李重量再決定是否帶。喝一罐慶祝登上馬丘比丘是必要的。</div>
+            <span class="food-badge drink">推薦</span>
+          </div>
+        </div>
+        <div class="food-card">
+          <div class="food-card-img-placeholder">🛍</div>
+          <div class="food-card-body">
+            <div class="food-card-name">火車站前市集</div>
+            <div class="food-card-name-en">有人說貴，但「過了這山沒這店」</div>
+            <div class="food-card-desc">火車站前有許多小攤販，幽默T恤、小袋包非常有特色。很多人說這裡偏貴，但的確有獨特性高的商品，看到特別喜歡的就買，因為其他地方不一定找得到一樣的款式。</div>
+            <span class="food-badge buy">可逛</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 烏尤尼 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🪞 烏尤尼 Uyuni</span>
-        <span class="food-city-days">Day 9</span>
+        <span class="food-city-days">Day 8–9</span>
       </div>
       <div class="food-cards">
         <div class="food-card">
           <div class="food-card-img-placeholder">🧂</div>
           <div class="food-card-body">
             <div class="food-card-name">鹽礦工藝品</div>
-            <div class="food-card-name-en">Salt Crafts</div>
-            <div class="food-card-desc">用鹽沼的鹽塊製成的小雕塑、裝飾品、明信片，烏尤尼鎮上紀念品店和鹽沼入口都有，小型約 $5-20 美元。</div>
+            <div class="food-card-name-en">Salt Crafts · 烏尤尼鎮</div>
+            <div class="food-card-desc">用鹽沼的鹽塊雕成的小人偶、裝飾品、鹽燈，烏尤尼鎮上紀念品店和鹽沼入口都有，小型約 $5–20 美元。鹽燈比較重，看行李空間決定。</div>
             <span class="food-badge buy">必買</span>
           </div>
         </div>
         <div class="food-card">
-          <div class="food-card-img-placeholder">🏨</div>
+          <div class="food-card-img-placeholder">🌍</div>
           <div class="food-card-body">
-            <div class="food-card-name">鹽旅館</div>
-            <div class="food-card-name-en">Hotel de Sal</div>
-            <div class="food-card-desc">牆壁、床架、桌椅全部用鹽磚建造，一生只需住一次的特殊體驗。若有預算可以考慮在鹽沼邊住一晚，等日落和星空。</div>
-            <span class="food-badge eat">體驗</span>
+            <div class="food-card-name">傳統編織品</div>
+            <div class="food-card-name-en">Aymara / Quechua 手工織品</div>
+            <div class="food-card-desc">艾馬拉和克丘亞族原住民的傳統編織，圖案和色彩極具民族特色。小飾品 $5–20、中型掛毯 $20–80，比庫斯科更原始正統，適合真正喜歡安地斯文化的人買。</div>
+            <span class="food-badge buy">推薦</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 亞馬遜 -->
+    <!-- ── 亞馬遜 ── -->
     <div class="food-city-group">
       <div class="food-city-label">
         <span class="food-city-name">🌿 亞馬遜雨林 Amazon</span>
-        <span class="food-city-days">Day 16–18</span>
+        <span class="food-city-days">Day 15–17</span>
       </div>
       <div class="food-cards">
         <div class="food-card">
           <div class="food-card-img-placeholder">🌿</div>
           <div class="food-card-body">
             <div class="food-card-name">叢林粽子</div>
-            <div class="food-card-name-en">Juanes</div>
-            <div class="food-card-desc">亞馬遜版「粽子」，用芭蕉葉包住黃米和雞肉蒸熟，是叢林地區的傳統主食，Lodge 餐廳通常都有供應。</div>
+            <div class="food-card-name-en">Juanes — 亞馬遜傳統主食</div>
+            <div class="food-card-desc">芭蕉葉包住黃米和雞肉蒸熟，是亞馬遜版「粽子」。Lodge 餐廳幾乎每餐都有，味道比想像中更豐富有層次，配上新鮮叢林水果汁是一頓完美的雨林早餐。</div>
             <span class="food-badge eat">必試</span>
           </div>
         </div>
@@ -1727,23 +2215,36 @@ function filterRegion(region) {
           <div class="food-card-body">
             <div class="food-card-name">亞馬遜河魚料理</div>
             <div class="food-card-name-en">Paiche / Doncella</div>
-            <div class="food-card-desc">Paiche 是亞馬遜巨型淡水魚，肉質白嫩。Lodge 的廚師通常用在地食材做料理，新鮮程度出乎意料的高。</div>
+            <div class="food-card-desc">Paiche 是亞馬遜最大淡水魚（可達 2 公尺），肉質白嫩無刺。Lodge 廚師用在地食材現煮，在中間沒有超市的叢林裡，食材卻意外的新鮮豐盛。</div>
             <span class="food-badge eat">必吃</span>
           </div>
         </div>
         <div class="food-card">
-          <div class="food-card-img-placeholder">🌺</div>
+          <div class="food-card-img-placeholder">🍵</div>
           <div class="food-card-body">
-            <div class="food-card-name">叢林藥草茶</div>
-            <div class="food-card-name-en">Coca Tea / Herbal</div>
-            <div class="food-card-desc">古柯葉茶（Mate de Coca）是高山症的民間良藥，從阿雷基帕就開始喝，到了雨林可以換喝各種叢林藥草調配的茶飲。</div>
+            <div class="food-card-name">古柯葉茶</div>
+            <div class="food-card-name-en">Mate de Coca — 高山症良藥</div>
+            <div class="food-card-desc">從阿雷基帕就可以開始喝，高山地區旅館幾乎都免費提供。有輕微提神效果，對緩解高山症有幫助。<strong>庫斯科超市買茶包帶回台灣</strong>（S/.2–10 一盒），是非常獨特的伴手禮。</div>
             <span class="food-badge drink">推薦</span>
+            <span class="food-badge buy">帶回</span>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- ── 購物小撇步 ── -->
+    <div style="background:rgba(196,149,106,0.08);border-radius:12px;padding:1.5rem 1.8rem;margin-top:2rem;border-left:3px solid var(--earth);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--rust);margin-bottom:0.8rem;">💡 購物實用撇步</div>
+      <div style="font-size:0.83rem;color:var(--muted);line-height:1.9;">
+        <div>🦙 <strong style="color:var(--deep)">辨識真假 Baby Alpaca</strong>：摸起來如絲滑不刮手 = 真的；粗糙刺手 = 羊毛或混紡。每家都說自己是 Baby Alpaca，眼睛摸手感才是真的。</div>
+        <div>💰 <strong style="color:var(--deep)">購買順序</strong>：阿雷基帕（最道地）→ 庫斯科聖谷 Pisac 市集（最多款式）→ 利馬（最後補買）。不要在熱水鎮或機場買，又貴品項又少。</div>
+        <div>🎁 <strong style="color:var(--deep)">最推薦伴手禮</strong>：LaIbérica 巧克力、古柯茶包、羊駝鑰匙圈（便宜好帶量大）、印加可樂（喝完空罐也可帶）、小瓶裝 Pisco。</div>
+        <div>💱 <strong style="color:var(--deep)">幣值參考</strong>：秘魯幣「Sol」，S/1 ≈ 台幣 10 元。1 美元 ≈ S/3.7。路邊攤殺價到 1/2 是合理的，但連鎖品牌店不殺價。</div>
+      </div>
+    </div>
+
   </div>
+
 </section>
 
 <!-- FOOTER -->
