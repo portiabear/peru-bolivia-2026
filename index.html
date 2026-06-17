@@ -1001,24 +1001,24 @@ footer .footer-brand {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const DAYS = [
-  { day:1,  date:'9/9',  label:'利馬 Lima',               lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'抵達・Miraflores・辦玻利維亞簽證'},
-  { day:2,  date:'9/10', label:'伊卡・瓦卡奇那',           lat:-14.087, lng:-75.763, region:'peru',    color:'#C4956A', desc:'沙漠綠洲・越野飆沙・日落'},
-  { day:3,  date:'9/11', label:'納斯卡 Nazca',             lat:-14.739, lng:-75.130, region:'peru',    color:'#C4956A', desc:'小飛機俯瞰納斯卡線・夜車阿雷基帕'},
-  { day:4,  date:'9/12', label:'阿雷基帕 Arequipa',        lat:-16.409, lng:-71.537, region:'peru',    color:'#C4956A', desc:'白色城市・聖卡塔莉娜修道院・起司冰淇淋'},
-  { day:5,  date:'9/13', label:'科爾卡峽谷 Colca',         lat:-15.657, lng:-72.177, region:'peru',    color:'#C4956A', desc:'神鷹翱翔・峽谷風光→普諾'},
-  { day:6,  date:'9/14', label:'普諾・的的喀喀湖',          lat:-15.840, lng:-70.022, region:'peru',    color:'#4A7BA8', desc:'蘆葦浮島・塔基利島・湖上日落'},
-  { day:7,  date:'9/15', label:'拉巴斯 La Paz',            lat:-16.490, lng:-68.119, region:'bolivia', color:'#8B6914', desc:'抵達・纜車俯瞰・女巫市場'},
-  { day:8,  date:'9/16', label:'天空之鏡 Salar de Uyuni',  lat:-20.134, lng:-67.489, region:'bolivia', color:'#8B6914', desc:'白天拍照・日落・星空'},
-  { day:9,  date:'9/17', label:'Uyuni 日出 → 庫斯科',      lat:-20.134, lng:-67.489, region:'bolivia', color:'#8B6914', desc:'清晨日出後飛往庫斯科'},
-  { day:10, date:'9/18', label:'庫斯科 Cusco',             lat:-13.532, lng:-71.967, region:'cusco',   color:'#9B4A2C', desc:'市區・Pisac遺跡・高度適應'},
-  { day:11, date:'9/19', label:'聖谷→熱水鎮',              lat:-13.258, lng:-72.136, region:'cusco',   color:'#9B4A2C', desc:'Maras鹽田・Moray梯田・火車到熱水鎮'},
-  { day:12, date:'9/20', label:'馬丘比丘 Day 1',           lat:-13.163, lng:-72.545, region:'machu',   color:'#9B4A2C', desc:'Circuit 3 冷門・周日避人潮・導覽打底'},
-  { day:13, date:'9/21', label:'馬丘比丘 Day 2',           lat:-13.163, lng:-72.548, region:'machu',   color:'#9B4A2C', desc:'Circuit 2 經典全景・華納比丘俯瞰・周一人少'},
-  { day:14, date:'9/22', label:'彩虹山 Vinicunca',         lat:-13.906, lng:-71.327, region:'cusco',   color:'#9B4A2C', desc:'5200m・凌晨出發・色彩繽紛'},
-  { day:15, date:'9/23', label:'亞馬遜 Lodge',             lat:-12.593, lng:-69.189, region:'amazon',  color:'#3D6B4F', desc:'飛進Lodge・下午開始雨林探索'},
-  { day:16, date:'9/24', label:'亞馬遜 Day 2',             lat:-12.620, lng:-69.220, region:'amazon',  color:'#3D6B4F', desc:'日出觀鳥・獨木舟・夜間凱門鱷'},
-  { day:17, date:'9/25', label:'亞馬遜→利馬',              lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'最後雨林活動・飛回利馬・最後晚餐'},
-  { day:18, date:'9/26', label:'利馬 Lima ── 最後一天',    lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'市區・伴手禮・最後晚餐・凌晨離境'},
+  { day:1,  date:'9/9',  label:'利馬 Lima',                   lat:-12.046, lng:-77.031, region:'peru',    color:'#C4956A', desc:'抵達・Miraflores・Ceviche'},
+  { day:2,  date:'9/10', label:'帕拉卡斯 + 伊卡・瓦卡奇那',    lat:-14.087, lng:-75.763, region:'peru',    color:'#C4956A', desc:'Ballestas 鳥島・沙漠越野飆沙'},
+  { day:3,  date:'9/11', label:'納斯卡 Nazca',                 lat:-14.739, lng:-75.130, region:'peru',    color:'#C4956A', desc:'小飛機俯瞰納斯卡線・夜車阿雷基帕'},
+  { day:4,  date:'9/12', label:'阿雷基帕 Arequipa',            lat:-16.409, lng:-71.537, region:'peru',    color:'#C4956A', desc:'白色城市・聖卡塔莉娜修道院・第1夜 2335m'},
+  { day:5,  date:'9/13', label:'薩利納斯瀉湖 + 阿瓜達布蘭卡',  lat:-16.300, lng:-71.100, region:'peru',    color:'#C4956A', desc:'Flamingo・Vicuña・秘魯版天空之鏡・第2夜 2335m'},
+  { day:6,  date:'9/14', label:'科爾卡峽谷 Colca → 普諾',      lat:-15.657, lng:-72.177, region:'peru',    color:'#C4956A', desc:'神鷹翱翔・03:30 出發'},
+  { day:7,  date:'9/15', label:'的的喀喀湖 + Amantani 島',     lat:-15.840, lng:-70.022, region:'peru',    color:'#4A7BA8', desc:'Uros・Taquile・Amantani Homestay Day 1'},
+  { day:8,  date:'9/16', label:'Amantani 島 → 返普諾',         lat:-15.780, lng:-69.720, region:'peru',    color:'#4A7BA8', desc:'湖上日出・向家人道別・返回普諾'},
+  { day:9,  date:'9/17', label:'普諾 → Inca Express → 庫斯科', lat:-13.532, lng:-71.967, region:'cusco',   color:'#9B4A2C', desc:'景觀巴士・4個印加遺跡・La Raya 4335m'},
+  { day:10, date:'9/18', label:'庫斯科 Cusco',                 lat:-13.532, lng:-71.967, region:'cusco',   color:'#9B4A2C', desc:'適應高度・Sacsayhuamán・採購'},
+  { day:11, date:'9/19', label:'聖谷 → 熱水鎮',               lat:-13.258, lng:-72.136, region:'cusco',   color:'#9B4A2C', desc:'Pisac・Maras・Moray・Inca Rail'},
+  { day:12, date:'9/20', label:'馬丘比丘 Day 1',              lat:-13.163, lng:-72.545, region:'machu',   color:'#9B4A2C', desc:'華納比丘・Circuit 2・守門人小屋'},
+  { day:13, date:'9/21', label:'馬丘比丘 Day 2 → 庫斯科',     lat:-13.163, lng:-72.548, region:'machu',   color:'#9B4A2C', desc:'Circuit 3 下方寺廟區・周一人少・返庫斯科'},
+  { day:14, date:'9/22', label:'彩虹山 Vinicunca',            lat:-13.906, lng:-71.327, region:'cusco',   color:'#9B4A2C', desc:'5200m・七彩礦物條紋・全程最高點'},
+  { day:15, date:'9/23', label:'庫斯科 → 亞馬遜',             lat:-12.593, lng:-69.189, region:'amazon',  color:'#3D6B4F', desc:'Sky H25721・Lodge 抵達・下午雨林初探'},
+  { day:16, date:'9/24', label:'亞馬遜 Day 2',                lat:-12.620, lng:-69.220, region:'amazon',  color:'#3D6B4F', desc:'日出觀鳥・獨木舟・夜間凱門鱷'},
+  { day:17, date:'9/25', label:'亞馬遜 Day 3',                lat:-12.640, lng:-69.230, region:'amazon',  color:'#3D6B4F', desc:'深度叢林健行・野生動物'},
+  { day:18, date:'9/26', label:'亞馬遜 → 利馬 → KE7288',      lat:-12.046, lng:-77.034, region:'amazon',  color:'#3D6B4F', desc:'14:00 飛回利馬・最後晚餐・00:05 出發'},
 ];
 
 const map = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false })
@@ -1126,33 +1126,33 @@ function filterRegion(region) {
       <!-- Day 1 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">1</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">1</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/9 三</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="80" cy="50" r="0.8" fill="white" opacity="0.4"/><circle cx="260" cy="45" r="1" fill="white" opacity="0.5"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="75" y="112" width="8" height="8" fill="#F5D88A" opacity="0.5"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><rect x="295" y="107" width="8" height="8" fill="#F5D88A" opacity="0.4"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 秘魯首都</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 1 · PERU</text></svg><div class="day-img-caption">利馬 Lima ── 抵達 · Day 1</div></div>
           <div class="day-body">
-            <div class="day-title">利馬 Lima ── 抵達・辦簽證</div>
-            <div class="day-activities">上午抵達利馬（LIM）→ 放行李稍作休息 → 市區走走（Miraflores、海岸散步道）→ 辦玻利維亞簽證</div>
-            <div class="tags"><span class="tag hl">⚡ 辦玻利維亞簽證</span><span class="tag">市區</span></div>
-            <div class="day-note warn">玻利維亞簽證務必第一天在利馬辦，不建議留到普諾，以免行程壓縮</div>
+            <div class="day-title">利馬 Lima ── 抵達</div>
+            <div class="day-activities">08:05 抵達利馬 LIM → 入境・計程車往 Miraflores → 放行李休息 → 海岸散步道 Malecón → 晚餐 Ceviche</div>
+            <div class="tags"><span class="tag">海平面</span><span class="tag hl">🐟 Ceviche 初體驗</span><span class="tag">Miraflores</span></div>
+            <div class="day-note good">不需要辦玻利維亞簽證，Day 1 真的可以輕鬆休息。下午在 Miraflores 海崖散步就很好。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>08:05</span> 抵達利馬 LIM（KE7965）→ <span class='time'>09:30</span> 入境，計程車往 Miraflores（固定費率 $15-20，約 40 分鐘）→ <span class='time'>11:00</span> 放行李、休息 → <span class='time'>14:00</span> 玻利維亞大使館辦簽證（請先查最新地址）→ <span class='time'>17:00</span> Miraflores 散步、Larcomar 看海景 → <span class='time'>19:30</span> 晚餐（Ceviche！）</div>
+              <div class="detail-content"><span class='time'>08:05</span> 抵達 LIM → <span class='time'>09:30</span> 出關・計程車往 Miraflores（$15-20，40 分鐘）→ <span class='time'>11:00</span> 放行李休息 → <span class='time'>15:00</span> Malecón 海崖散步 → <span class='time'>19:30</span> 晚餐</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>JW Marriott Lima / Belmond Miraflores Park<span class='detail-hotel-tier tier-lux'>奢華</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Miraflores<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>El Patio Hostel (Miraflores)<span class='detail-hotel-tier tier-bdg'>平實</span></div>建議住 Miraflores 區，安全、交通方便</div>
+              <div class="detail-content">Casa Andina Premium Miraflores（中高）／Señorial Hotel（平實）<br>選 Miraflores 區，安全交通方便</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">大行李放入旅館，只帶輕便小包外出。辦簽證時需要：<strong>護照原件、2 吋照片、費用</strong>，請事先準備好。</div>
+              <div class="detail-content">三個 30 吋大行李放旅館，今天全程不需要動行李。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content">機場計程車：出境大廳有<strong>官方固定費率攤位</strong>，務必在此叫車，勿在外面被搭訕。費率 $15-20 往 Miraflores。</div>
+              <div class="detail-content">機場出口<strong>官方固定費率攤位</strong>叫車，勿被外面攬客。往 Miraflores $15-20，40 分鐘。</div>
             </div>
           </div>
         </div>
@@ -1161,35 +1161,33 @@ function filterRegion(region) {
       <!-- Day 2 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">2</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">2</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/10 四</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap">
-            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_h_s2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E8A44A"/><stop offset="50%" stop-color="#D4704A"/><stop offset="100%" stop-color="#8B3A1E"/></linearGradient><linearGradient id="sand_h_s2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A45A"/><stop offset="100%" stop-color="#A07030"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_h_s2)"/><circle cx="320" cy="55" r="28" fill="#FFD060" opacity="0.9"/><circle cx="320" cy="55" r="22" fill="#FFBA30"/><path d="M0,140 Q80,90 160,115 Q220,95 300,120 Q350,105 400,115 L400,180 L0,180 Z" fill="url(#sand_h_s2)"/><path d="M0,155 Q60,135 130,145 Q200,130 280,148 Q340,138 400,142 L400,180 L0,180 Z" fill="#C49040"/><ellipse cx="175" cy="148" rx="45" ry="18" fill="#2A6A8A" opacity="0.85"/><ellipse cx="175" cy="148" rx="40" ry="14" fill="#3A7A9A" opacity="0.7"/><rect x="145" y="120" width="4" height="30" fill="#5A3A10"/><path d="M147,122 Q130,108 122,114 Q135,115 147,122" fill="#2D6B2A"/><path d="M147,122 Q155,105 163,112 Q155,115 147,122" fill="#3A7A30"/><rect x="198" y="125" width="3" height="25" fill="#5A3A10"/><path d="M200,127 Q185,113 178,119 Q189,120 200,127" fill="#2D6B2A"/><path d="M200,127 Q207,112 214,118 Q207,120 200,127" fill="#3A7A30"/><rect x="280" y="125" width="22" height="10" rx="3" fill="#8B5A20"/><circle cx="285" cy="136" r="4" fill="#444"/><circle cx="298" cy="136" r="4" fill="#444"/><text x="200" y="172" text-anchor="middle" font-family="serif" font-size="12" fill="#FFE0A0" letter-spacing="2">HUACACHINA OASIS</text></svg>
-            <div class="day-img-caption">瓦卡奇那沙漠綠洲 Huacachina</div>
-          </div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 2 · PERU</text></svg><div class="day-img-caption">帕拉卡斯 鳥島 + 伊卡 瓦卡奇那 · Day 2</div></div>
           <div class="day-body">
-            <div class="day-title">伊卡 Ica ── 沙漠綠洲・越野飆沙</div>
-            <div class="day-activities">（帕拉卡斯→）利馬 → 伊卡（約4hr）→ 瓦卡奇那沙漠綠洲 → 沙漠越野車（buggy）→ 沙板滑沙 → 日落</div>
-            <div class="tags"><span class="tag hl">🏎 越野飆沙</span><span class="tag hl">🌅 沙漠日落</span></div>
+            <div class="day-title">帕拉卡斯 鳥島 + 伊卡 瓦卡奇那</div>
+            <div class="day-activities">清早出發利馬 → Ballestas 鳥島（海獅・企鵝・鵜鶘）→ 巴士往伊卡・瓦卡奇那 → 沙丘越野車・日落飆沙</div>
+            <div class="tags"><span class="tag hl">🐧 Ballestas 鳥島</span><span class="tag hl">🏎 越野飆沙</span><span class="tag">🌅 沙漠日落</span></div>
+            <div class="day-note warn">今天是全行程移動最多的一天，06:30 就要從利馬出發。Ballestas 船班 10:30，下午轉伊卡，越野車 16:00 出發。三個大行李隨巴士行李艙。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>08:00</span> 早餐後退房，行李寄放旅館 → <span class='time'>09:00</span> 搭巴士往伊卡（Cruz del Sur / Perubus，約 4.5 hr）→ <span class='time'>13:30</span> 抵達伊卡，前往瓦卡奇那（計程車 10 分鐘）→ <span class='time'>15:00</span> 越野沙丘車（Dune Buggy）→ <span class='time'>17:30</span> 沙丘上看日落 → <span class='time'>19:30</span> 晚餐</div>
+              <div class="detail-content"><span class='time'>06:30</span> 利馬出發 → <span class='time'>10:00</span> 帕拉卡斯 → <span class='time'>10:30</span> Ballestas 船班（2hr）→ <span class='time'>13:00</span> 午餐 → <span class='time'>14:00</span> 巴士往伊卡（1.5hr）→ <span class='time'>15:30</span> 瓦卡奇那 check-in → <span class='time'>16:00</span> 越野車出發 → <span class='time'>19:00</span> 日落・晚餐</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Desert Nights Camp (瓦卡奇那湖畔)<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Banana's Adventure (瓦卡奇那)<span class='detail-hotel-tier tier-bdg'>平實</span></div>選湖畔旅館，走出去就是沙丘</div>
+              <div class="detail-content">Desert Nights Camp（瓦卡奇那湖畔，中高）／Banana's Adventure（平實）<br>選湖畔旅館走出去就是沙丘</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">從利馬帶<strong>全部行李</strong>一起出發，在伊卡/瓦卡奇那旅館 check-in 後放行李。若大件行李太多可請旅館寄放，玩沙丘只帶小包。</div>
+              <div class="detail-content">大行李隨巴士，抵伊卡 check-in 後放下。越野車只帶小包（相機・水・防曬）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>利馬→伊卡</strong>：Cruz del Sur 或 Perubus，從利馬 Javier Prado 客運站出發，提前網路購票。約 4.5 小時，車況舒適。</div>
+              <div class="detail-content">利馬→帕拉卡斯：Cruz del Sur 或 Peru Hop，06:30 出發。帕拉卡斯→伊卡：1.5小時共乘小巴。</div>
             </div>
           </div>
         </div>
@@ -1198,33 +1196,33 @@ function filterRegion(region) {
       <!-- Day 3 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">3</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">3</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/11 五</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="ground_n_s3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B7355"/><stop offset="100%" stop-color="#6B5535"/></linearGradient></defs><rect width="400" height="180" fill="url(#ground_n_s3)"/><rect width="400" height="50" fill="#B8956A" opacity="0.3"/><g fill="none" stroke="#D4B87A" stroke-width="2.5" opacity="0.9"><path d="M180,90 Q200,80 220,90 Q215,105 200,110 Q185,105 180,90"/><path d="M180,92 L140,85"/><path d="M190,90 Q170,70 150,75 Q170,80 190,90"/><path d="M210,90 Q230,70 250,75 Q230,80 210,90"/><path d="M200,108 Q195,125 185,130 M200,108 Q200,128 200,135 M200,108 Q205,125 215,130"/><circle cx="186" cy="91" r="3"/></g><line x1="0" y1="88" x2="400" y2="82" stroke="#C4A060" stroke-width="1.5" opacity="0.4"/><line x1="0" y1="130" x2="400" y2="125" stroke="#C4A060" stroke-width="1" opacity="0.3"/><line x1="100" y1="40" x2="120" y2="180" stroke="#C4A060" stroke-width="1" opacity="0.3"/><line x1="280" y1="30" x2="270" y2="180" stroke="#C4A060" stroke-width="1" opacity="0.25"/><path d="M330,45 L355,48 L330,51 L338,55 L330,51 L322,55 L330,51 Z" fill="#F5F0E8" opacity="0.8"/><rect width="400" height="35" fill="#5A8AA8" opacity="0.5"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="12" fill="#F5D8A0" letter-spacing="2">NAZCA LINES</text></svg><div class="day-img-caption">納斯卡線 Nazca Lines</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 3 · PERU</text></svg><div class="day-img-caption">納斯卡線 小飛機 → 夜車阿雷基帕 · Day 3</div></div>
           <div class="day-body">
-            <div class="day-title">納斯卡線 Nazca ── 小飛機 → 夜車阿雷基帕</div>
-            <div class="day-activities">伊卡 → 納斯卡 → 搭小飛機俯瞰納斯卡地面圖（約30-50分鐘）→ 【夜車】前往阿雷基帕（約9hr）</div>
-            <div class="tags"><span class="tag hl">🛩 小飛機俯瞰</span><span class="tag">夜車</span></div>
-            <div class="day-note warn">小飛機容易暈機，若容易暈車請提前備好暈機藥。登機前勿大吃</div>
+            <div class="day-title">納斯卡線 小飛機 → 夜車阿雷基帕</div>
+            <div class="day-activities">伊卡→納斯卡（2小時）→ 小飛機俯瞰納斯卡線（UNESCO 世界遺產）→ 午餐休息 → 夜車往阿雷基帕</div>
+            <div class="tags"><span class="tag hl">✈ 小飛機俯瞰</span><span class="tag">🌎 UNESCO</span><span class="tag">🚌 夜車</span></div>
+            <div class="day-note warn">小飛機體積小容易暈機，建議空腹或輕食搭乘。Aerodiana 口碑最好。夜車約 21:00 出發，選 Cruz del Sur Cama 艙，隔天早上 06:00-07:00 抵阿雷基帕。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>07:00</span> 早餐 → <span class='time'>08:30</span> 搭巴士往納斯卡（約 2 hr）→ <span class='time'>10:30</span> 到納斯卡，預訂小飛機（Aerodiana 推薦）→ <span class='time'>12:00</span> 小飛機俯瞰納斯卡線（約 30-40 分鐘）→ <span class='time'>14:00</span> 午餐 → <span class='time'>21:00</span> 夜車往阿雷基帕（Cruz del Sur，約 9 hr）</div>
+              <div class="detail-content"><span class='time'>08:00</span> 早餐 → <span class='time'>09:00</span> 巴士往納斯卡（2hr）→ <span class='time'>11:30</span> 小飛機起飛（30-40 分鐘）→ <span class='time'>13:00</span> 午餐 → <span class='time'>15:00</span> 自由 → <span class='time'>21:00</span> Cruz del Sur 夜車出發</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">納斯卡當天不住宿（搭夜車）。若不想搭夜車可住：<div class='detail-hotel-name'>Hotel Nazca Lines (納斯卡機場旁)<span class='detail-hotel-tier tier-mid'>中高</span></div></div>
+              <div class="detail-content">今晚搭夜車，不住宿。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content"><strong>重要</strong>：搭夜車前，把不需要的大行李寄放在納斯卡的巴士公司寄物處，或旅館。夜車只帶隨身小包和輕便行李，大行李放行李艙。抵達阿雷基帕後再統一取回。</div>
+              <div class="detail-content">大行李放夜車行李艙。貴重物品（錢包・護照・手機）<strong>隨身帶上座位</strong>。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>納斯卡→阿雷基帕</strong>：Cruz del Sur 夜車，約晚上 21:00-22:00 出發，隔天早上 06:00-07:00 抵達。提前購票，選較舒適的座位艙等（Semi Cama 或 Cama）。</div>
+              <div class="detail-content">Cruz del Sur Cama Ejecutivo，約 9 小時。三個女生選同一排座位。</div>
             </div>
           </div>
         </div>
@@ -1233,35 +1231,33 @@ function filterRegion(region) {
       <!-- Day 4 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">4</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">4</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/12 六</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap">
-            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#D4956A"/><rect width="400" height="60" fill="#5A9AC8"/><polygon points="250,60 310,20 370,60" fill="#E8E4DC" opacity="0.6"/><polygon points="270,60 310,28 350,60" fill="white" opacity="0.4"/><rect x="20" y="55" width="360" height="125" fill="#C4523A"/><rect x="50" y="70" width="300" height="110" fill="#F5F0E8"/><rect x="60" y="95" width="60" height="85" fill="#C4523A"/><path d="M60,95 Q90,75 120,95" fill="#C4523A"/><rect x="165" y="100" width="70" height="80" fill="#C4523A"/><path d="M165,100 Q200,78 235,100" fill="#C4523A"/><rect x="275" y="95" width="60" height="85" fill="#C4523A"/><path d="M275,95 Q305,75 335,95" fill="#C4523A"/><rect x="50" y="80" width="12" height="100" fill="#D4804A"/><rect x="338" y="80" width="12" height="100" fill="#D4804A"/><rect x="62" y="80" width="276" height="12" fill="#5A8AB8"/><rect x="85" y="148" width="8" height="12" fill="#8B5A20"/><circle cx="89" cy="145" r="8" fill="#E84848" opacity="0.9"/><rect x="175" y="148" width="8" height="12" fill="#8B5A20"/><circle cx="179" cy="145" r="8" fill="#E89848" opacity="0.9"/><rect x="295" y="148" width="8" height="12" fill="#8B5A20"/><circle cx="299" cy="145" r="8" fill="#E84888" opacity="0.9"/><text x="200" y="172" text-anchor="middle" font-family="serif" font-size="12" fill="#2A1A0A" letter-spacing="2">SANTA CATALINA · AREQUIPA</text></svg>
-            <div class="day-img-caption">聖卡塔莉娜修道院 Santa Catalina</div>
-          </div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 4 · PERU</text></svg><div class="day-img-caption">阿雷基帕 Arequipa ── 抵達・白色城市 · Day 4</div></div>
           <div class="day-body">
-            <div class="day-title">阿雷基帕 Arequipa ── 白色城市</div>
-            <div class="day-activities">抵達後休息 → 聖卡塔莉娜修道院（一座城中之城）→ Mundo Alpaca 羊駝博物館 → 武器廣場・市區漫步</div>
-            <div class="tags"><span class="tag hl">🦙 羊駝</span><span class="tag">修道院</span><span class="tag">白色城市</span></div>
+            <div class="day-title">阿雷基帕 Arequipa ── 抵達・白色城市</div>
+            <div class="day-activities">夜車抵達 → 補眠休息 → 聖卡塔莉娜修道院 → 武器廣場 → SOL Alpaca 採購 → LaIbérica 巧克力 → 早點休息</div>
+            <div class="tags"><span class="tag">2,335m 第1夜</span><span class="tag hl">🏛 聖卡塔莉娜修道院</span><span class="tag">🧣 羊駝採購</span></div>
+            <div class="day-note warn">今天是第 1 晚在 2,335m，身體正在適應海拔。下夜車後先好好睡，下午再輕鬆觀光。起司冰淇淋 Queso Helado 在武器廣場旁必吃！</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>07:00</span> 抵達阿雷基帕客運站，計程車往旅館（約 10 分鐘）→ <span class='time'>08:00</span> 旅館早餐（寄行李等候 check-in）→ <span class='time'>10:00</span> 武器廣場散步、聖卡塔莉娜修道院 → <span class='time'>13:00</span> La Nueva Palomino 午餐（羊駝料理）→ <span class='time'>15:00</span> SOL Alpaca 採購 → <span class='time'>17:00</span> 回旅館休息、適應 2,335m 高度 → <span class='time'>19:30</span> 輕食晚餐</div>
+              <div class="detail-content"><span class='time'>07:00</span> 抵阿雷基帕客運站 → 計程車旅館放行李 → <span class='time'>09:00</span> 補眠 → <span class='time'>11:00</span> 聖卡塔莉娜修道院 → <span class='time'>13:00</span> 午餐（羊駝料理）→ <span class='time'>15:00</span> SOL Alpaca・LaIbérica → <span class='time'>18:00</span> 回旅館</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Libertador Arequipa<span class='detail-hotel-tier tier-lux'>奢華</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Arequipa<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>La Hostería (精品小旅館)<span class='detail-hotel-tier tier-mid'>中</span></div></div>
+              <div class="detail-content">Casa Andina Premium Arequipa（中高）／La Hostería（精品，中）<br>確認有早 check-in 或行李寄存</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">今天是適應高度的輕鬆日，行李放旅館即可。夜車後疲累，<strong>不要安排太多行程</strong>，多休息比什麼都重要。</div>
+              <div class="detail-content">大行李全放旅館，今明兩天都在阿雷基帕，行李不動。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content">阿雷基帕客運站（Terminal Terrestre）→旅館，計程車約 S/10-15，提前確認旅館地址給司機。</div>
+              <div class="detail-content">客運站→旅館計程車約 S/10-15。</div>
             </div>
           </div>
         </div>
@@ -1270,33 +1266,33 @@ function filterRegion(region) {
       <!-- Day 5 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">5</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">5</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/13 日</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_c_s5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A80B8"/><stop offset="100%" stop-color="#8ABADC"/></linearGradient><linearGradient id="rock_c_s5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8A7055"/><stop offset="100%" stop-color="#5A4535"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_c_s5)"/><path d="M0,0 L0,180 L90,180 L130,140 L100,100 L140,60 L110,20 L80,0 Z" fill="url(#rock_c_s5)"/><path d="M400,0 L400,180 L310,180 L270,140 L300,100 L260,60 L290,20 L320,0 Z" fill="url(#rock_c_s5)"/><ellipse cx="50" cy="100" rx="25" ry="12" fill="#3A6A2A" opacity="0.8"/><ellipse cx="350" cy="95" rx="20" ry="10" fill="#3A6A2A" opacity="0.7"/><ellipse cx="110" cy="145" rx="30" ry="10" fill="#4A7A35" opacity="0.6"/><path d="M120,175 Q200,165 280,175" stroke="#6AAAC8" stroke-width="8" fill="none" opacity="0.8"/><path d="M115,175 Q200,168 285,175" stroke="#8AC4DC" stroke-width="4" fill="none" opacity="0.6"/><g transform="translate(200,65)"><path d="M0,0 Q-40,15 -70,8 Q-40,5 0,0" fill="#1A1A1A"/><path d="M0,0 Q40,15 70,8 Q40,5 0,0" fill="#1A1A1A"/><ellipse cx="0" cy="-2" rx="10" ry="6" fill="#2A2A2A"/><circle cx="-2" cy="-4" r="5" fill="#CC4A20"/><path d="M-8,0 Q0,6 8,0 Q0,3 -8,0" fill="white" opacity="0.9"/></g><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">COLCA CANYON</text></svg><div class="day-img-caption">科爾卡峽谷 Colca Canyon</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 5 · PERU</text></svg><div class="day-img-caption">薩利納斯瀉湖 + 阿瓜達布蘭卡保護區 · Day 5</div></div>
           <div class="day-body">
-            <div class="day-title">科爾卡峽谷 Colca Canyon → 普諾</div>
-            <div class="day-activities">早出發 → 科爾卡峽谷（全球最深峽谷之一）→ Cruz del Condor 觀景台看神鷹翱翔 → 抵達普諾</div>
-            <div class="tags"><span class="tag hl">🦅 神鷹</span><span class="tag">峽谷</span><span class="tag">景觀公路</span></div>
-            <div class="day-note good">可購買阿雷基帕→普諾包套一日遊，途中遊覽峽谷，費用含在裡面直送普諾，非常方便</div>
+            <div class="day-title">薩利納斯瀉湖 + 阿瓜達布蘭卡保護區</div>
+            <div class="day-activities">阿雷基帕出發一日遊 → 薩利納斯瀉湖（4,300m・flamingo・秘魯版天空之鏡）→ 阿瓜達布蘭卡保護區（Vicuña 野駱馬）→ 返回阿雷基帕過夜</div>
+            <div class="tags"><span class="tag hl">🦩 薩利納斯瀉湖</span><span class="tag hl">🦙 野生 Vicuña</span><span class="tag warn">4,300m 注意</span></div>
+            <div class="day-note warn">今天白天上到 4,300m，但<strong>晚上回阿雷基帕（2,335m）睡覺</strong>，比直接在高處過夜安全很多。這是第 2 晚在 2,335m，身體充分適應後明天才去更高的地方。記得多喝水、動作放慢。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>03:30</span> <strong>旅行社 pick-up（科爾卡峽谷一日遊）</strong> → <span class='time'>04:30</span> 出發往奇瓦伊（Chivay）→ <span class='time'>07:00</span> 神鷹觀察點 Cruz del Condor → <span class='time'>09:00</span> 早餐 → <span class='time'>11:00</span> 峽谷景點 → <span class='time'>15:00</span> 繼續往普諾（全程約 7-8 hr）→ <span class='time'>21:00</span> 抵達普諾</div>
+              <div class="detail-content"><span class='time'>08:00</span> 旅行社 pick-up → <span class='time'>10:00</span> 薩利納斯瀉湖（4,300m）flamingo 拍照 → <span class='time'>12:30</span> 阿瓜達布蘭卡保護區 Vicuña → <span class='time'>14:00</span> 午餐 → <span class='time'>17:00</span> 返阿雷基帕 → <span class='time'>19:00</span> 晚餐・早點休息（明天 03:30！）</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Sonesta Posadas del Inca Puno (湖畔)<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Puno<span class='detail-hotel-tier tier-mid'>中高</span></div>選有暖氣的旅館，普諾夜晚 3,827m 極冷</div>
+              <div class="detail-content">同 Day 4 旅館（第 2 晚）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">今天是長途移動日。<strong>早上出發前完成退房</strong>，行李帶上旅遊巴士，晚上直接送到普諾旅館。科爾卡一日遊行李是放在車上的，勿帶太多貴重物品。</div>
+              <div class="detail-content">今天一日遊，行李全留旅館。只帶日包：保暖外套（4,300m 冷）・相機・水・丹木斯。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>凌晨 03:30 出發，記得前晚設兩個鬧鐘！</strong> 旅行社通常會到旅館接送，確認 pick-up 地點。科爾卡→普諾這段高度大幅上升，多喝水、避免激烈活動。</div>
+              <div class="detail-content">阿雷基帕旅行社包車接送，旅館 pick-up。</div>
             </div>
           </div>
         </div>
@@ -1305,83 +1301,68 @@ function filterRegion(region) {
       <!-- Day 6 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">6</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">6</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/14 一</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap">
-            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="lake_t_s6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3A6A9A"/><stop offset="100%" stop-color="#1A3A6A"/></linearGradient><linearGradient id="sky_t_s6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87CEEB"/><stop offset="100%" stop-color="#B8DCF0"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_t_s6)"/><rect y="90" width="400" height="90" fill="url(#lake_t_s6)"/><polygon points="0,90 50,55 100,90" fill="#A0B8D0" opacity="0.5"/><polygon points="60,90 130,42 200,90" fill="#90A8C0" opacity="0.5"/><polygon points="150,90 230,35 310,90" fill="#A0B8D0" opacity="0.4"/><polygon points="280,90 350,50 400,90" fill="#90A8C0" opacity="0.45"/><polygon points="115,50 130,42 145,50 130,48" fill="white" opacity="0.7"/><polygon points="220,43 230,35 240,43 230,41" fill="white" opacity="0.6"/><ellipse cx="160" cy="128" rx="75" ry="18" fill="#C4A040"/><ellipse cx="160" cy="125" rx="70" ry="14" fill="#D4B050"/><rect x="120" y="108" width="20" height="20" fill="#C49A30"/><polygon points="115,112 130,100 145,112" fill="#B88A20"/><rect x="155" y="110" width="18" height="18" fill="#C49A30"/><polygon points="150,114 164,103 178,114" fill="#B88A20"/><rect x="188" y="112" width="16" height="16" fill="#C49A30"/><polygon points="183,116 196,106 209,116" fill="#B88A20"/><path d="M60,140 Q90,130 120,138 Q90,148 60,140 Z" fill="#C4A040"/><path d="M65,136 Q90,128 115,135" stroke="#8B6A20" stroke-width="2" fill="none"/><circle cx="90" cy="132" r="5" fill="#8B5A2A"/><rect x="87" y="136" width="6" height="10" fill="#CC4488"/><text x="200" y="172" text-anchor="middle" font-family="serif" font-size="12" fill="#D4E8F8" letter-spacing="2">LAGO TITICACA  3,812m</text></svg>
-            <div class="day-img-caption">世界最高可通航湖泊 · 的的喀喀湖 Lake Titicaca 3,812m</div>
-          </div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 6 · PERU</text></svg><div class="day-img-caption">科爾卡峽谷 Colca Canyon → 普諾 · Day 6</div></div>
           <div class="day-body">
-            <div class="day-title">普諾 → 的的喀喀湖 → 夜車玻利維亞</div>
-            <div class="day-activities">普諾市區 → 的的喀喀湖（半日遊或一日遊）→ 蘆葦島・烏羅斯浮島 → 【夜車】La Paz（約7hr）</div>
-            <div class="tags"><span class="tag hl">🌊 的的喀喀湖</span><span class="tag">蘆葦浮島</span><span class="tag">夜車</span></div>
-            <div class="day-note warn">此天行程緊湊。若想充分體驗湖上過夜，可刪帕拉卡斯那天來補這裡</div>
+            <div class="day-title">科爾卡峽谷 Colca Canyon → 普諾</div>
+            <div class="day-activities">凌晨 03:30 出發 → 神鷹觀察點 Cruz del Condor → 峽谷景觀 → 繼續往普諾 → 晚上抵達</div>
+            <div class="tags"><span class="tag hl">🦅 神鷹翱翔</span><span class="tag">3,827m</span><span class="tag warn">⚠️ 03:30 出發</span></div>
+            <div class="day-note warn">03:30 出發是全行程最早的一次，前晚務必設兩個鬧鐘！神鷹最佳觀察時段是早上 07:00-09:00 的上升氣流。抵達普諾約 20:00-21:00。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>07:00</span> 早餐 → <span class='time'>08:30</span> 前往碼頭搭船 → <span class='time'>09:00</span> 出發 Uros 蘆葦浮島 → <span class='time'>11:30</span> 前往塔基利島（Taquile）→ <span class='time'>13:00</span> 島上午餐（烤鱒魚！）→ <span class='time'>16:00</span> 返回碼頭 → <span class='time'>19:00</span> 晚餐、休息 → <span class='time'>21:00</span> 前往客運站搭夜車往玻利維亞</div>
+              <div class="detail-content"><span class='time'>03:30</span> 旅行社 pick-up → <span class='time'>07:00</span> Cruz del Condor 神鷹觀察 → <span class='time'>09:00</span> 早餐 → <span class='time'>11:00</span> 峽谷景觀 → <span class='time'>15:00</span> 往普諾 → <span class='time'>20:00</span> 抵普諾 check-in</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">今晚搭夜車，不住宿。</div>
+              <div class="detail-content">Sonesta Posadas del Inca Puno（湖畔，中高）／Casa Andina Premium Puno（中高）<br><strong>選有暖氣的房間</strong>，普諾夜晚 3,827m 極冷</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">上船前把<strong>大行李寄放旅館</strong>，只帶一天用的背包出海。回來後取行李，搭夜車。注意夜車行李安全——貴重物品隨身攜帶。</div>
+              <div class="detail-content">行李隨旅遊巴士，阿雷基帕帶到普諾，晚上直接 check-in。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>普諾→拉巴斯</strong>：Bolivia Hop 或 Peru Hop 巴士，途經科帕卡巴納（Copacabana）邊境，約 7-8 小時。<strong>需要提前購票！</strong> 邊境過境帶護照、備好玻利維亞簽證費。</div>
+              <div class="detail-content">旅行社包車全程，阿雷基帕→科爾卡→普諾。確認旅行社包含普諾 drop-off。</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- BOLIVIA SEPARATOR -->
-    </div>
-  </div>
-
-  <div class="country-sep">
-    <div class="country-sep-line"></div>
-    <div class="country-sep-name">進入玻利維亞 Bolivia</div>
-    <div class="country-sep-line"></div>
-  </div>
-
-  <div class="section" style="padding-top:0">
-    <div class="iti-grid">
-
       <!-- Day 7 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">7</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">7</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/15 二</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_lp_s7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1A2E"/><stop offset="60%" stop-color="#2A3A5A"/><stop offset="100%" stop-color="#3A5A7A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_lp_s7)"/><path d="M0,40 Q60,20 120,50 Q160,30 200,45 Q240,25 280,50 Q340,20 400,45 L400,180 L0,180 Z" fill="#2A3A50"/><path d="M40,100 Q100,80 200,90 Q300,78 360,100 L360,180 L40,180 Z" fill="#1A2A3A"/><rect x="50" y="110" width="12" height="55" fill="#243545"/><rect x="53" y="118" width="3" height="4" fill="#F5D870" opacity="0.9"/><rect x="68" y="105" width="15" height="60" fill="#1E2E40"/><rect x="71" y="112" width="4" height="4" fill="#F5D870" opacity="0.8"/><rect x="72" y="115" width="4" height="4" fill="#F5D870" opacity="0.6"/><rect x="90" y="100" width="18" height="65" fill="#243545"/><rect x="93" y="108" width="4" height="4" fill="#F5D870"/><rect x="100" y="108" width="4" height="4" fill="#F5D870" opacity="0.7"/><rect x="115" y="108" width="14" height="57" fill="#1E2E40"/><rect x="118" y="115" width="4" height="4" fill="#F5D870"/><rect x="135" y="95" width="20" height="70" fill="#243545"/><rect x="138" y="102" width="4" height="4" fill="#F5D870"/><rect x="147" y="102" width="4" height="4" fill="#F5D870" opacity="0.5"/><rect x="162" y="98" width="16" height="67" fill="#1E2E40"/><rect x="165" y="106" width="4" height="4" fill="#F5D870" opacity="0.8"/><rect x="185" y="92" width="22" height="73" fill="#243545"/><rect x="188" y="99" width="5" height="4" fill="#F5D870"/><rect x="197" y="99" width="5" height="4" fill="#F5D870" opacity="0.6"/><rect x="215" y="97" width="18" height="68" fill="#1E2E40"/><rect x="218" y="104" width="4" height="4" fill="#F5D870" opacity="0.9"/><rect x="240" y="100" width="16" height="65" fill="#243545"/><rect x="243" y="108" width="4" height="4" fill="#F5D870"/><rect x="262" y="104" width="20" height="61" fill="#1E2E40"/><rect x="265" y="112" width="4" height="4" fill="#F5D870" opacity="0.7"/><rect x="288" y="100" width="15" height="65" fill="#243545"/><rect x="291" y="107" width="4" height="4" fill="#F5D870"/><rect x="310" y="106" width="18" height="59" fill="#1E2E40"/><rect x="313" y="114" width="4" height="4" fill="#F5D870" opacity="0.8"/><rect x="334" y="110" width="14" height="55" fill="#243545"/><path d="M30,50 Q200,90 370,55" stroke="#888" stroke-width="1.5" fill="none" opacity="0.6"/><path d="M30,65 Q200,100 370,70" stroke="#888" stroke-width="1" fill="none" opacity="0.4"/><g transform="translate(120,73)"><rect x="-8" y="-7" width="16" height="12" rx="3" fill="#E83030"/><line x1="0" y1="-7" x2="0" y2="-14" stroke="#888" stroke-width="1.5"/><circle cx="0" cy="-15" r="3" fill="#666"/></g><g transform="translate(260,63)"><rect x="-8" y="-7" width="16" height="12" rx="3" fill="#30A0E8"/><line x1="0" y1="-7" x2="0" y2="-14" stroke="#888" stroke-width="1.5"/><circle cx="0" cy="-15" r="3" fill="#666"/></g><circle cx="50" cy="20" r="1" fill="white" opacity="0.6"/><circle cx="160" cy="10" r="1.2" fill="white" opacity="0.7"/><circle cx="300" cy="18" r="0.9" fill="white" opacity="0.5"/><text x="200" y="173" text-anchor="middle" font-family="serif" font-size="12" fill="#C4D8F0" letter-spacing="2">LA PAZ  3,640m</text></svg><div class="day-img-caption">拉巴斯 La Paz · 世界最高首都</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 7 · PERU</text></svg><div class="day-img-caption">的的喀喀湖 Uros + Taquile + Amantani（兩天一夜 Day 1） · Day 7</div></div>
           <div class="day-body">
-            <div class="day-title">La Paz ── 抵達・高地之都</div>
-            <div class="day-activities">抵達 → 世界最高首都適應高度 → 市區（女巫市場、索道纜車俯瞰全城）→ 日落行程</div>
-            <div class="tags"><span class="tag">3,640m</span><span class="tag hl">纜車俯瞰</span><span class="tag">女巫市場</span></div>
+            <div class="day-title">的的喀喀湖 Uros + Taquile + Amantani（兩天一夜 Day 1）</div>
+            <div class="day-activities">出發遊湖 → Uros 蘆葦浮島（烏魯族）→ 塔基利島（手工藝・壯觀湖景）→ 前往 Amantani 島 → 當地家庭 homestay</div>
+            <div class="tags"><span class="tag hl">🛶 Uros 蘆葦浮島</span><span class="tag hl">🏝 Amantani Homestay</span><span class="tag">3,827m</span></div>
+            <div class="day-note good">Amantani 是的的喀喀湖上最真實的在地體驗——住進當地家庭，晚餐由家人烹飪，夜晚在湖中小島看滿天星斗。這是行程裡最特別的一晚。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>07:00</span> 抵達拉巴斯（約 El Alto 客運站）→ <span class='time'>08:00</span> 計程車往市區旅館（注意：El Alto 機場海拔 4,060m，下到市區 3,640m，不要跑步）→ <span class='time'>09:00</span> 放行李休息 → <span class='time'>11:00</span> 纜車（Teleférico）俯瞰全城 → <span class='time'>13:00</span> 午餐 → <span class='time'>15:00</span> 薩加納加街採購、女巫市場 → <span class='time'>18:00</span> 早點回旅館休息（明天早班機！）</div>
+              <div class="detail-content"><span class='time'>07:30</span> 碼頭出發 → <span class='time'>09:30</span> Uros 蘆葦浮島 → <span class='time'>11:30</span> 塔基利島午餐・手工藝 → <span class='time'>14:30</span> 前往 Amantani（2hr 船程）→ <span class='time'>16:30</span> 家庭分配 → <span class='time'>19:00</span> homestay 晚餐 → <span class='time'>21:00</span> 星空</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Atix Hotel La Paz<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Stannum Boutique Hotel & Spa<span class='detail-hotel-tier tier-mid'>中高</span></div>選市中心或 Sopocachi 區，方便逛街，注意選有暖氣的房間</div>
+              <div class="detail-content">Amantani 島當地家庭 homestay（旅行社安排，含晚餐早餐）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">今晚需要在旅館<strong>把不去鹽沼的大行李寄存</strong>——或帶到烏尤尼再寄。建議只帶 1-2 天用的輕便行李去烏尤尼，大行李留在拉巴斯旅館（大部分旅館提供此服務）。</div>
+              <div class="detail-content">大行李<strong>全留普諾旅館</strong>寄存。Amantani 只帶小背包：換洗衣物・保暖外套・睡袋（有些家庭棉被薄）・相機・現金（島上無 ATM）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>明早飛烏尤尼！</strong> BoA OB304，07:58 從 El Alto 機場（LPB）出發，約 09:00 抵達。機場在市區 40 分鐘以外，<strong>凌晨 06:00 前要出門</strong>。提前一天確認班機。</div>
+              <div class="detail-content">普諾碼頭出發，旅行社包船。往 Amantani 約 2-3 小時，湖面風大帶好防風外套。</div>
             </div>
           </div>
         </div>
@@ -1390,33 +1371,33 @@ function filterRegion(region) {
       <!-- Day 8 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">8</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">8</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/16 三</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_u_s8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1A3A"/><stop offset="40%" stop-color="#1A3A6A"/><stop offset="100%" stop-color="#2A5A9A"/></linearGradient><linearGradient id="salt_u_s8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#B8D4F0"/><stop offset="100%" stop-color="#8AAAD8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_u_s8)"/><circle cx="30" cy="15" r="1.5" fill="white" opacity="0.9"/><circle cx="75" cy="8" r="1" fill="white" opacity="0.7"/><circle cx="130" cy="22" r="1.2" fill="white" opacity="0.8"/><circle cx="200" cy="5" r="1.5" fill="white" opacity="1"/><circle cx="270" cy="18" r="1" fill="white" opacity="0.7"/><circle cx="340" cy="12" r="1.3" fill="white" opacity="0.9"/><circle cx="380" cy="25" r="0.9" fill="white" opacity="0.6"/><circle cx="55" cy="38" r="0.8" fill="white" opacity="0.5"/><circle cx="155" cy="42" r="1" fill="white" opacity="0.6"/><circle cx="310" cy="35" r="1.1" fill="white" opacity="0.7"/><rect y="88" width="400" height="92" fill="url(#salt_u_s8)"/><circle cx="30" cy="165" r="1.5" fill="white" opacity="0.5"/><circle cx="130" cy="158" r="1.2" fill="white" opacity="0.45"/><circle cx="200" cy="175" r="1.5" fill="white" opacity="0.55"/><circle cx="340" cy="168" r="1.3" fill="white" opacity="0.5"/><rect x="175" y="83" width="4" height="14" fill="#0A1A3A"/><circle cx="177" cy="80" r="4" fill="#0A1A3A"/><rect x="185" y="85" width="4" height="12" fill="#0A1A3A"/><circle cx="187" cy="82" r="4" fill="#0A1A3A"/><rect x="210" y="83" width="40" height="14" rx="3" fill="#0A1A3A"/><circle cx="220" cy="98" r="5" fill="#0A1825"/><circle cx="242" cy="98" r="5" fill="#0A1825"/><rect x="215" y="76" width="30" height="10" rx="2" fill="#0A1A3A"/><g stroke="#9ABAE0" stroke-width="0.5" fill="none" opacity="0.25"><polygon points="80,120 95,112 110,120 110,136 95,144 80,136"/><polygon points="110,120 125,112 140,120 140,136 125,144 110,136"/><polygon points="290,130 305,122 320,130 320,146 305,154 290,146"/><polygon points="320,130 335,122 350,130 350,146 335,154 320,146"/></g><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#D4E8FF" letter-spacing="2">SALAR DE UYUNI</text></svg><div class="day-img-caption">天空之鏡 Salar de Uyuni</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 8 · PERU</text></svg><div class="day-img-caption">Amantani 島 Day 2 → 返回普諾 · Day 8</div></div>
           <div class="day-body">
-            <div class="day-title">天空之鏡 Salar de Uyuni ── 日落・星空</div>
-            <div class="day-activities">上午從拉巴斯出發前往烏尤尼（約巴士10hr或飛機1hr）→ 下午白天視覺欺騙拍照 → 傍晚日落團 → 夜晚星空團（鏡面倒映銀河）</div>
-            <div class="tags"><span class="tag hl">🌅 日落</span><span class="tag hl">🌙 星空銀河</span><span class="tag hl">📸 白天拍照</span></div>
-            <div class="day-note good">白天→日落→星空連著參加，景色各自精彩。夜晚鏡面倒映銀河是最多人說值回票價的時刻</div>
+            <div class="day-title">Amantani 島 Day 2 → 返回普諾</div>
+            <div class="day-activities">島上清晨・日出觀湖 → 早餐（homestay）→ 向家人道別 → 船返普諾 → 取大行李 → 下午休息</div>
+            <div class="tags"><span class="tag hl">🌅 湖上日出</span><span class="tag">返回普諾</span><span class="tag">🧳 取行李</span></div>
+            <div class="day-note good">Amantani 的清晨是行程裡最安靜美麗的時刻之一，建議早起看湖上日出。回普諾後下午補眠，明天 Inca Express 到庫斯科。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>05:30</span> 起床，計程車往 El Alto 機場 → <span class='time'>07:00</span> 抵達機場 check-in → <span class='time'>07:58</span> BoA OB304 起飛 → <span class='time'>09:00</span> 抵達烏尤尼（UYU）→ <span class='time'>09:30</span> 旅行社接機，前往鹽沼 → <span class='time'>10:30</span> 白天拍照時段（視角遊戲！）→ <span class='time'>17:00</span> 等待日落（最美時段）→ <span class='time'>21:00</span> 夜間星空觀察</div>
+              <div class="detail-content"><span class='time'>06:00</span> 湖上日出 → <span class='time'>07:30</span> homestay 早餐 → <span class='time'>08:30</span> 向家人道別・上船 → <span class='time'>11:00</span> 返普諾碼頭 → <span class='time'>12:00</span> 旅館取回大行李 → <span class='time'>13:00</span> 午餐 → 下午休息</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Luna Salada Hotel（鹽磚打造，鹽沼入口）<span class='detail-hotel-tier tier-lux'>體驗必住</span></div><div class='detail-hotel-name' style='margin-top:4px'>Jardines de Uyuni<span class='detail-hotel-tier tier-mid'>中</span></div>Luna Salada 是用鹽做的旅館，床、牆壁、桌椅都是鹽，一生一次的體驗！</div>
+              <div class="detail-content">返回普諾旅館（同 Day 6）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">只帶小背包（相機、保暖衣物、水）去鹽沼，大行李留在拉巴斯旅館或烏尤尼鎮旅館。鹽沼上<strong>鞋子會沾滿鹽</strong>，準備舊鞋或塑膠袋套腳。</div>
+              <div class="detail-content">從普諾旅館取回三個大行李，整理後準備明天 Inca Express。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>La Paz → Uyuni</strong>：BoA 每天 07:58 出發（OB304），約 1 小時，單程 $100-165。是最省時的方式。<strong>提前在 BoA 官網 (boa.bo) 訂票</strong>，旺季極快售完！機場在烏尤尼鎮 3km 外，旅行社通常包含接送。</div>
+              <div class="detail-content">船返普諾碼頭，旅行社安排。</div>
             </div>
           </div>
         </div>
@@ -1425,80 +1406,68 @@ function filterRegion(region) {
       <!-- Day 9 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle bolivia"><div class="dn">9</div><div class="dd">Day</div></div>
+          <div class="day-num-circle peru"><div class="dn">9</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/17 四</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_cu_s9" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A8AC4"/><stop offset="100%" stop-color="#8AC0E8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_cu_s9)"/><polygon points="0,100 60,55 120,100" fill="#6A8A70" opacity="0.7"/><polygon points="80,100 160,40 240,100" fill="#5A7A60" opacity="0.65"/><polygon points="200,100 290,38 380,100" fill="#6A8A70" opacity="0.6"/><polygon points="320,100 380,55 400,100" fill="#5A7A60" opacity="0.55"/><rect x="0" y="100" width="400" height="80" fill="#8A7055"/><path d="M0,100 L40,100 L45,115 L0,120 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M40,100 L90,100 L88,118 L45,115 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M90,100 L130,100 L132,112 L88,118 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M130,100 L180,100 L175,116 L132,112 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M180,100 L230,100 L228,114 L175,116 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M230,100 L280,100 L282,112 L228,114 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M280,100 L340,100 L338,118 L282,112 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M340,100 L400,100 L400,115 L338,118 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M0,120 L45,115 L50,135 L0,138 Z" fill="#8A7050" stroke="#5A4030" stroke-width="0.5"/><path d="M45,115 L88,118 L85,138 L50,135 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M88,118 L132,112 L135,133 L85,138 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M132,112 L175,116 L172,136 L135,133 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M175,116 L228,114 L226,134 L172,136 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M228,114 L282,112 L285,132 L226,134 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M282,112 L338,118 L335,138 L285,132 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M338,118 L400,115 L400,135 L335,138 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><rect x="150" y="55" width="100" height="50" fill="#F5F0E8"/><rect x="160" y="40" width="18" height="20" fill="#F5F0E8"/><rect x="222" y="40" width="18" height="20" fill="#F5F0E8"/><path d="M160,40 Q169,28 178,40" fill="#F5F0E8"/><path d="M222,40 Q231,28 240,40" fill="#F5F0E8"/><rect x="167" y="22" width="4" height="10" fill="#C4956A"/><rect x="164" y="27" width="10" height="3" fill="#C4956A"/><rect x="229" y="22" width="4" height="10" fill="#C4956A"/><rect x="226" y="27" width="10" height="3" fill="#C4956A"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#F5E8D0" letter-spacing="2">CUSCO  3,400m</text></svg><div class="day-img-caption">庫斯科 Cusco · 印加帝國古都</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#2a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#C4956A" opacity="0.3">🇵🇪</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="4">DAY 9 · PERU</text></svg><div class="day-img-caption">普諾 → 觀光巴士 → 庫斯科 · Day 9</div></div>
           <div class="day-body">
-            <div class="day-title">La Paz → 庫斯科 Cusco</div>
-            <div class="day-activities">清晨日出團（天色漸亮、鹽沼染成金紅色）→ 返回烏尤尼鎮 → 搭飛機前往庫斯科（約1.5hr）→ 抵達後適應高度休息</div>
-            <div class="tags"><span class="tag hl">🌄 日出金紅鹽沼</span><span class="tag">飛機→庫斯科</span></div>
-            <div class="day-note good">日出後飛庫斯科，下午抵達還有半天適應高度，是體力分配最好的安排</div>
+            <div class="day-title">普諾 → 觀光巴士 → 庫斯科</div>
+            <div class="day-activities">Inca Express 景觀巴士 → 沿途停靠 4 個印加遺跡（Pukara・La Raya 山口 4,335m・Raqchi・Andahuaylillas）→ 傍晚抵庫斯科</div>
+            <div class="tags"><span class="tag hl">🚌 Inca Express</span><span class="tag">La Raya 4,335m</span><span class="tag">4 印加遺跡</span></div>
+            <div class="day-note good">Inca Express 是從普諾到庫斯科最好的方式，含導覽・午餐・遺跡門票，約 $50-70/人。已在高海拔待多天，La Raya 高點不會有太大問題。抵達庫斯科約 17:00-18:00。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>06:00</span> 日出前抵達鹽沼看日出（旅行社安排）→ <span class='time'>08:00</span> 早餐 → <span class='time'>10:00</span> 旅行社送回烏尤尼機場 → <span class='time'>11:00</span> 飛回拉巴斯（UYU→LPB，約 1 hr）→ <span class='time'>13:00</span> 拉巴斯機場 <strong>轉機</strong> 往庫斯科（LPB→CUZ） → <span class='time'>15:00-17:00</span> 抵達庫斯科，計程車往旅館（約 15 分鐘）</div>
+              <div class="detail-content"><span class='time'>08:00</span> Inca Express 出發（普諾）→ <span class='time'>10:00</span> Pukara 遺跡 → <span class='time'>11:30</span> La Raya 山口（4,335m）→ <span class='time'>13:00</span> Raqchi 午餐 → <span class='time'>16:00</span> Andahuaylillas 教堂 → <span class='time'>17:30</span> 抵庫斯科</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Belmond Palacio Nazarenas（印加宮殿改建）<span class='detail-hotel-tier tier-lux'>奢華</span></div><div class='detail-hotel-name' style='margin-top:4px'>Casa Andina Premium Cusco<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Pariwana Hostel Cusco<span class='detail-hotel-tier tier-bdg'>平實</span></div></div>
+              <div class="detail-content">Novotel Cusco（Av. El Sol，離 Inca Rail 集合點步行 2 分鐘，中高）／Casa Andina Premium Cusco（中高）</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">今天是複雜的移動日。<strong>大行李</strong>：若昨天留在拉巴斯旅館，請旅館安排計程車在 LPB 機場附近某處取行李（或請旅館保管，但回程要計畫）。建議：從拉巴斯出發時就帶全部行李，放行李艙。</div>
+              <div class="detail-content">大行李全程放 Inca Express 行李艙，抵庫斯科直接送旅館。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>⚠️ Uyuni → Cusco 無直飛</strong>，需在<strong>拉巴斯（LPB）轉機</strong>。常見路線：UYU→LPB（BoA，約 11:00 班次）→ LPB→CUZ（LATAM 或 BoA，中午班次）。整體約 4-6 小時含轉機。<strong>請先用 Kiwi.com 或 Google Flights 查詢最佳連接方案</strong>，提前購票！</div>
+              <div class="detail-content">Inca Express 從普諾旅館 pick-up，提前購票。</div>
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <div class="country-sep">
-    <div class="country-sep-line"></div>
-    <div class="country-sep-name">回到祕魯 Peru · 庫斯科 Cusco</div>
-    <div class="country-sep-line"></div>
-  </div>
-
-  <div class="section" style="padding-top:0">
-    <div class="iti-grid">
-
       <!-- Day 10 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">10</div><div class="dd">Day</div></div>
+          <div class="day-num-circle rust"><div class="dn">10</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/18 五</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_cu_s10" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A8AC4"/><stop offset="100%" stop-color="#8AC0E8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_cu_s10)"/><polygon points="0,100 60,55 120,100" fill="#6A8A70" opacity="0.7"/><polygon points="80,100 160,40 240,100" fill="#5A7A60" opacity="0.65"/><polygon points="200,100 290,38 380,100" fill="#6A8A70" opacity="0.6"/><polygon points="320,100 380,55 400,100" fill="#5A7A60" opacity="0.55"/><rect x="0" y="100" width="400" height="80" fill="#8A7055"/><path d="M0,100 L40,100 L45,115 L0,120 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M40,100 L90,100 L88,118 L45,115 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M90,100 L130,100 L132,112 L88,118 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M130,100 L180,100 L175,116 L132,112 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M180,100 L230,100 L228,114 L175,116 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M230,100 L280,100 L282,112 L228,114 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M280,100 L340,100 L338,118 L282,112 Z" fill="#7A6045" stroke="#6A5035" stroke-width="0.5"/><path d="M340,100 L400,100 L400,115 L338,118 Z" fill="#9A8060" stroke="#6A5035" stroke-width="0.5"/><path d="M0,120 L45,115 L50,135 L0,138 Z" fill="#8A7050" stroke="#5A4030" stroke-width="0.5"/><path d="M45,115 L88,118 L85,138 L50,135 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M88,118 L132,112 L135,133 L85,138 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M132,112 L175,116 L172,136 L135,133 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M175,116 L228,114 L226,134 L172,136 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M228,114 L282,112 L285,132 L226,134 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><path d="M282,112 L338,118 L335,138 L285,132 Z" fill="#9A7A55" stroke="#5A4030" stroke-width="0.5"/><path d="M338,118 L400,115 L400,135 L335,138 Z" fill="#7A6040" stroke="#5A4030" stroke-width="0.5"/><rect x="150" y="55" width="100" height="50" fill="#F5F0E8"/><rect x="160" y="40" width="18" height="20" fill="#F5F0E8"/><rect x="222" y="40" width="18" height="20" fill="#F5F0E8"/><path d="M160,40 Q169,28 178,40" fill="#F5F0E8"/><path d="M222,40 Q231,28 240,40" fill="#F5F0E8"/><rect x="167" y="22" width="4" height="10" fill="#C4956A"/><rect x="164" y="27" width="10" height="3" fill="#C4956A"/><rect x="229" y="22" width="4" height="10" fill="#C4956A"/><rect x="226" y="27" width="10" height="3" fill="#C4956A"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#F5E8D0" letter-spacing="2">CUSCO  3,400m</text></svg><div class="day-img-caption">庫斯科 Cusco · 印加遺跡</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1a0f0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#9B4A2C" opacity="0.3">🏛</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#9B4A2C" letter-spacing="4">DAY 10 · CUSCO</text></svg><div class="day-img-caption">庫斯科 Cusco ── 高度適應・市區 · Day 10</div></div>
           <div class="day-body">
-            <div class="day-title">庫斯科 Cusco ── 市區・近郊遺跡</div>
-            <div class="day-activities">太陽神廟・武器廣場・大教堂 → Pisac 比薩克（印加遺跡 + 市集）→ 傍晚回庫斯科</div>
-            <div class="tags"><span class="tag hl">🏛 印加遺跡</span><span class="tag">傳統市集</span></div>
-            <div class="day-note">抵達庫斯科後請讓身體適應高度，避免激烈運動，多補水、慢慢走</div>
+            <div class="day-title">庫斯科 Cusco ── 高度適應・市區</div>
+            <div class="day-activities">輕鬆適應 3,400m → 武器廣場・庫斯科大教堂 → Sacsayhuamán 印加要塞 → 聖佩德羅市場採購 → 整理行李</div>
+            <div class="tags"><span class="tag">3,400m</span><span class="tag hl">🏛 Sacsayhuamán</span><span class="tag">🛍 採購</span></div>
+            <div class="day-note warn">今天是庫斯科唯一的適應日，明天就要去聖谷。不要安排太累的行程，多喝水避免酒精。晚上整理好：明天去聖谷只帶小包（5kg 以內），大行李留旅館。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>08:00</span> 早餐（輕鬆行程，適應 3,400m）→ <span class='time'>10:00</span> 武器廣場散步、庫斯科大教堂 → <span class='time'>12:30</span> 午餐（天竺鼠！）→ <span class='time'>15:00</span> Sacsayhuamán 印加要塞 → <span class='time'>17:00</span> 白色基督雕像俯瞰全城 → <span class='time'>19:00</span> 回旅館，不要太晚睡</div>
+              <div class="detail-content"><span class='time'>08:00</span> 早餐 → <span class='time'>10:00</span> 武器廣場・大教堂 → <span class='time'>12:00</span> 午餐 → <span class='time'>14:00</span> Sacsayhuamán → <span class='time'>16:00</span> 聖佩德羅市場 → <span class='time'>18:00</span> 整理明天行李</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">同 Day 9 旅館。庫斯科整段行程（Day 10-14 彩虹山後返回）都住同一家旅館，<strong>行程上比較省事</strong>。</div>
+              <div class="detail-content">Novotel Cusco（連住至 9/21 返回後）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">今天行李全留旅館，輕便外出。<strong>重要</strong>：把明後天馬丘比丘不需要的大行李<strong>全部留在庫斯科旅館</strong>（旅館提供免費寄存），只帶 8kg 以內小背包去熱水鎮。</div>
+              <div class="detail-content">今晚整理好聖谷+熱水鎮的<strong>小背包（5kg 以內，Inca Rail Bimodal 限制）</strong>。大行李全留旅館寄存。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content">今天不需要安排特殊交通。庫斯科市區步行即可，Sacsayhuamán 走路約 30 分鐘上坡，可搭計程車去（S/10-15）。</div>
+              <div class="detail-content">市區步行為主。Sacsayhuamán 計程車 S/10-15。</div>
             </div>
           </div>
         </div>
@@ -1507,32 +1476,33 @@ function filterRegion(region) {
       <!-- Day 11 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">11</div><div class="dd">Day</div></div>
+          <div class="day-num-circle rust"><div class="dn">11</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/19 六</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_m_s11" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A4A6A"/><stop offset="50%" stop-color="#4A7AA8"/><stop offset="100%" stop-color="#6A9AC8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_m_s11)"/><ellipse cx="80" cy="65" rx="70" ry="25" fill="white" opacity="0.25"/><ellipse cx="320" cy="55" rx="80" ry="20" fill="white" opacity="0.2"/><ellipse cx="200" cy="72" rx="100" ry="18" fill="white" opacity="0.15"/><polygon points="300,20 350,90 260,90" fill="#3A5A3A"/><polygon points="300,20 340,90 280,90" fill="#4A6A4A"/><path d="M0,90 Q50,65 100,75 Q150,58 200,70 Q250,55 300,90 L400,90 L400,180 L0,180 Z" fill="#2A4A2A"/><g fill="#5A7A40"><rect x="60" y="100" width="280" height="12" rx="2"/><rect x="70" y="112" width="260" height="11" rx="2"/><rect x="80" y="123" width="240" height="11" rx="2"/><rect x="90" y="134" width="220" height="11" rx="2"/><rect x="100" y="145" width="200" height="11" rx="2"/><rect x="110" y="156" width="180" height="11" rx="2"/><rect x="120" y="167" width="160" height="11" rx="2"/></g><g fill="#6A8A50"><rect x="60" y="100" width="280" height="3"/><rect x="70" y="112" width="260" height="3"/><rect x="80" y="123" width="240" height="3"/><rect x="90" y="134" width="220" height="3"/><rect x="100" y="145" width="200" height="3"/><rect x="110" y="156" width="180" height="3"/></g><rect x="170" y="85" width="18" height="18" fill="#8A7A60"/><rect x="193" y="83" width="22" height="20" fill="#7A6A50"/><rect x="220" y="86" width="16" height="17" fill="#8A7A60"/><polygon points="168,85 179,75 190,85" fill="#6A5A40"/><polygon points="191,83 204,72 217,83" fill="#5A4A30"/><polygon points="218,86 228,77 238,86" fill="#6A5A40"/><path d="M130,98 Q128,90 132,86 Q136,82 140,85 Q143,88 142,95 Q145,97 145,100 Q140,100 135,100 Z" fill="#8A7A60"/><path d="M132,86 L130,78" stroke="#8A7A60" stroke-width="3"/><circle cx="130" cy="76" r="5" fill="#8A7A60"/><text x="200" y="177" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">MACHU PICCHU  2,430m</text></svg><div class="day-img-caption">聖谷 Sacred Valley</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1a0f0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#9B4A2C" opacity="0.3">🏛</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#9B4A2C" letter-spacing="4">DAY 11 · CUSCO</text></svg><div class="day-img-caption">聖谷一日遊 → Inca Rail → 熱水鎮 · Day 11</div></div>
           <div class="day-body">
-            <div class="day-title">聖谷一日遊 → 熱水鎮 Aguas Calientes</div>
-            <div class="day-activities">庫斯科出發 → 聖谷一日遊（Chinchero琴切羅・Maras鹽田・Moray圓形梯田）→ Ollantaytambo脫團搭火車 → 抵達熱水鎮</div>
-            <div class="tags"><span class="tag hl">🧂 Maras鹽田</span><span class="tag hl">⭕ Moray梯田</span><span class="tag">火車</span></div>
+            <div class="day-title">聖谷一日遊 → Inca Rail → 熱水鎮</div>
+            <div class="day-activities">Pisac 市集 → Maras 鹽田 → Moray 梯田 → 奧揚泰坦博 → Inca Rail Bimodal → 熱水鎮</div>
+            <div class="tags"><span class="tag hl">🏔 聖谷一日遊</span><span class="tag hl">🚂 Inca Rail Bimodal</span><span class="tag warn">⚠️ 行李限 5kg</span></div>
+            <div class="day-note warn">Inca Rail Bimodal 集合點在庫斯科 Av. El Sol 843，旅行社聖谷結束後送到此轉乘。<strong>大行李全留庫斯科旅館</strong>，只帶 5kg 小背包進熱水鎮（兩天份）。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>07:00</span> 旅行社 pick-up（聖谷一日遊）→ <span class='time'>08:00</span> Pisac 市集（採購！）→ <span class='time'>11:00</span> Maras 鹽田 → <span class='time'>13:00</span> Moray 梯田 → <span class='time'>15:00</span> 奧揚泰坦博（Ollantaytambo）古堡 → <span class='time'>18:00</span> 奧揚泰坦博火車站，搭 Vistadome 往熱水鎮 → <span class='time'>19:30</span> 抵達 Aguas Calientes</div>
+              <div class="detail-content"><span class='time'>07:00</span> 旅行社 pick-up → <span class='time'>08:30</span> Pisac 市集 → <span class='time'>11:00</span> Maras 鹽田 → <span class='time'>12:30</span> Moray 梯田 → <span class='time'>14:00</span> 午餐 → <span class='time'>16:00</span> Av. El Sol 843 集合 → Inca Rail 出發 → <span class='time'>19:30</span> 抵熱水鎮</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content"><div class='detail-hotel-name'>Inkaterra Machu Picchu Pueblo Hotel<span class='detail-hotel-tier tier-lux'>奢華・旅館即叢林</span></div><div class='detail-hotel-name' style='margin-top:4px'>El Mapi by Inkaterra<span class='detail-hotel-tier tier-mid'>中高</span></div><div class='detail-hotel-name' style='margin-top:4px'>Rupa Wasi Eco Lodge<span class='detail-hotel-tier tier-mid'>中</span></div>建議至少訂中高級，熱水鎮選擇其實不多</div>
+              <div class="detail-content">El MaPi by Inkaterra（中高）／Tierra Viva Machu Picchu（中）</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content"><strong>只帶 8kg 小背包</strong>上火車（PeruRail 嚴格執行）。大行李<strong>全部留在庫斯科旅館</strong>。熱水鎮的行李就是這一個小包，住一晚。小包內裝：換洗衣物、雨衣、相機、護照（必須！）、門票截圖。</div>
+              <div class="detail-content"><strong>只帶 5kg 小背包</strong>：換洗衣物 2 天・護照・相機・雨衣・藥品。大行李全留庫斯科旅館。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>Ollantaytambo → Aguas Calientes</strong>：Vistadome 或 Inca Rail 360°，約 1.5 小時，含用餐。抵達後 <span class='time'>約 20 分鐘</span>步行到鎮上旅館（或計程車 S/10）。提前購票！旺季晚班非常搶手。</div>
+              <div class="detail-content">Inca Rail Bimodal 集合點：庫斯科 Av. El Sol 843。巴士→奧揚泰坦博→火車→熱水鎮，全程 Inca Rail 包辦。</div>
             </div>
           </div>
         </div>
@@ -1541,33 +1511,33 @@ function filterRegion(region) {
       <!-- Day 12 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">12</div><div class="dd">Day</div></div>
+          <div class="day-num-circle rust"><div class="dn">12</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/20 日</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_m2_s12" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A4A6A"/><stop offset="50%" stop-color="#4A7AA8"/><stop offset="100%" stop-color="#6A9AC8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_m2_s12)"/><ellipse cx="80" cy="65" rx="70" ry="25" fill="white" opacity="0.25"/><ellipse cx="320" cy="55" rx="80" ry="20" fill="white" opacity="0.2"/><polygon points="300,20 350,90 260,90" fill="#3A5A3A"/><polygon points="300,20 340,90 280,90" fill="#4A6A4A"/><path d="M0,90 Q50,65 100,75 Q150,58 200,70 Q250,55 300,90 L400,90 L400,180 L0,180 Z" fill="#2A4A2A"/><g fill="#5A7A40"><rect x="60" y="100" width="280" height="12" rx="2"/><rect x="70" y="112" width="260" height="11" rx="2"/><rect x="80" y="123" width="240" height="11" rx="2"/><rect x="90" y="134" width="220" height="11" rx="2"/><rect x="100" y="145" width="200" height="11" rx="2"/><rect x="110" y="156" width="180" height="11" rx="2"/></g><g fill="#6A8A50"><rect x="60" y="100" width="280" height="3"/><rect x="70" y="112" width="260" height="3"/><rect x="80" y="123" width="240" height="3"/><rect x="90" y="134" width="220" height="3"/><rect x="100" y="145" width="200" height="3"/></g><rect x="170" y="85" width="18" height="18" fill="#8A7A60"/><rect x="193" y="83" width="22" height="20" fill="#7A6A50"/><rect x="220" y="86" width="16" height="17" fill="#8A7A60"/><polygon points="168,85 179,75 190,85" fill="#6A5A40"/><polygon points="191,83 204,72 217,83" fill="#5A4A30"/><polygon points="218,86 228,77 238,86" fill="#6A5A40"/><text x="200" y="177" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">MACHU PICCHU  2,430m</text></svg><div class="day-img-caption">馬丘比丘 Machu Picchu · Day 1</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#0f1a0f"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#3D6B4F" opacity="0.3">🗿</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="4">DAY 12 · MACHU PICCHU</text></svg><div class="day-img-caption">馬丘比丘 Day 1 ── 華納比丘 + Circuit 2 · Day 12</div></div>
           <div class="day-body">
-            <div class="day-title">馬丘比丘 Machu Picchu ── Day 1（避開人潮）</div>
-            <div class="day-activities">Circuit 3 路線（下方寺廟區・人少冷門）→ 從容探索太陽神廟・老鷹神廟・皇家宮殿等下方區域 → 找導覽解說了解印加歷史脈絡 → 傍晚回熱水鎮休息</div>
-            <div class="tags"><span class="tag hl">🏛 Circuit 3</span><span class="tag hl">👣 人少冷門</span><span class="tag">導覽解說</span></div>
-            <div class="day-note warn">周日人多，Circuit 3 走下方區域，人少很多可以從容欣賞。導覽在這天打底，明天走 Circuit 2 才能真正看懂每個角落</div>
+            <div class="day-title">馬丘比丘 Day 1 ── 華納比丘 + Circuit 2</div>
+            <div class="day-activities">05:30 搭接駁巴士上山 → 華納比丘登頂（限額 400 人・俯瞰全景）→ Circuit 2 守門人小屋經典角度 → 下午返熱水鎮・溫泉</div>
+            <div class="tags"><span class="tag hl">🏔 華納比丘登頂</span><span class="tag hl">🗿 Circuit 2</span><span class="tag warn">限額 400 人</span></div>
+            <div class="day-note warn">華納比丘限額 400 人/天，必須提前在 tuboleto.cultura.pe 購票！建議訂 07:00 最早時段，登頂約 1.5 小時，山頂視野震撼。下午走 Circuit 2 看守門人小屋標誌性角度。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>05:30</span> 起床，前往 Consettur 巴士站排隊 → <span class='time'>06:00</span> 搭接駁巴士（25 分鐘）→ <span class='time'>06:30</span> 抵達馬丘比丘入口，進入 Circuit 3 → <span class='time'>07:00-11:00</span> 下方寺廟區（Circuit 3：太陽神廟・老鷹神廟・皇家宮殿）→ <span class='time'>11:30</span> 預約場地內導覽解說（英文或西文）→ <span class='time'>13:30</span> 巴士返回熱水鎮 → <span class='time'>14:30</span> 午餐 → <span class='time'>15:30</span> 溫泉（Aguas Calientes 公共溫泉，入場費約 $10）→ <span class='time'>19:00</span> 晚餐</div>
+              <div class="detail-content"><span class='time'>05:30</span> Consettur 巴士站排隊 → <span class='time'>06:00</span> 巴士上山（25 分鐘）→ <span class='time'>06:30</span> 入場 → <span class='time'>07:00</span> 爬華納比丘 → <span class='time'>09:00</span> 山頂全景 → <span class='time'>10:30</span> 下山 → <span class='time'>11:00</span> Circuit 2 守門人小屋 → <span class='time'>13:30</span> 離開 → <span class='time'>14:30</span> 午餐 → <span class='time'>16:00</span> 溫泉</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">同 Day 11 旅館。</div>
+              <div class="detail-content">熱水鎮旅館（同 Day 11）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">行李在熱水鎮旅館，進遺跡只帶小背包（護照必須、水、零食、雨衣）。<strong>遺跡內禁止帶三腳架</strong>，手機腳架小型可以。</div>
+              <div class="detail-content">進遺跡只帶小背包（護照・水・零食・雨衣）。禁攜三腳架。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content">Consettur 巴士每天 <span class='time'>05:30</span> 開始，排隊要趁早（旺季人很多）。來回票約 $24，可提前在 consettur.com 購買省時間。</div>
+              <div class="detail-content">Consettur 接駁巴士 05:30 開始，來回約 $24，提前購票或現場買。</div>
             </div>
           </div>
         </div>
@@ -1576,33 +1546,33 @@ function filterRegion(region) {
       <!-- Day 13 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle machu"><div class="dn">13</div><div class="dd">Day</div></div>
+          <div class="day-num-circle rust"><div class="dn">13</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/21 一</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_m_s13" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2A4A6A"/><stop offset="50%" stop-color="#4A7AA8"/><stop offset="100%" stop-color="#6A9AC8"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_m_s13)"/><ellipse cx="80" cy="65" rx="70" ry="25" fill="white" opacity="0.25"/><ellipse cx="320" cy="55" rx="80" ry="20" fill="white" opacity="0.2"/><ellipse cx="200" cy="72" rx="100" ry="18" fill="white" opacity="0.15"/><polygon points="300,20 350,90 260,90" fill="#3A5A3A"/><polygon points="300,20 340,90 280,90" fill="#4A6A4A"/><path d="M0,90 Q50,65 100,75 Q150,58 200,70 Q250,55 300,90 L400,90 L400,180 L0,180 Z" fill="#2A4A2A"/><g fill="#5A7A40"><rect x="60" y="100" width="280" height="12" rx="2"/><rect x="70" y="112" width="260" height="11" rx="2"/><rect x="80" y="123" width="240" height="11" rx="2"/><rect x="90" y="134" width="220" height="11" rx="2"/><rect x="100" y="145" width="200" height="11" rx="2"/><rect x="110" y="156" width="180" height="11" rx="2"/><rect x="120" y="167" width="160" height="11" rx="2"/></g><g fill="#6A8A50"><rect x="60" y="100" width="280" height="3"/><rect x="70" y="112" width="260" height="3"/><rect x="80" y="123" width="240" height="3"/><rect x="90" y="134" width="220" height="3"/><rect x="100" y="145" width="200" height="3"/><rect x="110" y="156" width="180" height="3"/></g><rect x="170" y="85" width="18" height="18" fill="#8A7A60"/><rect x="193" y="83" width="22" height="20" fill="#7A6A50"/><rect x="220" y="86" width="16" height="17" fill="#8A7A60"/><polygon points="168,85 179,75 190,85" fill="#6A5A40"/><polygon points="191,83 204,72 217,83" fill="#5A4A30"/><polygon points="218,86 228,77 238,86" fill="#6A5A40"/><path d="M130,98 Q128,90 132,86 Q136,82 140,85 Q143,88 142,95 Q145,97 145,100 Q140,100 135,100 Z" fill="#8A7A60"/><path d="M132,86 L130,78" stroke="#8A7A60" stroke-width="3"/><circle cx="130" cy="76" r="5" fill="#8A7A60"/><text x="200" y="177" text-anchor="middle" font-family="serif" font-size="12" fill="white" letter-spacing="2">MACHU PICCHU  2,430m</text></svg><div class="day-img-caption">馬丘比丘 Day 2</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#0f1a0f"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#3D6B4F" opacity="0.3">🗿</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="4">DAY 13 · MACHU PICCHU</text></svg><div class="day-img-caption">馬丘比丘 Day 2 → 火車返庫斯科 · Day 13</div></div>
           <div class="day-body">
-            <div class="day-title">馬丘比丘 Day 2 ── 經典路線 + 華納比丘</div>
-            <div class="day-activities">Circuit 2 路線（守門人小屋全景拍照・神廟區・梯田完整走）→ 昨天導覽打底，今天看什麼都懂 → 爬華納比丘 Huayna Picchu（約45-60分鐘，山頂俯瞰全景）→ 傍晚搭火車返庫斯科</div>
-            <div class="tags"><span class="tag hl">🏔 Circuit 2 經典</span><span class="tag hl">📸 全景角度</span><span class="tag hl">⛰ 華納比丘</span><span class="tag">火車返庫斯科</span></div>
-            <div class="day-note warn">周一人比周日少很多！昨天 Circuit 3 打底，今天走 Circuit 2 看得懂也看得爽。華納比丘需提前在 tuboleto.cultura.pe 搶票（限額400人/天）</div>
+            <div class="day-title">馬丘比丘 Day 2 → 火車返庫斯科</div>
+            <div class="day-activities">再次進入 Circuit 3 下方寺廟區 → 太陽神廟・皇家宮殿 → 周一人最少 → 午後 Inca Rail 返程 → 庫斯科取大行李</div>
+            <div class="tags"><span class="tag hl">🗿 Circuit 3</span><span class="tag">周一人最少</span><span class="tag hl">🚂 返庫斯科</span></div>
+            <div class="day-note good">周一是馬丘比丘人最少的一天，下方寺廟區慢慢逛昨天沒走到的角落。中午出來搭下午火車，傍晚返庫斯科取回大行李，今晚整理好彩虹山需要的東西。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>05:30</span> 前往巴士站（提早排隊）→ <span class='time'>06:30</span> 進入馬丘比丘，Circuit 2 從守門人小屋開始 → <span class='time'>07:00</span> 守門人小屋全景拍照（最經典角度）→ <span class='time'>08:00</span> 開始爬 Huayna Picchu（需另外入場，記得帶門票截圖）→ <span class='time'>09:30</span> 山頂俯瞰全景 → <span class='time'>11:00</span> 下山，繼續走 Circuit 2 → <span class='time'>13:00</span> 離開遺跡 → <span class='time'>14:00</span> 午餐 → <span class='time'>16:00</span> 搭 Vistadome 返回奧揚泰坦博 → <span class='time'>18:00</span> 奧揚泰坦博搭交通車回庫斯科</div>
+              <div class="detail-content"><span class='time'>06:30</span> 巴士上山 → <span class='time'>07:00</span> Circuit 3（太陽神廟・皇家宮殿）→ <span class='time'>11:00</span> 離開・午餐 → <span class='time'>13:00</span> Inca Rail 返程 → <span class='time'>14:30</span> 奧揚泰坦博 → 巴士返庫斯科 → <span class='time'>17:00</span> 抵庫斯科・取大行李</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">回到庫斯科原旅館。</div>
+              <div class="detail-content">庫斯科旅館（繼續住，明天一早出發彩虹山）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">返回庫斯科時，先到旅館取回之前寄存的大行李。今晚住庫斯科。</div>
+              <div class="detail-content">返庫斯科後取回大行李。今晚整理好彩虹山裝備：保暖衣・手套・毛帽・丹木斯（前一天就開始服用）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>Aguas Calientes → 奧揚泰坦博</strong>：傍晚班次 Vistadome，提前購票。<strong>奧揚泰坦博 → 庫斯科</strong>：旅行社巴士或共乘，約 1.5-2 小時。可在奧揚泰坦博古鎮稍作停留再搭車。</div>
+              <div class="detail-content">Inca Rail 返程票提前購好，傍晚班次。奧揚泰坦博→庫斯科巴士約 1.5 小時。</div>
             </div>
           </div>
         </div>
@@ -1611,52 +1581,37 @@ function filterRegion(region) {
       <!-- Day 14 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">14</div><div class="dd">Day</div></div>
+          <div class="day-num-circle rust"><div class="dn">14</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/22 二</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap">
-            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_r_s14" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A6A"/><stop offset="100%" stop-color="#5A8AC0"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_r_s14)"/><polygon points="50,70 90,40 130,70" fill="white" opacity="0.7"/><polygon points="280,65 330,32 380,65" fill="white" opacity="0.65"/><polygon points="160,72 210,35 260,72" fill="white" opacity="0.6"/><path d="M40,180 L40,130 Q80,80 120,100 Q160,70 200,85 Q240,68 280,100 Q320,80 360,130 L360,180 Z" fill="#8B4A2C"/><path d="M60,155 Q120,130 180,140 Q240,125 320,145 L320,155 Q240,140 180,155 Q120,145 60,165 Z" fill="#C47A40"/><path d="M60,140 Q120,118 180,128 Q240,112 320,132 L320,145 Q240,125 180,140 Q120,130 60,155 Z" fill="#D4A840"/><path d="M65,128 Q120,108 180,116 Q240,100 318,120 L320,132 Q240,112 180,128 Q120,118 65,140 Z" fill="#8B3A5A"/><path d="M70,118 Q125,100 182,107 Q240,90 316,110 L318,120 Q240,100 182,116 Q125,108 70,128 Z" fill="#6A8A3A"/><path d="M75,110 Q130,92 184,99 Q242,82 314,102 L316,110 Q240,90 184,107 Q130,100 75,118 Z" fill="#C4523A"/><path d="M80,102 Q135,86 186,92 Q244,75 312,95 L314,102 Q242,82 186,99 Q135,92 80,110 Z" fill="#D4B840"/><path d="M85,96 Q138,80 188,86 Q246,69 310,90 L312,95 Q244,75 188,92 Q138,86 80,102 Z" fill="#5A6A9A"/><path d="M150,70 Q200,50 250,68 Q220,75 200,72 Q175,78 150,70 Z" fill="white" opacity="0.6"/><g fill="#1A1A1A"><circle cx="195" cy="90" r="3"/><rect x="193" y="92" width="4" height="8"/><circle cx="205" cy="88" r="3"/><rect x="203" y="90" width="4" height="8"/><line x1="191" y1="95" x2="188" y2="103" stroke="#1A1A1A" stroke-width="1.5"/><line x1="209" y1="93" x2="212" y2="101" stroke="#1A1A1A" stroke-width="1.5"/></g><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="11" fill="#F0E8D8" letter-spacing="2">RAINBOW MTN  5,200m</text></svg>
-            <div class="day-img-caption">彩虹山 Vinicunca · 海拔 5,200m</div>
-          </div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1a0f0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#9B4A2C" opacity="0.3">🏛</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#9B4A2C" letter-spacing="4">DAY 14 · CUSCO</text></svg><div class="day-img-caption">彩虹山 Vinicunca ── 5,200m · Day 14</div></div>
           <div class="day-body">
-            <div class="day-title">庫斯科 → 彩虹山 Vinicunca</div>
-            <div class="day-activities">凌晨3-4點出發 → 車程約3hr → 健行至彩虹山頂（往返約3-4hr）→ 下午回庫斯科充分休息</div>
-            <div class="tags"><span class="tag hl">🌈 七彩地層</span><span class="tag">5,200m</span><span class="tag">凌晨出發</span></div>
-            <div class="day-note warn">海拔極高，這天務必備好高山症藥物、保暖衣物。下午回來後休息，隔天即飛亞馬遜</div>
+            <div class="day-title">彩虹山 Vinicunca ── 5,200m</div>
+            <div class="day-activities">凌晨出發 → 健行起點（4,300m）→ 登頂彩虹山（5,200m・七彩礦物條紋）→ 下山返庫斯科</div>
+            <div class="tags"><span class="tag hl">🌈 彩虹山</span><span class="tag warn">5,200m 全程最高</span><span class="tag warn">⚠️ 前一天服丹木斯</span></div>
+            <div class="day-note warn">5,200m 是全程最高點，但到這天已在高海拔待 9 天，身體應已充分適應。前一天（9/21）就開始服丹木斯，帶好手套毛帽，山頂風強。有馬匹可選，體力不適可騎馬上山。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>03:30</span> <strong>⚠️ 彩虹山出發！</strong> 旅行社 pick-up → <span class='time'>04:00</span> 出發往 Cusipata（約 3 小時車程）→ <span class='time'>07:00</span> 健行起點（海拔約 4,300m）→ <span class='time'>08:30</span> 抵達彩虹山頂（5,200m，來回約 3 小時）→ <span class='time'>10:00</span> 下山 → <span class='time'>11:30</span> 返程 → <span class='time'>15:00</span> 回庫斯科，大休息</div>
+              <div class="detail-content"><span class='time'>03:30</span> 旅行社 pick-up → <span class='time'>07:00</span> 健行起點（4,300m）→ <span class='time'>08:30</span> 彩虹山頂（5,200m）→ <span class='time'>10:00</span> 下山 → <span class='time'>15:00</span> 返庫斯科</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">庫斯科原旅館。</div>
+              <div class="detail-content">庫斯科旅館最後一晚，明天退房。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">今天全天行程，行李全留旅館。帶好水（至少 2 公升）、保暖衣物、防曬。Acetazolamide（丹木斯）<strong>前一天就開始服用</strong>！</div>
+              <div class="detail-content">全天行程，行李全留旅館。帶：水 2L・保暖衣・手套・毛帽・防曬・丹木斯。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content">彩虹山距庫斯科約 3 小時車程，旅行社包車出發。<strong>注意</strong>：5,200m 山頂極冷、風大，帶好手套和雨衣。有高山症症狀立即下山，不要勉強。</div>
+              <div class="detail-content">庫斯科旅行社包車，旅館接送。距庫斯科約 3 小時車程。</div>
             </div>
           </div>
         </div>
       </div>
-
-    </div>
-  </div>
-
-  <div class="country-sep">
-    <div class="country-sep-line"></div>
-    <div class="country-sep-name">亞馬遜雨林 Amazon · Puerto Maldonado</div>
-    <div class="country-sep-line"></div>
-  </div>
-
-  <div class="section" style="padding-top:0">
-    <div class="iti-grid">
 
       <!-- Day 15 -->
       <div class="day-block">
@@ -1665,29 +1620,29 @@ function filterRegion(region) {
           <div class="day-date-label">9/23 三</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_am_s15" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A2A"/><stop offset="100%" stop-color="#2A5A3A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_am_s15)"/><ellipse cx="50" cy="80" rx="60" ry="45" fill="#1A4A1A"/><ellipse cx="130" cy="70" rx="70" ry="52" fill="#2A5A2A"/><ellipse cx="220" cy="65" rx="75" ry="55" fill="#1E4E1E"/><ellipse cx="320" cy="72" rx="68" ry="48" fill="#255525"/><ellipse cx="390" cy="78" rx="55" ry="42" fill="#1A4A1A"/><ellipse cx="20" cy="100" rx="50" ry="38" fill="#2A6A2A"/><ellipse cx="95" cy="90" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="185" cy="85" rx="72" ry="52" fill="#2E6E2E"/><ellipse cx="280" cy="88" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="370" cy="95" rx="55" ry="42" fill="#2A6A2A"/><path d="M0,145 Q80,130 160,148 Q240,135 320,150 Q360,142 400,148 L400,175 Q360,168 320,170 Q240,165 160,168 Q80,158 0,165 Z" fill="#1A5A7A"/><path d="M0,147 Q80,133 160,151 Q240,138 320,153 Q360,145 400,151" stroke="#3A7AA8" stroke-width="3" fill="none" opacity="0.6"/><path d="M175,152 Q200,145 225,152 Q200,158 175,152 Z" fill="#6A4A20"/><circle cx="200" cy="148" r="4" fill="#8B5A2A"/><rect x="198" y="151" width="4" height="6" fill="#CC6644"/><line x1="202" y1="153" x2="210" y2="157" stroke="#6A4A20" stroke-width="2"/><path d="M100,55 Q108,50 116,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M116,55 Q124,50 132,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M250,45 Q258,40 266,45" stroke="#30A048" stroke-width="2.5" fill="none"/><path d="M266,45 Q274,40 282,45" stroke="#30A048" stroke-width="2.5" fill="none"/><line x1="200" y1="0" x2="190" y2="100" stroke="#F5E080" stroke-width="8" opacity="0.06"/><line x1="250" y1="0" x2="245" y2="90" stroke="#F5E080" stroke-width="5" opacity="0.05"/><circle cx="80" cy="120" r="2" fill="#F5F060" opacity="0.7"/><circle cx="310" cy="115" r="2" fill="#F5F060" opacity="0.6"/><circle cx="170" cy="110" r="1.5" fill="#F5F060" opacity="0.5"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#A0E8A0" letter-spacing="2">AMAZON RAINFOREST</text></svg><div class="day-img-caption">亞馬遜雨林 Puerto Maldonado</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#0a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#3D6B4F" opacity="0.3">🌿</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="4">DAY 15 · AMAZON</text></svg><div class="day-img-caption">庫斯科 → 飛機 → 亞馬遜雨林 · Day 15</div></div>
           <div class="day-body">
-            <div class="day-title">庫斯科 → 亞馬遜雨林 Puerto Maldonado</div>
-            <div class="day-activities">搭飛機（約45分鐘）→ 機場接送進入雨林 Lodge → 下午開始雨林探索（健行、觀鳥、夜間探險）</div>
-            <div class="tags"><span class="tag hl">🌿 亞馬遜</span><span class="tag">Lodge 包套</span><span class="tag">飛機</span></div>
-            <div class="day-note good">三天兩夜正式展開！今晚住第一夜，明天繼續深入叢林，後天早上才離開，時間非常充裕</div>
+            <div class="day-title">庫斯科 → 飛機 → 亞馬遜雨林</div>
+            <div class="day-activities">退房 → 庫斯科機場 → Sky H25721 08:30 → 馬爾多納多 → Lodge 接機 → 寄存大行李 → 下午雨林初探</div>
+            <div class="tags"><span class="tag hl">✈ 飛進叢林</span><span class="tag hl">🌿 Lodge 抵達</span><span class="tag">200m 驟降</span></div>
+            <div class="day-note good">從 3,400m 飛到 200m，溫度從涼爽變成 30°C，記得換短袖！Lodge 人員在機場等候，在辦公室寄存大行李，進叢林只帶軟式小背包。Lodge 提供橡膠雨靴，不用自己帶。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>06:00</span> 早餐 → <span class='time'>07:30</span> 計程車往庫斯科機場（約 15 分鐘）→ <span class='time'>08:30</span> Sky H25721 出發 → <span class='time'>09:30</span> 抵達馬爾多納多（PEM）→ <span class='time'>09:45</span> Lodge 人員在出口等候，先去辦公室寄大行李 → <span class='time'>10:30</span> 車程 + 船程進入 Lodge（約 45 分鐘）→ <span class='time'>13:00</span> Lodge 抵達，午餐 → <span class='time'>15:00</span> 下午叢林健行 → <span class='time'>20:00</span> 晚間研究員講座</div>
+              <div class="detail-content"><span class='time'>06:30</span> 退房・計程車往機場 → <span class='time'>08:30</span> Sky H25721 出發 → <span class='time'>09:30</span> 抵馬爾多納多 → Lodge 接機・辦公室寄大行李 → <span class='time'>10:30</span> 車+船進 Lodge → <span class='time'>13:00</span> 午餐 → <span class='time'>15:00</span> 下午雨林健行 → <span class='time'>20:00</span> 晚間講座</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">Corto Maltés / Wasai / Inotawa（依預訂結果），3天2夜全包式 Lodge，含餐食和活動。</div>
+              <div class="detail-content">亞馬遜 Lodge（Corto Maltés / Wasai / Inotawa，依預訂）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content"><strong>⚠️ 重要行李安排</strong>：在 Lodge 辦公室寄存不需要的大行李（護照、電腦等貴重物除外）。進 Lodge 只帶<strong>輕便背包</strong>：換洗衣物（快乾衣）、驅蟲噴霧、防水袋、頭燈。Lodge 提供橡膠雨靴，不用自己帶。</div>
+              <div class="detail-content"><strong>大行李寄存 Lodge 辦公室</strong>。進叢林只帶軟式背包：快乾衣 3 天份・DEET 驅蟲液・頭燈・防水袋・雨衣。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>庫斯科 → 馬爾多納多</strong>：Sky H25721，08:30 出發，約 1 小時。<strong>必須 13:00 前抵達 Lodge</strong>！所以 08:30 班是最合適的。Lodge 在機場等候，直接接送。</div>
+              <div class="detail-content">Sky H25721，庫斯科 08:30 出發，09:30 抵馬爾多納多。Lodge 包含接送。</div>
             </div>
           </div>
         </div>
@@ -1700,28 +1655,29 @@ function filterRegion(region) {
           <div class="day-date-label">9/24 四</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><defs><linearGradient id="sky_am_s16" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A3A2A"/><stop offset="100%" stop-color="#2A5A3A"/></linearGradient></defs><rect width="400" height="180" fill="url(#sky_am_s16)"/><ellipse cx="50" cy="80" rx="60" ry="45" fill="#1A4A1A"/><ellipse cx="130" cy="70" rx="70" ry="52" fill="#2A5A2A"/><ellipse cx="220" cy="65" rx="75" ry="55" fill="#1E4E1E"/><ellipse cx="320" cy="72" rx="68" ry="48" fill="#255525"/><ellipse cx="390" cy="78" rx="55" ry="42" fill="#1A4A1A"/><ellipse cx="20" cy="100" rx="50" ry="38" fill="#2A6A2A"/><ellipse cx="95" cy="90" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="185" cy="85" rx="72" ry="52" fill="#2E6E2E"/><ellipse cx="280" cy="88" rx="65" ry="48" fill="#3A7A3A"/><ellipse cx="370" cy="95" rx="55" ry="42" fill="#2A6A2A"/><path d="M0,145 Q80,130 160,148 Q240,135 320,150 Q360,142 400,148 L400,175 Q360,168 320,170 Q240,165 160,168 Q80,158 0,165 Z" fill="#1A5A7A"/><path d="M0,147 Q80,133 160,151 Q240,138 320,153 Q360,145 400,151" stroke="#3A7AA8" stroke-width="3" fill="none" opacity="0.6"/><path d="M175,152 Q200,145 225,152 Q200,158 175,152 Z" fill="#6A4A20"/><circle cx="200" cy="148" r="4" fill="#8B5A2A"/><rect x="198" y="151" width="4" height="6" fill="#CC6644"/><line x1="202" y1="153" x2="210" y2="157" stroke="#6A4A20" stroke-width="2"/><path d="M100,55 Q108,50 116,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M116,55 Q124,50 132,55" stroke="#E84A30" stroke-width="2.5" fill="none"/><path d="M250,45 Q258,40 266,45" stroke="#30A048" stroke-width="2.5" fill="none"/><path d="M266,45 Q274,40 282,45" stroke="#30A048" stroke-width="2.5" fill="none"/><line x1="200" y1="0" x2="190" y2="100" stroke="#F5E080" stroke-width="8" opacity="0.06"/><line x1="250" y1="0" x2="245" y2="90" stroke="#F5E080" stroke-width="5" opacity="0.05"/><circle cx="80" cy="120" r="2" fill="#F5F060" opacity="0.7"/><circle cx="310" cy="115" r="2" fill="#F5F060" opacity="0.6"/><circle cx="170" cy="110" r="1.5" fill="#F5F060" opacity="0.5"/><text x="200" y="174" text-anchor="middle" font-family="serif" font-size="12" fill="#A0E8A0" letter-spacing="2">AMAZON RAINFOREST</text></svg><div class="day-img-caption">亞馬遜 · 深入叢林</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#0a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#3D6B4F" opacity="0.3">🌿</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="4">DAY 16 · AMAZON</text></svg><div class="day-img-caption">亞馬遜雨林 Day 2 · Day 16</div></div>
           <div class="day-body">
-            <div class="day-title">亞馬遜雨林 ── 深入叢林第二天</div>
-            <div class="day-activities">日出觀鳥 → 獨木舟探索支流 → 夜間觀察（凱門鱷・夜行動物・青蛙）→ 晚間研究員講座</div>
+            <div class="day-title">亞馬遜雨林 Day 2</div>
+            <div class="day-activities">日出觀鳥 → 獨木舟探索支流（水豚・凱門鱷・金剛鸚鵡）→ 午後自由 → 夜間獨木舟（凱門鱷眼睛反光）</div>
             <div class="tags"><span class="tag hl">🌅 日出觀鳥</span><span class="tag hl">🚣 獨木舟</span><span class="tag hl">🐊 夜間凱門鱷</span></div>
+            <div class="day-note good">夜間凱門鱷是亮點：導遊用手電筒照水面，可以看到凱門鱷眼睛反射的紅光。記得帶 DEET 高濃度防蚊液，叢林蚊子不是普通的猛。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>05:30</span> 日出觀鳥（叢林在晨光中最活躍）→ <span class='time'>08:00</span> 早餐 → <span class='time'>09:30</span> 獨木舟探索支流（找水豚、凱門鱷）→ <span class='time'>12:30</span> 午餐 → <span class='time'>14:00</span> 自由活動 / 吊床休息 → <span class='time'>16:00</span> 金剛鸚鵡泥鹽地（如有）→ <span class='time'>19:30</span> 晚餐 → <span class='time'>21:00</span> 夜間獨木舟（看凱門鱷眼睛反光）</div>
+              <div class="detail-content"><span class='time'>05:30</span> 日出觀鳥 → <span class='time'>08:00</span> 早餐 → <span class='time'>09:30</span> 獨木舟探索支流 → <span class='time'>12:30</span> 午餐 → <span class='time'>14:00</span> 自由時間・吊床 → <span class='time'>16:00</span> 金剛鸚鵡泥鹽地 → <span class='time'>19:30</span> 晚餐 → <span class='time'>21:00</span> 夜間獨木舟</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">Lodge（同 Day 15）。</div>
+              <div class="detail-content">亞馬遜 Lodge（同 Day 15）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">行李就在 Lodge 房間，輕鬆的一天。每天活動前帶：防蚊液（DEET 高濃度）、防水袋、頭燈、手機（放進密封袋防潮）。</div>
+              <div class="detail-content">行李在 Lodge 房間。每次活動帶：防蚊液・頭燈・手機（密封袋防潮）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content">今天完全在 Lodge 活動，不需要任何外部交通。盡情享受叢林！</div>
+              <div class="detail-content">今天完全在 Lodge 活動範圍內。</div>
             </div>
           </div>
         </div>
@@ -1734,29 +1690,29 @@ function filterRegion(region) {
           <div class="day-date-label">9/25 五</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1a2a1a"/><circle cx="340" cy="30" r="20" fill="#3D6B4F" opacity="0.4"/><rect x="0" y="110" width="400" height="70" fill="#0f1a0f"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="3">AMAZON → LIMA</text><ellipse cx="200" cy="90" rx="120" ry="40" fill="#2a4a2a" opacity="0.6"/><text x="200" y="96" text-anchor="middle" font-family="serif" font-size="22" fill="#6BAA80">🌿✈️🏙</text></svg><div class="day-img-caption">亞馬遜 → 利馬 · Day 18</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#0a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#3D6B4F" opacity="0.3">🌿</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="4">DAY 17 · AMAZON</text></svg><div class="day-img-caption">亞馬遜雨林 Day 3 ── 完整一天 · Day 17</div></div>
           <div class="day-body">
-            <div class="day-title">亞馬遜 ── 最後早晨 → 飛回利馬</div>
-            <div class="day-activities">早上最後一段雨林活動（日出觀鳥或獨木舟）→ 辦理退宿 → Lodge 08:00 固定交通送回馬爾多納多 → 搭下午班機返利馬 → 傍晚抵達 Miraflores → 最後晚餐</div>
-            <div class="tags"><span class="tag hl">🌿 最後雨林活動</span><span class="tag">✈ 飛回利馬</span><span class="tag hl">🍽 最後晚餐</span></div>
-            <div class="day-note">Lodge 每天 07:00/08:00 有固定交通送回機場，建議訂下午的馬爾多納多→利馬班機，傍晚抵達 Miraflores 還有時間吃頓好的最後晚餐</div>
+            <div class="day-title">亞馬遜雨林 Day 3 ── 完整一天</div>
+            <div class="day-activities">清晨觀鳥 → 叢林深度健行（藥用植物・昆蟲・樹冠層）→ 午後獨木舟 → 夜間活動</div>
+            <div class="tags"><span class="tag hl">🌿 深度叢林健行</span><span class="tag hl">🦜 野生動物</span><span class="tag">完整第三天</span></div>
+            <div class="day-note good">有三個完整天在亞馬遜，可以慢慢享受。第三天可安排更深入的健行，告訴導遊最想看的動物（水豚・巨獺・猴子），他們會盡力安排。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>06:00</span> 最後一次清晨活動（日出觀鳥）→ <span class='time'>08:00</span> 早餐・開始退房準備 → <span class='time'>09:00</span> Lodge 固定交通（船+車）送回馬爾多納多辦公室，取回寄存行李 → <span class='time'>11:30</span> 抵達馬爾多納多機場 → <span class='time'>13:30-15:00</span> 班機飛往利馬（LATAM 直飛）→ <span class='time'>16:00-17:00</span> 抵達利馬，計程車往 Miraflores → <span class='time'>19:00</span> 最後晚餐（最好吃！）</div>
+              <div class="detail-content"><span class='time'>05:30</span> 清晨觀鳥 → <span class='time'>08:00</span> 早餐 → <span class='time'>09:00</span> 深度叢林健行 → <span class='time'>12:30</span> 午餐 → <span class='time'>14:00</span> 下午獨木舟 → <span class='time'>19:30</span> 晚餐 → <span class='time'>21:00</span> 夜間活動</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">利馬 Miraflores（同 Day 1 旅館，或提前訂好機場附近旅館方便凌晨出發）。</div>
+              <div class="detail-content">亞馬遜 Lodge（最後一晚）。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">Lodge 辦公室取回大行李，整理好準備明天離境。今晚在利馬 Miraflores 旅館，把紀念品、採購品整理好，預留行李空間。</div>
+              <div class="detail-content">今晚開始收拾小背包，準備明天退房。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>馬爾多納多 → 利馬</strong>：LATAM 直飛，約 2 小時。訂下午 13:30-15:00 之間的班次，讓 Lodge 有充分時間送到機場。</div>
+              <div class="detail-content">今天全在 Lodge 活動。</div>
             </div>
           </div>
         </div>
@@ -1765,43 +1721,39 @@ function filterRegion(region) {
       <!-- Day 18 -->
       <div class="day-block">
         <div class="day-left">
-          <div class="day-num-circle"><div class="dn">18</div><div class="dd">Day</div></div>
+          <div class="day-num-circle amazon"><div class="dn">18</div><div class="dd">Day</div></div>
           <div class="day-date-label">9/26 六</div>
         </div>
         <div class="day-card">
-          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#1C2A3A"/><rect x="0" y="120" width="400" height="60" fill="#0f1a26"/><circle cx="40" cy="20" r="1.2" fill="white" opacity="0.7"/><circle cx="120" cy="35" r="0.9" fill="white" opacity="0.5"/><circle cx="200" cy="15" r="1.4" fill="white" opacity="0.8"/><circle cx="300" cy="28" r="1" fill="white" opacity="0.6"/><circle cx="360" cy="12" r="1.1" fill="white" opacity="0.7"/><circle cx="340" cy="38" r="18" fill="#FFF0CC"/><circle cx="348" cy="32" r="15" fill="#1C2A3A"/><rect x="150" y="70" width="100" height="55" fill="#2A3F5A"/><rect x="160" y="55" width="20" height="20" fill="#2A3F5A"/><rect x="220" y="55" width="20" height="20" fill="#2A3F5A"/><polygon points="170,55 180,42 190,55" fill="#2A3F5A"/><polygon points="222,55 230,42 238,55" fill="#2A3F5A"/><rect x="178" y="36" width="4" height="10" fill="#C4956A"/><rect x="175" y="40" width="10" height="3" fill="#C4956A"/><rect x="228" y="36" width="4" height="10" fill="#C4956A"/><rect x="225" y="40" width="10" height="3" fill="#C4956A"/><rect x="60" y="90" width="60" height="35" fill="#243348"/><rect x="280" y="85" width="65" height="40" fill="#243348"/><rect x="20" y="100" width="40" height="25" fill="#1E2D3D"/><rect x="340" y="95" width="50" height="30" fill="#1E2D3D"/><rect x="75" y="97" width="8" height="8" fill="#F5D88A" opacity="0.8"/><rect x="95" y="97" width="8" height="8" fill="#F5D88A" opacity="0.6"/><rect x="295" y="92" width="8" height="8" fill="#F5D88A" opacity="0.7"/><rect x="315" y="92" width="8" height="8" fill="#F5D88A" opacity="0.9"/><text x="200" y="168" text-anchor="middle" font-family="serif" font-size="13" fill="#C4956A" letter-spacing="3">LIMA</text></svg><div class="day-img-caption">利馬 Lima · 最後一天</div></div>
+          <div class="day-img-wrap"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block;"><rect width="400" height="180" fill="#0a1a0a"/><text x="200" y="100" text-anchor="middle" font-family="serif" font-size="48" fill="#3D6B4F" opacity="0.3">🌿</text><text x="200" y="155" text-anchor="middle" font-family="serif" font-size="13" fill="#3D6B4F" letter-spacing="4">DAY 18 · AMAZON</text></svg><div class="day-img-caption">亞馬遜 → 馬爾多納多 → 飛機 → 利馬 → KE7288 · Day 18</div></div>
           <div class="day-body">
-            <div class="day-title">利馬 Lima ── 緩衝日・從容出發</div>
-            <div class="day-activities">利馬市區最後巡禮 → Miraflores 海崖公園散步 → 採買伴手禮（羊駝製品・秘魯咖啡）→ 豐盛最後晚餐 → 從容前往機場 → 凌晨 00:05 KE7288 離境</div>
-            <div class="tags"><span class="tag hl">🍽 最後晚餐</span><span class="tag hl">🛍 伴手禮</span><span class="tag">海崖公園</span><span class="tag warn">凌晨離境</span></div>
-            <div class="day-note good">有整天緩衝，不用趕。KE7288 00:05（9/27凌晨）離境，建議晚餐後悠閒出發，10點前抵達機場即可，完全不慌張</div>
+            <div class="day-title">亞馬遜 → 馬爾多納多 → 飛機 → 利馬 → KE7288</div>
+            <div class="day-activities">最後清晨活動 → Lodge 送回 → 取大行李 → 14:00 班機返利馬 → 最後晚餐 → KE7288 00:05 出發</div>
+            <div class="tags"><span class="tag hl">✈ 返利馬</span><span class="tag warn">⚠️ 21:00 出門去機場</span><span class="tag">KE7288 00:05</span></div>
+            <div class="day-note warn">14:00 飛機，Lodge 09:00 送出，10:30 抵機場。落地利馬約 16:00，只有 5 小時到 KE7288 出發。行李記得提前秤重！KE 限 23kg×2/人。21:00 從 Miraflores 出門。</div>
           </div>
           <div class="day-detail">
             <div class="detail-block">
               <div class="detail-label">🕐 時刻表</div>
-              <div class="detail-content"><span class='time'>09:00</span> 早餐，輕鬆晨間行程 → <span class='time'>10:30</span> Miraflores 海崖公園、Larcomar 最後採購 → <span class='time'>13:00</span> 最後午餐（Ceviche！）→ <span class='time'>15:00</span> 回旅館整理行李、秤重 → <span class='time'>18:00</span> 最後晚餐 → <span class='time'>21:00</span> 計程車往利馬國際機場（提早出發！）→ <span class='time'>22:30</span> 抵達機場，辦理 KE7288 check-in → <span class='time'>00:05+1</span> KE7288 起飛</div>
+              <div class="detail-content"><span class='time'>06:00</span> 最後清晨活動 → <span class='time'>08:00</span> 早餐・退房 → <span class='time'>09:00</span> Lodge 送回馬爾多納多 → <span class='time'>10:30</span> 機場取大行李 → <span class='time'>14:00</span> 班機→利馬 → <span class='time'>16:00</span> 抵利馬 → <span class='time'>19:00</span> 最後晚餐 → <span class='time'>21:00</span> 出門往機場 → <span class='time'>00:05</span> KE7288 出發</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🏨 住宿建議</div>
-              <div class="detail-content">今晚不住宿，直接在機場等候。若班機延誤或想補眠，可訂機場附近 Wyndham Costa del Sol Lima Airport。</div>
+              <div class="detail-content">不住宿，直接在機場等候。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🧳 行李安排</div>
-              <div class="detail-content">機場行李限制：<strong>確認 KE7288 的行李限重</strong>（大韓通常 23kg×2/人）。最後晚餐前先秤好行李，超重可在機場辦公室付超重費，或在旅館把重物分配好。利馬機場國際線需提前 3 小時 check-in。</div>
+              <div class="detail-content">取回 Lodge 寄存的大行李，整合所有購物。確認行李重量，KE7288 限 23kg×2/人。</div>
             </div>
             <div class="detail-block">
               <div class="detail-label">🚌 交通提醒</div>
-              <div class="detail-content"><strong>凌晨 00:05 的班機，21:00 就要出門！</strong> Miraflores 到機場平常約 30-45 分鐘，但夜間交通可能較快。計程車提前約好（旅館代叫或 InDriver），確認固定費率。機場大廳 22:30 前到 check-in 櫃台。</div>
+              <div class="detail-content">Lodge→馬爾多納多機場約 1 小時。利馬落地→計程車 Miraflores 約 40 分鐘。21:00 出門往機場（深夜不塞車 30 分鐘可到）。</div>
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
+    
 
 <!-- BOOKING SECTION -->
 <section class="booking-section" id="booking">
